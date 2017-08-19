@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2017/08/19 19:40:53.531.pas,C:\Users\stephan\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Login_U.pas</Transaction>
+    <Transaction>2017/08/19 19:40:53.531.dfm,C:\Users\stephan\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Login_U.dfm</Transaction>
+    <Transaction>2017/08/19 19:41:20.585.dproj,C:\Users\stephan\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\IT_PAT_2017_P.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
