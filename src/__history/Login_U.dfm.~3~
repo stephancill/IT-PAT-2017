@@ -1,4 +1,4 @@
-object frmLogin: TfrmLogin
+object LoginForm: TLoginForm
   Left = 0
   Top = 0
   Caption = 'Login'
@@ -19,7 +19,6 @@ object frmLogin: TfrmLogin
     Width = 86
     Height = 13
     Caption = 'Need an account?'
-    OnClick = lblRegisterClick
   end
   object edtEmail: TEdit
     Left = 264
