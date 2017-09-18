@@ -14,7 +14,6 @@ object data_module: Tdata_module
     Top = 16
   end
   object qry: TADOQuery
-    Connection = connection
     Parameters = <>
     Left = 104
     Top = 16
