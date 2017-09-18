@@ -25,15 +25,13 @@ var
 
 implementation
 
-uses Register_U, Utilities_U;
+uses Register_U, Data_Module_U;
 
 {$R *.dfm}
 
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 begin
   // TODO: Form validation
-  showmessage(booltostr(Utilities.userExists('test@example.com', 'example123')));
-
 end;
 
 procedure TfrmLogin.lblRegisterClick(Sender: TObject);
