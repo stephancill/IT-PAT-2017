@@ -44,7 +44,10 @@
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
 			<DCCReference Include="Login_U.pas">
-				<Form>LoginForm</Form>
+				<Form>frmLogin</Form>
+			</DCCReference>
+			<DCCReference Include="Register_U.pas">
+				<Form>frmRegister</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>

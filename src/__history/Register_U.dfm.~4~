@@ -1,4 +1,4 @@
-object frmLogin: TfrmLogin
+object frmRegister: TfrmRegister
   Left = 0
   Top = 0
   Caption = 'Login'
@@ -18,15 +18,7 @@ object frmLogin: TfrmLogin
     Top = 191
     Width = 86
     Height = 13
-    Cursor = crHandPoint
     Caption = 'Need an account?'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clHotLight
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsUnderline]
-    ParentFont = False
-    OnClick = lblRegisterClick
   end
   object edtEmail: TEdit
     Left = 264
@@ -51,7 +43,6 @@ object frmLogin: TfrmLogin
     Width = 121
     Height = 25
     Caption = 'Login'
-    Default = True
     TabOrder = 2
   end
 end

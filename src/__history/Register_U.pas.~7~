@@ -11,10 +11,9 @@ type
     edtConfirmPassword: TEdit;
     edtEmail: TEdit;
     edtPassword: TEdit;
-    lblLogin: TLabel;
-    btnRegister: TButton;
-    rdoAccountType: TRadioGroup;
-    procedure lblLoginClick(Sender: TObject);
+    lblRegister: TLabel;
+    RadioGroup1: TRadioGroup;
+    procedure lblRegisterClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +29,7 @@ uses Login_U;
 
 {$R *.dfm}
 
-procedure TfrmRegister.lblLoginClick(Sender: TObject);
+procedure TfrmRegister.lblRegisterClick(Sender: TObject);
 begin
   self.Hide;
   frmLogin.Show;

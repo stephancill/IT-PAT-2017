@@ -12,8 +12,7 @@ type
     edtEmail: TEdit;
     edtPassword: TEdit;
     lblLogin: TLabel;
-    btnRegister: TButton;
-    rdoAccountType: TRadioGroup;
+    RadioGroup1: TRadioGroup;
     procedure lblLoginClick(Sender: TObject);
   private
     { Private declarations }

@@ -4,17 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls;
+  Dialogs, StdCtrls;
 
 type
   TfrmRegister = class(TForm)
-    edtConfirmPassword: TEdit;
-    edtEmail: TEdit;
-    edtPassword: TEdit;
-    lblLogin: TLabel;
-    btnRegister: TButton;
-    rdoAccountType: TRadioGroup;
-    procedure lblLoginClick(Sender: TObject);
+    Edit1: TEdit;
+    procedure lblRegisterClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +25,7 @@ uses Login_U;
 
 {$R *.dfm}
 
-procedure TfrmRegister.lblLoginClick(Sender: TObject);
+procedure TfrmRegister.lblRegisterClick(Sender: TObject);
 begin
   self.Hide;
   frmLogin.Show;
