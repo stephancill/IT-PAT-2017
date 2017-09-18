@@ -56,6 +56,7 @@ object frmRegister: TfrmRegister
     Caption = 'Register'
     Default = True
     TabOrder = 2
+    OnClick = btnRegisterClick
   end
   object edtConfirmPassword: TEdit
     Left = 264

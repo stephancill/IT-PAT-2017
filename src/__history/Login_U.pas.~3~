@@ -13,7 +13,6 @@ type
     lblRegister: TLabel;
     btnLogin: TButton;
     procedure lblRegisterClick(Sender: TObject);
-    procedure btnLoginClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,14 +24,9 @@ var
 
 implementation
 
-uses Register_U, Data_Module_U;
+uses Register_U;
 
 {$R *.dfm}
-
-procedure TfrmLogin.btnLoginClick(Sender: TObject);
-begin
-  // TODO: Form validation
-end;
 
 procedure TfrmLogin.lblRegisterClick(Sender: TObject);
 begin

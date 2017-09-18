@@ -14,7 +14,7 @@ object frmLogin: TfrmLogin
   PixelsPerInch = 96
   TextHeight = 13
   object lblRegister: TLabel
-    Left = 272
+    Left = 280
     Top = 191
     Width = 86
     Height = 13
@@ -29,7 +29,7 @@ object frmLogin: TfrmLogin
     OnClick = lblRegisterClick
   end
   object edtEmail: TEdit
-    Left = 256
+    Left = 264
     Top = 96
     Width = 121
     Height = 21
@@ -37,7 +37,7 @@ object frmLogin: TfrmLogin
     TextHint = 'Email'
   end
   object edtPassword: TEdit
-    Left = 256
+    Left = 264
     Top = 123
     Width = 121
     Height = 21
@@ -46,7 +46,7 @@ object frmLogin: TfrmLogin
     TextHint = 'Password'
   end
   object btnLogin: TButton
-    Left = 256
+    Left = 264
     Top = 160
     Width = 121
     Height = 25

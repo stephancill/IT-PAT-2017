@@ -25,7 +25,7 @@ var
 
 implementation
 
-uses Register_U, Data_Module_U;
+uses Register_U;
 
 {$R *.dfm}
 

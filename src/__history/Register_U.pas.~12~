@@ -15,7 +15,6 @@ type
     btnRegister: TButton;
     rdoAccountType: TRadioGroup;
     procedure lblLoginClick(Sender: TObject);
-    procedure btnRegisterClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,12 +29,6 @@ implementation
 uses Login_U;
 
 {$R *.dfm}
-
-procedure TfrmRegister.btnRegisterClick(Sender: TObject);
-begin
-  // TODO: Form validation
-
-end;
 
 procedure TfrmRegister.lblLoginClick(Sender: TObject);
 begin
