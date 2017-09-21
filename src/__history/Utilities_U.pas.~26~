@@ -41,12 +41,8 @@ begin
   data_module.qry.Close;
   data_module.qry.SQL.Clear;
   data_module.qry.SQL.Add(query);
-
-  try
-    data_module.qry.Open;
-  except
-    data_module.qry.ExecSQL;
-  end;
+  data_module.qry.ExecSQL;
+  data_module.qry.Open;
 
   result := data_module.qry;
 end;

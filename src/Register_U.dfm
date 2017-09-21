@@ -73,6 +73,7 @@ object frmRegister: TfrmRegister
     Width = 121
     Height = 57
     Caption = 'Account Type'
+    ItemIndex = 0
     Items.Strings = (
       'Student'
       'Teacher')

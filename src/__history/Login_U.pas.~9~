@@ -32,7 +32,7 @@ uses Register_U, Utilities_U;
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 begin
   // TODO: Form validation
-  if Utilities.userExists(edtEmail.Text, edtPassword.Text) then
+  if Utilities.userExists(edtEmail, edtPassword) then
   begin
     showmessage('logging in');
   end else

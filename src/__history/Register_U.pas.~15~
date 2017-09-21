@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, StrUtils;
+  Dialogs, StdCtrls, ExtCtrls, Math;
 
 type
   TfrmRegister = class(TForm)
@@ -34,7 +34,7 @@ uses Login_U, Utilities_U;
 procedure TfrmRegister.btnRegisterClick(Sender: TObject);
 begin
   // TODO: Form validation
-  showmessage(booltostr(Utilities.registerUser(edtEmail.Text, edtPassword.Text, IfThen(rdoAccountType.ItemIndex = 0, 'student', 'teacher'))));
+  Utilities.registerUser(edtEmail.Text, edtPassword.Text, IfThen(rdoAccountType.ItemIndex = 0, 'student', 'teacher'))
 end;
 
 procedure TfrmRegister.lblLoginClick(Sender: TObject);

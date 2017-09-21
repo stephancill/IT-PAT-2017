@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, StrUtils;
+  Dialogs, StdCtrls, ExtCtrls, Math;
 
 type
   TfrmRegister = class(TForm)

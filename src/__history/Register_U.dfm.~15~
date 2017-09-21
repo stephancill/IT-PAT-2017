@@ -13,18 +13,27 @@ object frmRegister: TfrmRegister
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object lblRegister: TLabel
+  object lblLogin: TLabel
     Left = 260
-    Top = 255
-    Width = 133
+    Top = 231
+    Width = 125
     Height = 13
+    Cursor = crHandPoint
     Alignment = taCenter
     Caption = 'Already have an account?'
-    OnClick = lblRegisterClick
+    Color = clBtnFace
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHotLight
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsUnderline]
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblLoginClick
   end
   object edtEmail: TEdit
     Left = 264
-    Top = 80
+    Top = 56
     Width = 121
     Height = 21
     TabOrder = 0
@@ -32,36 +41,41 @@ object frmRegister: TfrmRegister
   end
   object edtPassword: TEdit
     Left = 264
-    Top = 107
+    Top = 83
     Width = 121
     Height = 21
     PasswordChar = '*'
     TabOrder = 1
     TextHint = 'Password'
   end
-  object btnLogin: TButton
+  object btnRegister: TButton
     Left = 264
-    Top = 224
+    Top = 200
     Width = 121
     Height = 25
     Caption = 'Register'
+    Default = True
     TabOrder = 2
+    OnClick = btnRegisterClick
   end
-  object Edit1: TEdit
+  object edtConfirmPassword: TEdit
     Left = 264
-    Top = 133
+    Top = 109
     Width = 121
     Height = 21
     PasswordChar = '*'
     TabOrder = 3
     TextHint = 'Confirm Password'
   end
-  object RadioGroup1: TRadioGroup
+  object rdoAccountType: TRadioGroup
     Left = 264
-    Top = 161
+    Top = 137
     Width = 121
     Height = 57
-    Caption = 'RadioGroup1'
+    Caption = 'Account Type'
+    Items.Strings = (
+      'Student'
+      'Teacher')
     TabOrder = 4
   end
 end

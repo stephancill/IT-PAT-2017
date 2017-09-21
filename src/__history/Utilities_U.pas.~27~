@@ -48,6 +48,10 @@ begin
     data_module.qry.ExecSQL;
   end;
 
+
+
+
+
   result := data_module.qry;
 end;
 
