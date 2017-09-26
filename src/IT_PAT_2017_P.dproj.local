@@ -9,5 +9,9 @@
     <Transaction>2017/09/18 12:14:00.601.pas,C:\Users\scilliers\Desktop\IT-PAT-2017\src\data_moduke.pas=C:\Users\scilliers\Desktop\IT-PAT-2017\src\Data_Module_U.pas</Transaction>
     <Transaction>2017/09/18 12:14:00.601.dfm,C:\Users\scilliers\Desktop\IT-PAT-2017\src\data_moduke.dfm=C:\Users\scilliers\Desktop\IT-PAT-2017\src\Data_Module_U.dfm</Transaction>
     <Transaction>2017/09/18 12:23:06.094.pas,C:\Users\scilliers\Desktop\IT-PAT-2017\src\Unit1.pas=C:\Users\scilliers\Desktop\IT-PAT-2017\src\Utilities_U.pas</Transaction>
+    <Transaction>2017/09/26 09:15:19.743.pas,C:\Users\scilliers\Desktop\IT-PAT-2017\src\Login_U.pas=</Transaction>
+    <Transaction>2017/09/26 09:15:19.743.dfm,C:\Users\scilliers\Desktop\IT-PAT-2017\src\Login_U.dfm=</Transaction>
+    <Transaction>2017/09/26 09:31:55.523.pas,C:\Users\scilliers\Desktop\IT-PAT-2017\src\Register_U.pas=C:\Users\scilliers\Desktop\IT-PAT-2017\src\Authenticate_U.pas</Transaction>
+    <Transaction>2017/09/26 09:31:55.523.dfm,C:\Users\scilliers\Desktop\IT-PAT-2017\src\Register_U.dfm=C:\Users\scilliers\Desktop\IT-PAT-2017\src\Authenticate_U.dfm</Transaction>
   </Transactions>
 </BorlandProject>

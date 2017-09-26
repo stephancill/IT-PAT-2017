@@ -44,11 +44,8 @@
 			<DelphiCompile Include="IT_PAT_2017_P.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
-			<DCCReference Include="Login_U.pas">
-				<Form>frmLogin</Form>
-			</DCCReference>
-			<DCCReference Include="Register_U.pas">
-				<Form>frmRegister</Form>
+			<DCCReference Include="Authenticate_U.pas">
+				<Form>frmAuthenticate</Form>
 			</DCCReference>
 			<DCCReference Include="Data_Module_U.pas">
 				<Form>data_module</Form>
