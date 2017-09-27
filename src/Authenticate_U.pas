@@ -22,6 +22,8 @@ type
     lblRegister: TLabel;
     Label1: TLabel;
     Label2: TLabel;
+    edtFirstName: TEdit;
+    edtLastName: TEdit;
     procedure lblSwitchClick(Sender: TObject);
     procedure btnRegisterClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -61,7 +63,7 @@ end;
 procedure TfrmAuthenticate.btnRegisterClick(Sender: TObject);
 begin
   // TODO: Form validation
-  if Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, 'test', 'test', rdoAccountType.ItemIndex+1, user) then
+  if Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, edtFirstName.Text, edtLastName.Text, rdoAccountType.ItemIndex+1, user) then
   begin
     // Registration successful
     Showmessage('Registered ' + user.firstname);

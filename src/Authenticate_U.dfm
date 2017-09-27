@@ -2,7 +2,7 @@ object frmAuthenticate: TfrmAuthenticate
   Left = 0
   Top = 0
   Caption = 'Stephan'#39's Classroom'
-  ClientHeight = 299
+  ClientHeight = 308
   ClientWidth = 635
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,14 +16,14 @@ object frmAuthenticate: TfrmAuthenticate
   TextHeight = 13
   object pnlRegister: TPanel
     Left = 64
-    Top = 24
-    Width = 217
-    Height = 251
-    TabOrder = 0
+    Top = 20
+    Width = 225
+    Height = 267
+    TabOrder = 1
     Visible = False
     object lblLogin: TLabel
-      Left = 44
-      Top = 215
+      Left = 48
+      Top = 247
       Width = 125
       Height = 13
       Cursor = crHandPoint
@@ -53,9 +53,9 @@ object frmAuthenticate: TfrmAuthenticate
       ParentFont = False
     end
     object btnRegister: TButton
-      Left = 48
-      Top = 184
-      Width = 121
+      Left = 32
+      Top = 216
+      Width = 161
       Height = 25
       Caption = 'Register'
       Default = True
@@ -63,50 +63,66 @@ object frmAuthenticate: TfrmAuthenticate
       OnClick = btnRegisterClick
     end
     object edtRegConfirmPassword: TEdit
-      Left = 48
-      Top = 93
-      Width = 121
+      Left = 32
+      Top = 90
+      Width = 160
       Height = 21
       PasswordChar = '*'
       TabOrder = 3
       TextHint = 'Confirm Password'
     end
     object edtRegEmail: TEdit
-      Left = 48
-      Top = 40
-      Width = 121
+      Left = 32
+      Top = 37
+      Width = 160
       Height = 21
       TabOrder = 1
       TextHint = 'Email'
     end
     object edtRegPassword: TEdit
-      Left = 48
-      Top = 67
-      Width = 121
+      Left = 32
+      Top = 63
+      Width = 160
       Height = 21
       PasswordChar = '*'
       TabOrder = 2
       TextHint = 'Password'
     end
     object rdoAccountType: TRadioGroup
-      Left = 48
-      Top = 121
-      Width = 121
+      Left = 32
+      Top = 153
+      Width = 161
       Height = 57
       Caption = 'Account Type'
       ItemIndex = 0
       Items.Strings = (
         'Student'
         'Teacher')
+      TabOrder = 6
+    end
+    object edtFirstName: TEdit
+      Left = 32
+      Top = 117
+      Width = 77
+      Height = 21
       TabOrder = 4
+      TextHint = 'First Name'
+    end
+    object edtLastName: TEdit
+      Left = 115
+      Top = 117
+      Width = 77
+      Height = 21
+      TabOrder = 5
+      TextHint = 'Last Name'
     end
   end
   object pnlLogin: TPanel
     Left = 360
-    Top = 24
-    Width = 217
-    Height = 251
-    TabOrder = 1
+    Top = 20
+    Width = 225
+    Height = 267
+    TabOrder = 0
     object lblRegister: TLabel
       Left = 68
       Top = 166
@@ -139,25 +155,26 @@ object frmAuthenticate: TfrmAuthenticate
       ParentFont = False
     end
     object edtLoginEmail: TEdit
-      Left = 48
+      Left = 32
       Top = 81
-      Width = 121
+      Width = 160
       Height = 21
       TabOrder = 0
       TextHint = 'Email'
     end
     object edtLoginPassword: TEdit
-      Left = 48
+      Left = 32
       Top = 108
-      Width = 121
+      Width = 160
       Height = 21
+      PasswordChar = '*'
       TabOrder = 1
       TextHint = 'Password'
     end
     object btnLogin: TButton
-      Left = 48
+      Left = 32
       Top = 135
-      Width = 121
+      Width = 160
       Height = 25
       Caption = 'Login'
       Default = True
