@@ -53,6 +53,9 @@
 			</DCCReference>
 			<DCCReference Include="Utilities_U.pas"/>
 			<DCCReference Include="User_U.pas"/>
+			<DCCReference Include="Teacher_Home_U.pas">
+				<Form>Form1</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>
