@@ -24,6 +24,7 @@ type
     Label2: TLabel;
     procedure lblSwitchClick(Sender: TObject);
     procedure btnRegisterClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,14 +36,33 @@ var
 
 implementation
 
-uses Login_U, Utilities_U;
+uses Utilities_U;
 
 {$R *.dfm}
 
 procedure TfrmAuthenticate.btnRegisterClick(Sender: TObject);
 begin
   // TODO: Form validation
-  showmessage(booltostr(Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, IfThen(rdoAccountType.ItemIndex = 0, 'student', 'teacher'))));
+  if Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, IfThen(rdoAccountType.ItemIndex = 0, 'student', 'teacher')) then
+  begin
+    // Registration successful
+    Showmessage('Registered');
+  end else
+  begin
+    // Something went wrong
+
+  end;
+
+
+end;
+
+procedure TfrmAuthenticate.FormCreate(Sender: TObject);
+begin
+  pnlLogin.Visible := false;
+  pnlRegister.Visible := true;
+
+  pnlLogin.Left := self.Width DIV 2 - pnlLogin.Width DIV 2;
+  pnlRegister.Left := self.Width DIV 2 - pnlRegister.Width DIV 2;
 end;
 
 procedure TfrmAuthenticate.lblSwitchClick(Sender: TObject);

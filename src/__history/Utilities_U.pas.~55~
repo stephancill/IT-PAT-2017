@@ -26,12 +26,13 @@ class function Utilities.registerUser(email, password, user_type: string)
 begin
   if userExists(email, password) then
   begin
-    Showmessage('Email already in use.');
+    Showmessage('A user with that email already exists.');
     result := false;
     Exit;
   end;
 
   try
+
     modifyDatabase
       ('INSERT INTO Users ([ID], Email, [Password], Type) VALUES (' +
       inttostr(randomrange(1000, 9999)) + ',' + quotedStr(email) + ',' + quotedStr(password) + ',' + quotedStr(user_type) +
@@ -56,12 +57,6 @@ class function Utilities.userExists(email, password: string): boolean;
 begin
   result := not queryDatabase('SELECT * FROM Users WHERE email = ' + quotedStr
       (email) + ' AND password = ' + quotedStr(password)).Eof;
-end;
-
-class function Utilities.loginUser(email, password: string): boolean;
-begin
-  // TODO: return user object
-  result := userExists(email, password);
 end;
 
 class procedure Utilities.modifyDatabase(sql: string);

@@ -25,7 +25,6 @@ type
     procedure lblSwitchClick(Sender: TObject);
     procedure btnRegisterClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure btnLoginClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,34 +40,10 @@ uses Utilities_U;
 
 {$R *.dfm}
 
-procedure TfrmAuthenticate.btnLoginClick(Sender: TObject);
-begin
-  // TODO: Form validation
-  if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text) then
-  begin
-    showmessage('Logged in');
-  end else
-  begin
-    // User not logged in
-    showmessage('Could not find matching username/password');
-  end;
-
-end;
-
 procedure TfrmAuthenticate.btnRegisterClick(Sender: TObject);
 begin
   // TODO: Form validation
-  if Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, IfThen(rdoAccountType.ItemIndex = 0, 'student', 'teacher')) then
-  begin
-    // Registration successful
-    Showmessage('Registered');
-  end else
-  begin
-    // Something went wrong
-
-  end;
-
-
+  showmessage(booltostr(Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, IfThen(rdoAccountType.ItemIndex = 0, 'student', 'teacher'))));
 end;
 
 procedure TfrmAuthenticate.FormCreate(Sender: TObject);

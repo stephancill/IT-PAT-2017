@@ -162,7 +162,7 @@ object frmAuthenticate: TfrmAuthenticate
       Caption = 'Login'
       Default = True
       TabOrder = 2
-      OnClick = btnLoginClick
+      OnClick = btnRegisterClick
     end
   end
 end

@@ -26,7 +26,7 @@ class function Utilities.registerUser(email, password, user_type: string)
 begin
   if userExists(email, password) then
   begin
-    Showmessage('Email already in use.');
+    Showmessage('A user with that email already exists.');
     result := false;
     Exit;
   end;
@@ -61,7 +61,11 @@ end;
 class function Utilities.loginUser(email, password: string): boolean;
 begin
   // TODO: return user object
-  result := userExists(email, password);
+  if not queryDatabase('SELECT * FROM Users WHERE email = ' + quotedStr (email) + ' AND password = ' + quotedStr(password)).Eof then
+  begin
+
+  end;
+
 end;
 
 class procedure Utilities.modifyDatabase(sql: string);
