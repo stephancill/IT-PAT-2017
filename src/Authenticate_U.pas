@@ -37,16 +37,19 @@ var
 
 implementation
 
-uses Utilities_U;
+uses Utilities_U, User_U;
+
+var
+   user: TUser;
 
 {$R *.dfm}
 
 procedure TfrmAuthenticate.btnLoginClick(Sender: TObject);
 begin
   // TODO: Form validation
-  if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text) then
+  if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user) then
   begin
-    showmessage('Logged in');
+    showmessage('Logged in ' + user.firstname);
   end else
   begin
     // User not logged in
@@ -58,10 +61,10 @@ end;
 procedure TfrmAuthenticate.btnRegisterClick(Sender: TObject);
 begin
   // TODO: Form validation
-  if Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, IfThen(rdoAccountType.ItemIndex = 0, 'student', 'teacher')) then
+  if Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, 'test', 'test', rdoAccountType.ItemIndex+1, user) then
   begin
     // Registration successful
-    Showmessage('Registered');
+    Showmessage('Registered ' + user.firstname);
   end else
   begin
     // Something went wrong

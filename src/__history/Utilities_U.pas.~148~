@@ -102,7 +102,7 @@ begin
     lastname := qry.FieldByName('LastName').AsString;
 
     // 4. Create and return TUser object
-    user := TUser.Create(id, email, firstname, lastname, TUserType(userType));
+    user := TUser.Create(id, email, firstname, lastname, TUserType(qry.FieldByName('Type').AsInteger));
     result := true;
     Exit;
   end else

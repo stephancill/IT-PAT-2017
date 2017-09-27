@@ -1,0 +1,28 @@
+unit User_U;
+
+interface
+
+type
+  TUserType = (Teacher=1, Student);
+  TUser = Class(TObject)
+    private
+
+    public
+      email, id: string;
+      userType: TUserType;
+      constructor Create(email, id: string; userType: TUserType); overload;
+  end;
+
+
+
+implementation
+
+{$R *.dfm}
+
+constructor TUser.Create(email, id: string; userType: TUserType);
+begin
+  self.email := email;
+  self.id := id;
+end;
+
+end.

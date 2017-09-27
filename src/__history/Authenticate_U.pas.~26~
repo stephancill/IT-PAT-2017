@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, StrUtils;
+  Dialogs, StdCtrls, ExtCtrls, StrUtils, User_U;
 
 type
   TfrmAuthenticate = class(TForm)
@@ -25,6 +25,7 @@ type
     procedure lblSwitchClick(Sender: TObject);
     procedure btnRegisterClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnLoginClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,6 +34,7 @@ type
 
 var
   frmAuthenticate: TfrmAuthenticate;
+  user: TUser;
 
 implementation
 
@@ -40,10 +42,36 @@ uses Utilities_U;
 
 {$R *.dfm}
 
+procedure TfrmAuthenticate.btnLoginClick(Sender: TObject);
+begin
+  // TODO: Form validation
+  user := Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user);
+  if not user = default(TUser) then
+  begin
+    showmessage('Logged in ' + user.firstname);
+  end else
+  begin
+    // User not logged in
+    showmessage('Could not find matching username/password');
+  end;
+
+end;
+
 procedure TfrmAuthenticate.btnRegisterClick(Sender: TObject);
 begin
   // TODO: Form validation
-  showmessage(booltostr(Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, IfThen(rdoAccountType.ItemIndex = 0, 'student', 'teacher'))));
+  user := Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, 'test', 'test', rdoAccountType.ItemIndex+1);
+  if not user.id = default(TUser) then
+  begin
+    // Registration successful
+    Showmessage('Registered ' + user.firstname);
+  end else
+  begin
+    // Something went wrong
+
+  end;
+
+
 end;
 
 procedure TfrmAuthenticate.FormCreate(Sender: TObject);
@@ -51,8 +79,8 @@ begin
   pnlLogin.Visible := false;
   pnlRegister.Visible := true;
 
-  pnlLogin.Left := self.Width/2 - pnlLogin.Width/2;
-  pnlRegister.Left := self.Width/2 - pnlRegister.Width/2;
+  pnlLogin.Left := self.Width DIV 2 - pnlLogin.Width DIV 2;
+  pnlRegister.Left := self.Width DIV 2 - pnlRegister.Width DIV 2;
 end;
 
 procedure TfrmAuthenticate.lblSwitchClick(Sender: TObject);

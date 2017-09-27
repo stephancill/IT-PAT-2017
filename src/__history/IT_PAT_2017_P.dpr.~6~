@@ -4,8 +4,7 @@ uses
   Forms,
   Authenticate_U in 'Authenticate_U.pas' {frmAuthenticate},
   Data_Module_U in 'Data_Module_U.pas' {data_module: TDataModule},
-  Utilities_U in 'Utilities_U.pas',
-  User_U in 'User_U.pas';
+  Utilities_U in 'Utilities_U.pas';
 
 {$R *.res}
 
