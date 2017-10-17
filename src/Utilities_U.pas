@@ -2,7 +2,7 @@ unit Utilities_U;
 
 interface
 
-uses DB, ADODB, SysUtils, StrUtils, Math, Dialogs, User_U;
+uses DB, ADODB, SysUtils, StrUtils, Math, Dialogs, IdGlobal, IdHash, IdHashMessageDigest, User_U;
 
 type
   Utilities = Class
@@ -10,6 +10,7 @@ type
     class function queryDatabase(query: string): TADOQuery;
     class procedure modifyDatabase(sql: string);
     class function userExists(email, password: string): boolean;
+    class function getMD5Hash(s: string): string;
   public
     class function registerUser(email, password, firstname, lastname: string; userType: Integer; var user: TUser): boolean;
     class function loginUser(email, password: string; var user: TUser): boolean;
@@ -45,7 +46,7 @@ begin
     // 2. Create user in Users table
     modifyDatabase
       ('INSERT INTO Users (Email, [Password], Type) VALUES (' +
-      quotedStr(email) + ',' + quotedStr(password) + ',' + inttostr(userType) +
+      quotedStr(email) + ',' + quotedStr(getMD5Hash(password)) + ',' + inttostr(userType) +
       ')');
 
     // 3. Get generated ID
@@ -85,7 +86,7 @@ begin
   }
 
   qry := queryDatabase('SELECT * FROM Users WHERE email = ' + quotedStr
-      (email) + ' AND password = ' + quotedStr(password));
+      (email) + ' AND password = ' + quotedStr(getMD5Hash(password)));
 
   // 1. Check if user exists
   if not qry.Eof then
@@ -113,7 +114,21 @@ end;
 class function Utilities.userExists(email, password: string): boolean;
 begin
   result := not queryDatabase('SELECT * FROM Users WHERE email = ' + quotedStr
-      (email) + ' AND password = ' + quotedStr(password)).Eof;
+      (email) + ' AND password = ' + quotedStr(getMD5Hash(password))).Eof;
+end;
+
+// https://stackoverflow.com/a/18233500
+class function Utilities.getMD5Hash(s: string): string;
+var
+    hashMessageDigest5 : TIdHashMessageDigest5;
+begin
+    hashMessageDigest5 := nil;
+    try
+        hashMessageDigest5 := TIdHashMessageDigest5.Create;
+        Result := IdGlobal.IndyLowerCase ( hashMessageDigest5.HashStringAsHex ( s ) );
+    finally
+        hashMessageDigest5.Free;
+    end;
 end;
 
 class procedure Utilities.modifyDatabase(sql: string);
