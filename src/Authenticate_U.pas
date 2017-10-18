@@ -51,7 +51,7 @@ begin
   // TODO: Form validation
   if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user) then
   begin
-    showmessage('Logged in ' + user.firstname);
+    showmessage('Logged in ' + user.getFirstname);
   end else
   begin
     // User not logged in
@@ -66,7 +66,7 @@ begin
   if Utilities.registerUser(edtRegEmail.Text, edtRegPassword.Text, edtFirstName.Text, edtLastName.Text, rdoAccountType.ItemIndex+1, user) then
   begin
     // Registration successful
-    Showmessage('Registered ' + user.firstname);
+    Showmessage('Registered ' + user.getFirstname);
   end else
   begin
     // Something went wrong
