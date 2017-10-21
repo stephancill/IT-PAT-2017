@@ -28,11 +28,14 @@ type
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
-    user: TUser;
-    classrooms: TClassroomArray;
-    selectedClassroom: TClassroom;
-    assignments: TAssignmentArray;
-    selectedAssignment: TAssignment;
+    const
+      TAG: string = 'FORM_TEACHER_HOME';
+    var
+      user: TUser;
+      classrooms: TClassroomArray;
+      selectedClassroom: TClassroom;
+      assignments: TAssignmentArray;
+      selectedAssignment: TAssignment;
   public
     { Public declarations }
     procedure setUser(user: TUser);
@@ -93,7 +96,7 @@ end;
 
 procedure TfrmTeacherHome.lstClassroomsClick(Sender: TObject);
 begin
-  if not lstClassrooms.ItemIndex = -1 then
+  if lstClassrooms.ItemIndex > -1 then
   begin
     selectedClassroom := classrooms[lstClassrooms.ItemIndex];
     lblClassroomCode.Caption := 'Classroom Code: ' + selectedClassroom.getID;
@@ -126,7 +129,6 @@ begin
 
   // Refresh UI
   pnlHeader.Caption := 'Welcome ' + user.getFirstName;
-
   refreshClassrooms;
 end;
 
@@ -141,15 +143,21 @@ begin
   case tbClassroom.TabIndex of
     0: // Assignments
     begin
-      assignments := Utilities.getAssignments(self.selectedClassroom);
-      for a in assignments do
-        lstClassroom.Items.Add(a.getTitle);
+      if Assigned(selectedClassroom) then
+      begin
+        assignments := Utilities.getAssignments(self.selectedClassroom);
+        for a in assignments do
+          lstClassroom.Items.Add(a.getTitle);
+      end;
     end;
     1: // Students
     begin
-      students := Utilities.getStudents(self.selectedClassroom);
-      for s in students do
-        lstClassroom.Items.Add(s.getLastName + ', ' + s.getFirstName);
+      if Assigned(selectedClassroom) then
+      begin
+        students := Utilities.getStudents(self.selectedClassroom);
+        for s in students do
+          lstClassroom.Items.Add(s.getLastName + ', ' + s.getFirstName);
+      end;
     end;
   end;
 end;

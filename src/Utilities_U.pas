@@ -7,12 +7,12 @@ uses DB, ADODB, SysUtils, StrUtils, Math, Dialogs, IdGlobal, IdHash,
 
 type
   Utilities = Class
-  private
-    class function queryDatabase(query: string): TADOQuery;
-    class function userExists(email, password: string): boolean;
-    class function getMD5Hash(s: string): string;
-    class function getLastID(var query: TADOQuery { or TQuery } ): Integer;
-    class procedure modifyDatabase(sql: string);
+  private const
+    TAG: string = 'UTILITIES';
+    // Database
+    class function queryDatabase(query: string; var qry: TADOQuery): TADOQuery;
+    class function modifyDatabase(sql: string; var qry: TADOQuery): boolean;
+    class function getEntityByID(table, id: string; var qry: TADOQuery): boolean;
   public
     // Authentication
     class function registerUser(email, password, firstname, lastname: string;
@@ -21,24 +21,25 @@ type
 
     // Classroom - Teacher
     class function getTeachingClassrooms(user: TUser): TClassroomArray;
-    class function createClassroom(user: TUser; name: string;
-      var classroom: TClassroom): boolean;
+    class function createClassroom(user: TUser; name: string; var classroom: TClassroom): boolean;
     class function deleteClassroom(user: TUser; classroom: TClassroom): boolean;
     class function getStudents(classroom: TClassroom): TUserArray;
 
     // Assignments
     class function getAssignments(classroom: TClassroom): TAssignmentArray;
-    class function createAssignment(classroom: TClassroom; title, date,description: string;
-      var assignment: TAssignment): boolean;
+    class function createAssignment(classroom: TClassroom;
+      title, date, description: string; var assignment: TAssignment): boolean;
 
     // Misc
-    class function getEntityByID(table, id: string; fields: TFields): boolean;
+    class function userExists(email, password: string): boolean;
+    class function getMD5Hash(s: string): string;
+    class function getLastID(var query: TADOQuery { or TQuery } ): Integer;
 
   end;
 
 implementation
 
-uses Data_Module_U;
+uses Data_Module_U, Logger_U;
 
 { Utilities }
 
@@ -64,33 +65,32 @@ begin
     Exit;
   end;
 
-  try
-    // 2. Create user in Users table
-    modifyDatabase('INSERT INTO Users (Email, [Password], Type) VALUES (' +
-        quotedStr(email) + ',' + quotedStr(getMD5Hash(password))
-        + ',' + inttostr(userType) + ')');
-
-    // 3. Get generated ID
-    id := inttostr(getLastID(data_module.qry));
-
-    // 4. Create user in Teacher or Student table with generated ID
-    modifyDatabase('INSERT INTO ' + IfThen(userType = 1, 'Student',
-        'Teacher') + ' ([ID], Email, FirstName, LastName) VALUES (' + id +
-        ',' + quotedStr(email) + ',' + quotedStr(firstname) + ',' + quotedStr
-        (lastname) + ')');
-
-  except
-    on E: Exception do
-    begin
-      Showmessage('Exception class name = ' + E.ClassName + #13 +
-          'Exception message = ' + E.Message);
-      result := false;
-      Exit;
-    end;
+  // 2. Create user in Users table
+  if not modifyDatabase
+    ('INSERT INTO Users (Email, [Password], Type) VALUES (' + quotedStr(email)
+      + ',' + quotedStr(getMD5Hash(password)) + ',' + inttostr(userType) + ')',
+    data_module.qry) then
+  begin
+    result := false;
+    Exit;
   end;
+
+
+  // 3. Get generated ID
+  id := inttostr(getLastID(data_module.qry));
+
+  // 4. Create user in Teacher or Student table with generated ID
+  if not modifyDatabase('INSERT INTO ' + IfThen(userType = 1, 'Student',
+      'Teacher') + ' ([ID], Email, FirstName, LastName) VALUES (' + id + ',' +
+      quotedStr(email) + ',' + quotedStr(firstname) + ',' + quotedStr(lastname)
+      + ')', data_module.qry) then
+    Exit;
 
   // 5. Create and return TUser object
   user := TUser.Create(id, email, firstname, lastname, TUserType(userType));
+
+  TLogger.log(TAG, TLogType.Debug, 'Registered user with ID ' + user.getID);
+
   result := true;
 end;
 
@@ -109,7 +109,7 @@ begin
     }
 
   qry := queryDatabase('SELECT * FROM Users WHERE email = ' + quotedStr(email)
-      + ' AND password = ' + quotedStr(getMD5Hash(password)));
+      + ' AND password = ' + quotedStr(getMD5Hash(password)), data_module.qry);
 
   // 1. Check if user exists
   if not qry.Eof then
@@ -120,18 +120,24 @@ begin
 
     // 3. Retrieve user from Teacher/Student table with ID
     qry := queryDatabase('SELECT * FROM ' + IfThen(userType = 1, 'Student',
-        'Teacher') + ' WHERE ID = ' + id);
+        'Teacher') + ' WHERE ID = ' + id, data_module.qry);
 
     firstname := qry.FieldByName('FirstName').AsString;
     lastname := qry.FieldByName('LastName').AsString;
 
     // 4. Create and return TUser object
     user := TUser.Create(id, email, firstname, lastname, TUserType(userType));
+
+    TLogger.log(TAG, TLogType.Debug,
+      'Successfully logged in user with email: ' + email);
+
     result := true;
     Exit;
   end
   else
     result := false;
+
+  TLogger.log(TAG, TLogType.Error, 'Failed login attempt with email: ' + email);
 
 end;
 
@@ -141,7 +147,7 @@ var
   qry: TADOQuery;
 begin
   qry := Utilities.queryDatabase
-    ('SELECT * FROM Classroom WHERE Teacher = ' + user.getID);
+    ('SELECT * FROM Classroom WHERE Teacher = ' + user.getID, data_module.qry);
 
   while not qry.Eof do
   begin
@@ -151,6 +157,9 @@ begin
       qry.FieldByName('Teacher').AsString);
     qry.Next;
   end;
+
+  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
+      ' classrooms for teacher with ID: ' + user.getID);
 end;
 
 class function Utilities.createClassroom(user: TUser; name: string;
@@ -160,34 +169,33 @@ begin
     1. Check if classroom name exists
     2. Create classroom in Classroom table
     3. Get generated ID
-    4. Create entry in Teacher-Classroom junction table
     }
   // 1. Check if name already exists
   if not Utilities.queryDatabase
     ('SELECT * FROM Classroom WHERE Teacher = ' + user.getID +
-      ' AND ClassName = ' + quotedStr(name)).Eof then
+      ' AND ClassName = ' + quotedStr(name), data_module.qry).Eof then
   begin
-    result := false;
+    TLogger.log(TAG, TLogType.Debug,
+      'Attempted to create classroom that already exists.');
     Showmessage('Classroom name already exists');
     Exit;
   end;
 
-  try
-    // 2. Create classroom in Classroom table
-    Utilities.modifyDatabase(
-      'INSERT INTO Classroom (Teacher, ClassName) VALUES (' + user.getID +
-        ',' + quotedStr(name) + ')');
-
-    // 3. Get generated ID
-    classroom := TClassroom.Create
-      (inttostr(Utilities.getLastID(data_module.qry)), name, user.getID);
-
-    // // 4. Create entry in Teacher-Classroom junction table
-    // modifyDatabase('INSERT INTO Teacher-Classroom (TeacherID, ClassroomID) VALUES (' + user.getID + ',' + id + ')');
-  except
-    result := false;
+  // 2. Create classroom in Classroom table
+  if not Utilities.modifyDatabase(
+    'INSERT INTO Classroom (Teacher, ClassName) VALUES (' + user.getID + ',' +
+      quotedStr(name) + ')', data_module.qry) then
+  begin
     Exit;
   end;
+
+
+  // 3. Get generated ID
+  classroom := TClassroom.Create
+    (inttostr(Utilities.getLastID(data_module.qry)), name, user.getID);
+
+  TLogger.log(TAG, TLogType.Debug,
+    'Created classroom with ID: ' + classroom.getID);
 
   result := true;
 end;
@@ -195,55 +203,74 @@ end;
 class function Utilities.deleteClassroom(user: TUser;
   classroom: TClassroom): boolean;
 begin
-  try
-    modifyDatabase('DELETE FROM Classroom WHERE ID = ' + classroom.getID +
-        ' AND Teacher = ' + user.getID);
-  except
+  if not modifyDatabase('DELETE FROM Classroom WHERE ID = ' + classroom.getID +
+      ' AND Teacher = ' + user.getID, data_module.qry) then
+  begin
     result := false;
     Exit;
   end;
 
+
+  TLogger.log(TAG, TLogType.Debug,
+    'Deleted classroom with ID: ' + classroom.getID);
   result := true;
 end;
 
+class function Utilities.getStudents(classroom: TClassroom): TUserArray;
+var
+  qry: TADOQuery;
+  qryAlt: TADOQuery;
+begin
+  qry := Utilities.queryDatabase(
+    'SELECT * FROM Student_Classroom WHERE ClassroomID = ' + classroom.getID,
+    data_module.qry);
+
+  while not qry.Eof do
+  begin
+    SetLength(result, length(result) + 1);
+
+    Utilities.getEntityByID('Student', qry.FieldByName('StudentID').AsString,
+      qryAlt);
+
+    result[length(result) - 1] := TUser.Create
+      (qryAlt.FieldByName('ID').AsString,
+      qryAlt.FieldByName('Email').AsString,
+      qryAlt.FieldByName('Firstname').AsString,
+      qryAlt.FieldByName('Lastname').AsString, TUserType.Student);
+    qry.Next;
+  end;
+
+  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
+      ' students for classroom with ID: ' + classroom.getID);
+
+end;
+
 { Assignments }
-class function Utilities.getAssignments(classroom: TClassroom): TAssignmentArray;
+class function Utilities.getAssignments(classroom: TClassroom)
+  : TAssignmentArray;
 var
   qry: TADOQuery;
 begin
   qry := Utilities.queryDatabase
-      ('SELECT * FROM Assignment WHERE Class = ' + classroom.getID +
-        ' ORDER BY DateIssued ASC');
+    ('SELECT * FROM Assignment WHERE Class = ' + classroom.getID +
+      ' ORDER BY DateIssued ASC', data_module.qry);
 
   while not qry.Eof do
   begin
     SetLength(result, length(result) + 1);
     result[length(result) - 1] := TAssignment.Create
       (qry.FieldByName('ID').AsString, qry.FieldByName('Title').AsString,
-      qry.FieldByName('DateIssued').AsString, qry.FieldByName('Description').AsString, classroom);
+      qry.FieldByName('DateIssued').AsString,
+      qry.FieldByName('Description').AsString, classroom);
     qry.Next;
   end;
+
+  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
+      ' assignments for classroom with ID: ' + classroom.getID);
 end;
 
-class function Utilities.getEntityByID(table, id: string; fields: TFields): boolean;
-var
-  qry: TADOQuery;
-begin
-  qry := Utilities.queryDatabase
-      ('SELECT * FROM ' + table + ' WHERE ID = ' + id);
-
-  if qry.Eof then
-  begin
-    result := false;
-    exit;
-  end;
-
-  fields := qry.Fields;
-  result := true;
-end;
-
-class function Utilities.createAssignment(classroom: TClassroom; title, date, description: string;
-  var assignment: TAssignment): boolean;
+class function Utilities.createAssignment(classroom: TClassroom;
+  title, date, description: string; var assignment: TAssignment): boolean;
 begin
   {
     1. Create assignment in Assignment table
@@ -251,19 +278,28 @@ begin
     }
 
   // 1. Create assignment in Classroom table
-  Utilities.modifyDatabase('INSERT INTO Assignment (Class, Title, DateIssued, Description) VALUES (' +
-      classroom.getID + ',' + quotedStr(title) + ',' + quotedStr(date) + ',' + quotedStr(description) + ')');
+  if not Utilities.modifyDatabase(
+    'INSERT INTO Assignment (Class, Title, DateIssued, Description) VALUES (' +
+      classroom.getID + ',' + quotedStr(title) + ',' + quotedStr(date)
+      + ',' + quotedStr(description) + ')', data_module.qry) then
+    Exit;
 
-  // 2. Get generated ID
-  assignment := TAssignment.Create();
+  // 2. Create TAssignment object
+  assignment := TAssignment.Create(inttostr(getLastID(data_module.qry)), title, date, description, classroom);
+
+  TLogger.log(TAG, TLogType.Debug,
+    'Created assignment with ID: ' + assignment.getID +
+      ' in classroom with ID: ' + classroom.getID);
 
   result := true
 end;
 
+{ Misc }
 class function Utilities.userExists(email, password: string): boolean;
 begin
   result := not queryDatabase('SELECT * FROM Users WHERE email = ' + quotedStr
-      (email) + ' AND password = ' + quotedStr(getMD5Hash(password))).Eof;
+      (email) + ' AND password = ' + quotedStr(getMD5Hash(password)),
+    data_module.qry).Eof;
 end;
 
 // http://www.swissdelphicenter.com/en/showcode.php?id=1749
@@ -296,49 +332,66 @@ begin
   end;
 end;
 
+ { Database }
+class function Utilities.modifyDatabase(sql: string;
+  var qry: TADOQuery): boolean;
+begin
+  try
+    qry.Close;
+    qry.sql.clear;
+    qry.sql.Add(sql);
+    qry.ExecSQL;
+    result := true;
+  except
+    on E: Exception do
+    begin
+      Showmessage('Something went wrong... Check logs for more information.');
+      TLogger.log(TAG, TLogType.Error,
+        'Utilities.modifyDatabase Exception class name = ' + E.ClassName +
+          #13 + 'Exception message = ' + E.Message);
+      result := false;
+      Exit;
+    end;
+  end;
 
-class function Utilities.getStudents(classroom: TClassroom): TUserArray;
-var
-  qry: TADOQuery;
-  fields: TFields;
+end;
+
+class function Utilities.queryDatabase(query: string;
+  var qry: TADOQuery): TADOQuery;
+begin
+  try
+    qry.Close;
+    qry.sql.clear;
+    qry.sql.Add(query);
+    qry.Open;
+
+    result := qry;
+  except
+    on E: Exception do
+    begin
+      Showmessage('Something went wrong... Check logs for more information.');
+      TLogger.log(TAG, TLogType.Error,
+        'Utilities.queryDatabase Exception class name = ' + E.ClassName + #13 +
+          'Exception message = ' + E.Message);
+      Exit;
+    end;
+  end;
+
+end;
+
+class function Utilities.getEntityByID(table, id: string;
+  var qry: TADOQuery): boolean;
 begin
   qry := Utilities.queryDatabase
-      ('SELECT * FROM ' + quotedStr('Student_Classroom') + ' WHERE Class = ' + classroom.getID);
+    ('SELECT * FROM ' + table + ' WHERE ID = ' + id, data_module.qryAux);
 
-  while not qry.Eof do
+  if qry.Eof then
   begin
-    SetLength(result, length(result) + 1);
-    Utilities.getEntityByID('Student', qry.FieldByName('ID').AsString, fields);
-    result[length(result) - 1] := TUser.Create(
-      fields.FieldByName('ID').AsString,
-      fields.FieldByName('email').AsString,
-      fields.FieldByName('firstname').AsString,
-      fields.FieldByName('lastname').AsString,
-      TUserType(fields.FieldByName('UserType').AsInteger)
-    );
-//    showmessage(result[length(result) - 1].getfirstname);
-    qry.Next;
+    result := false;
+    Exit;
   end;
-end;
 
-class procedure Utilities.modifyDatabase(sql: string);
-begin
-  data_module.qry.Close;
-  data_module.qry.sql.clear;
-  // showmessage(sql);
-  data_module.qry.sql.Add(sql);
-
-  data_module.qry.ExecSQL;
-end;
-
-class function Utilities.queryDatabase(query: string): TADOQuery;
-begin
-  data_module.qry.Close;
-  data_module.qry.sql.clear;
-  data_module.qry.sql.Add(query);
-  data_module.qry.Open;
-
-  result := data_module.qry;
+  result := true;
 end;
 
 end.

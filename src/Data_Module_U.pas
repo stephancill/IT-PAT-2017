@@ -9,6 +9,7 @@ type
   Tdata_module = class(TDataModule)
     connection: TADOConnection;
     qry: TADOQuery;
+    qryAux: TADOQuery;
   private
     { Private declarations }
   public

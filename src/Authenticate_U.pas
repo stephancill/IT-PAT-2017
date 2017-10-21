@@ -30,6 +30,8 @@ type
     procedure btnLoginClick(Sender: TObject);
   private
     { Private declarations }
+    const
+      TAG: string = 'FORM_AUTHENTICATE';
   public
     { Public declarations }
   end;
@@ -51,7 +53,6 @@ begin
   // TODO: Form validation
   if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user) then
   begin
-    showmessage('Logged in ' + user.getFirstname);
     case user.getType of
       teacher :
         begin
@@ -87,8 +88,8 @@ end;
 
 procedure TfrmAuthenticate.FormCreate(Sender: TObject);
 begin
-  pnlLogin.Visible := false;
-  pnlRegister.Visible := true;
+  pnlLogin.Visible := true;
+  pnlRegister.Visible := false;
 
   pnlLogin.Left := self.Width DIV 2 - pnlLogin.Width DIV 2;
   pnlRegister.Left := self.Width DIV 2 - pnlRegister.Width DIV 2;

@@ -19,4 +19,10 @@ object data_module: Tdata_module
     Left = 104
     Top = 16
   end
+  object qryAux: TADOQuery
+    Connection = connection
+    Parameters = <>
+    Left = 168
+    Top = 32
+  end
 end
