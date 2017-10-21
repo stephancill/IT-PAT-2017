@@ -39,7 +39,7 @@ var
 
 implementation
 
-uses Utilities_U, User_U;
+uses Utilities_U, User_U, Teacher_Home_U;
 
 var
    user: TUser;
@@ -52,6 +52,15 @@ begin
   if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user) then
   begin
     showmessage('Logged in ' + user.getFirstname);
+    case user.getType of
+      teacher :
+        begin
+        frmTeacherHome.setUser(user);
+        frmTeacherHome.Show;
+        self.Hide;
+        end;
+      student : showmessage('student') // TODO: Student screen
+    end;
   end else
   begin
     // User not logged in

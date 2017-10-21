@@ -54,7 +54,12 @@
 			<DCCReference Include="Utilities_U.pas"/>
 			<DCCReference Include="User_U.pas"/>
 			<DCCReference Include="Teacher_Home_U.pas">
-				<Form>Form1</Form>
+				<Form>frmTeacherHome</Form>
+			</DCCReference>
+			<DCCReference Include="Classroom_U.pas"/>
+			<DCCReference Include="Assignment_U.pas"/>
+			<DCCReference Include="Create_Assignment_U.pas">
+				<Form>frmCreateAssignment</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>

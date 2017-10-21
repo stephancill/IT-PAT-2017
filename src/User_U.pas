@@ -3,7 +3,7 @@ unit User_U;
 interface
 
 type
-  TUserType = (Teacher = 1, Student);
+  TUserType = (Student = 1, Teacher);
 
   TUser = Class(TObject)
   private
@@ -21,11 +21,13 @@ type
     function getID(): string;
     function getFirstName: string;
     function getLastName: string;
-    function getUserType: TUserType;
+    function getType: TUserType;
 
     constructor Create(id, email, firstname, lastname: string;
       userType: TUserType); overload;
   end;
+
+  TUserArray = array of TUser;
 
 implementation
 
@@ -61,7 +63,7 @@ begin
    result := self.lastname;
 end;
 
-function TUser.getUserType: TUserType;
+function TUser.getType: TUserType;
 begin
   result := self.userType;
 end;
