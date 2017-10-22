@@ -11,7 +11,8 @@ uses
   Assignment_U in 'Assignment_U.pas',
   Create_Assignment_U in 'Create_Assignment_U.pas' {frmCreateAssignment},
   Logger_U in 'Logger_U.pas',
-  ApplicationDelegate_U in 'ApplicationDelegate_U.pas' {frmApplicationDelegate};
+  ApplicationDelegate_U in 'ApplicationDelegate_U.pas' {frmApplicationDelegate},
+  Edit_User_Profile_U in 'Edit_User_Profile_U.pas' {frmEditUserProfile};
 
 {$R *.res}
 
@@ -24,7 +25,7 @@ begin
   Application.CreateForm(TfrmTeacherHome, frmTeacherHome);
   Application.CreateForm(TfrmCreateAssignment, frmCreateAssignment);
   Application.CreateForm(TfrmAuthenticate, frmAuthenticate);
-
+  Application.CreateForm(TfrmEditUserProfile, frmEditUserProfile);
   Application.Run;
 
 end.
