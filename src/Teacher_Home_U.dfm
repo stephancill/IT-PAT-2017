@@ -14,6 +14,9 @@ object frmTeacherHome: TfrmTeacherHome
   OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
+  DesignSize = (
+    779
+    469)
   PixelsPerInch = 96
   TextHeight = 13
   object lblClassrooms: TLabel
@@ -30,6 +33,7 @@ object frmTeacherHome: TfrmTeacherHome
     Width = 136
     Height = 13
     Alignment = taCenter
+    Anchors = [akLeft, akTop, akRight, akBottom]
     Caption = 'Select a Classroom to begin.'
   end
   object pnlHeader: TPanel
@@ -37,8 +41,12 @@ object frmTeacherHome: TfrmTeacherHome
     Top = 8
     Width = 763
     Height = 41
+    Anchors = [akLeft, akTop, akRight]
     Caption = 'Welcome, $TEACHER'
     TabOrder = 0
+    DesignSize = (
+      763
+      41)
     object btnLogout: TButton
       Left = 8
       Top = 9
@@ -53,6 +61,7 @@ object frmTeacherHome: TfrmTeacherHome
       Top = 9
       Width = 75
       Height = 25
+      Anchors = [akTop, akRight]
       Caption = 'Edit Profile'
       TabOrder = 1
       OnClick = btnEditProfileClick
@@ -63,6 +72,7 @@ object frmTeacherHome: TfrmTeacherHome
     Top = 84
     Width = 210
     Height = 325
+    Anchors = [akLeft, akTop, akBottom]
     ItemHeight = 13
     TabOrder = 1
     OnClick = lstClassroomsClick
@@ -72,6 +82,7 @@ object frmTeacherHome: TfrmTeacherHome
     Top = 424
     Width = 99
     Height = 25
+    Anchors = [akLeft, akBottom]
     Caption = 'Delete'
     TabOrder = 2
     OnClick = btnDeleteClassroomClick
@@ -81,6 +92,7 @@ object frmTeacherHome: TfrmTeacherHome
     Top = 424
     Width = 99
     Height = 25
+    Anchors = [akLeft, akBottom]
     Caption = 'New'
     TabOrder = 3
     OnClick = btnCreateClassroomClick

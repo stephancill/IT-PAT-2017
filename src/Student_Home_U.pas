@@ -141,13 +141,14 @@ begin
   begin
     Parent := self;
     Width := lstClassrooms.Width;
-    Height := lstClassrooms.Height;
+    Height := lstClassrooms.Height + 21;
     Left := lstClassrooms.Left + lstClassrooms.Width + 50;
-    Top := lstClassrooms.Top;
+    Top := lstClassrooms.Top - 21;
     Tabs.Add('Assignments');
     Tabs.Add('Peers');
     Visible := false;
     OnChange := tbClassroomChange;
+    Anchors := [akLeft,akTop,akBottom];
   end;
 
   // List inside Tab Controller
@@ -159,6 +160,7 @@ begin
     Height := tbClassroom.Height - 42;
     Left := 0;
     Top := 42;
+    Anchors := [akLeft,akTop,akBottom];
   end;
 
   // Filter inside tab controller
@@ -172,6 +174,7 @@ begin
     Top := 20;
     TextHint := 'Filter';
     OnChange := edtFilterChange;
+    Anchors := [akLeft,akTop];
   end;
 
 end;

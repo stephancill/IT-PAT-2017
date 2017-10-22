@@ -119,6 +119,7 @@ begin
     Tabs.Add('Assignments');
     Tabs.Add('Students');
     Visible := false;
+    Anchors := [akLeft,akTop,akBottom];
     OnChange := tbClassroomChange;
   end;
 
@@ -141,6 +142,7 @@ begin
     Height := tbClassroom.Height - 42;
     Left := 0;
     Top := 42;
+    Anchors := [akLeft,akTop,akBottom];
   end;
 
   // Filter inside tab controller
@@ -154,6 +156,7 @@ begin
     Top := 20;
     TextHint := 'Filter';
     OnChange := edtFilterChange;
+    Anchors := [akLeft,akTop];
   end;
 
   // Create assignment button
@@ -168,6 +171,7 @@ begin
     Caption := 'New Assignment';
     Visible := false;
     OnClick := btnNewAssignmentClick;
+    Anchors := [akLeft,akBottom];
   end;
 
 end;
