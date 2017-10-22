@@ -26,8 +26,8 @@ begin
   Application.CreateForm(TfrmTeacherHome, frmTeacherHome);
   Application.CreateForm(TfrmStudentHome, frmStudentHome);
   Application.CreateForm(TfrmCreateAssignment, frmCreateAssignment);
-  Application.CreateForm(TfrmAuthenticate, frmAuthenticate);
   Application.CreateForm(TfrmEditUserProfile, frmEditUserProfile);
+  Application.CreateForm(TfrmAuthenticate, frmAuthenticate);
   Application.Run;
 
 end.
