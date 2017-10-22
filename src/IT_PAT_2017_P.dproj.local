@@ -42,5 +42,29 @@
     <Transaction>2017/10/22 19:35:28.074.dfm,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit2.dfm=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Generic_Home_U.dfm</Transaction>
     <Transaction>2017/10/22 19:41:01.752.pas,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Generic_Home_U.pas=</Transaction>
     <Transaction>2017/10/22 19:41:01.752.dfm,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Generic_Home_U.dfm=</Transaction>
-  </Transactions>
+    <Transaction>2017/10/22 22:30:34.940.pas,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit2.pas=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Project_Dashboard_U.pas</Transaction>
+    <Transaction>2017/10/22 22:30:34.940.dfm,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit2.dfm=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Project_Dashboard_U.dfm</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="ApplicationDelegate_U.pas"/>
+    <File Path="ApplicationDelegate_U.dfm"/>
+    <File Path="Authenticate_U.pas"/>
+    <File Path="Authenticate_U.dfm"/>
+    <File Path="Create_Assignment_U.pas"/>
+    <File Path="Create_Assignment_U.dfm"/>
+    <File Path="Data_Module_U.pas"/>
+    <File Path="Data_Module_U.dfm"/>
+    <File Path="Edit_User_Profile_U.pas"/>
+    <File Path="Edit_User_Profile_U.dfm"/>
+    <File Path="Student_Home_U.pas"/>
+    <File Path="Student_Home_U.dfm"/>
+    <File Path="Teacher_Home_U.pas"/>
+    <File Path="Teacher_Home_U.dfm"/>
+    <File Path="Logger_U.pas"/>
+    <File Path="Assignment_U.pas"/>
+    <File Path="Classroom_U.pas"/>
+    <File Path="User_U.pas"/>
+    <File Path="Utilities_U.pas"/>
+    <File Path="Project_Dashboard_U.pas"/>
+    <File Path="Project_Dashboard_U.dfm"/>
+  </ProjectSortOrder>
 </BorlandProject>

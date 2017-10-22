@@ -176,7 +176,7 @@ begin
   end;
 
   SetLength(projectForms, length(projectForms)+1);  
-  frmProject := TfrmProjectDashboard.Create(nil);
+  frmProject := TfrmProjectDashboard.Create(self);
   try
     projectForms[length(projectForms)-1] := frmProject;
     frmProject.load(selectedAssignment, user, self);

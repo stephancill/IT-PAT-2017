@@ -1059,3 +1059,14 @@
 2017/10/22 11:29:30 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
 2017/10/22 11:29:30 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
 2017/10/22 11:29:31 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 11:34:55 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/22 11:34:55 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/22 11:34:55 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/22 11:34:56 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 11:35:01 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/22 11:35:01 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/22 11:35:01 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/22 11:36:22 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/22 11:36:22 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/22 11:36:22 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/22 11:36:23 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
