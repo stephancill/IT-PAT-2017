@@ -58,7 +58,6 @@ type
     edtInfoDescription: TRichEdit;
     btnInfoPanel: TButton;
 
-
     user: TUser;
     classrooms: TClassroomArray;
     selectedClassroom: TClassroom;
