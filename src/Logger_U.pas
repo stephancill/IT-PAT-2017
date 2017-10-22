@@ -10,10 +10,10 @@ type
   TLogger = class (TObject)
     private
       const
-        destination: string = 'SESSION-LOG.txt';
+        destination: string = 'SESSION_LOG.txt';
     public
       class procedure log(tag: string; logtype: TLogType; msg: string);
-
+      class procedure logException(tag, func: string; ex: Exception);
   end;
 implementation
 
@@ -55,6 +55,15 @@ begin
       Exit;
     end;
   end;
+end;
+
+
+
+class procedure TLogger.logException(tag, func: string; ex: Exception);
+begin
+  TLogger.log(TAG, TLogType.Error,
+        '@' + func + ' Exception class name = ' + ex.ClassName + #13 +
+          'Exception message = ' + ex.Message);
 end;
 
 end.

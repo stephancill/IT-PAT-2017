@@ -24,14 +24,18 @@ type
     Label2: TLabel;
     edtFirstName: TEdit;
     edtLastName: TEdit;
+    chkRememberMe: TCheckBox;
     procedure lblSwitchClick(Sender: TObject);
     procedure btnRegisterClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     const
       TAG: string = 'FORM_AUTHENTICATE';
+    var
+      hashed: boolean;
   public
     { Public declarations }
   end;
@@ -41,7 +45,7 @@ var
 
 implementation
 
-uses Utilities_U, User_U, Teacher_Home_U;
+uses Utilities_U, User_U, Teacher_Home_U, Logger_U, ApplicationDelegate_U;
 
 var
    user: TUser;
@@ -51,8 +55,19 @@ var
 procedure TfrmAuthenticate.btnLoginClick(Sender: TObject);
 begin
   // TODO: Form validation
-  if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user) then
+  if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user, hashed) then
   begin
+    if chkRememberMe.Checked then
+    begin
+      Utilities.persistLogin(edtLoginEmail.Text, edtLoginPassword.Text);
+    end else
+    begin
+      Utilities.depersistLogin;
+    end;
+
+    edtLoginEmail.Text := ''; 
+    edtLoginPassword.Text := '';
+    
     case user.getType of
       teacher :
         begin
@@ -82,17 +97,38 @@ begin
     // Something went wrong
 
   end;
+end;
 
-
+procedure TfrmAuthenticate.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Utilities.kill;
 end;
 
 procedure TfrmAuthenticate.FormCreate(Sender: TObject);
+var
+ email, password: string;
 begin
+  frmApplicationDelegate.applicationReady;
+
+  hashed := false;
+  
   pnlLogin.Visible := true;
   pnlRegister.Visible := false;
 
   pnlLogin.Left := self.Width DIV 2 - pnlLogin.Width DIV 2;
   pnlRegister.Left := self.Width DIV 2 - pnlRegister.Width DIV 2;
+
+  // Login persistence
+  if FileExists(Utilities.persistentLoginDestination) then
+  begin
+    if Utilities.getPersistedLogin(email, password) then
+    begin
+      hashed := true;
+      edtLoginEmail.Text := email;
+      edtLoginPassword.Text := password;
+      btnLoginClick(self);
+    end;
+  end;
 end;
 
 procedure TfrmAuthenticate.lblSwitchClick(Sender: TObject);

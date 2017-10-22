@@ -31,5 +31,8 @@
     <Transaction>2017/10/21 12:10:23.772.pas,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit1.pas=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Assignment_U.pas</Transaction>
     <Transaction>2017/10/21 13:40:24.972.pas,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit1.pas=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Create_Assignment_U.pas</Transaction>
     <Transaction>2017/10/21 13:40:24.972.dfm,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit1.dfm=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Create_Assignment_U.dfm</Transaction>
+    <Transaction>2017/10/21 22:58:46.434.pas,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit1.pas=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Logger_U.pas</Transaction>
+    <Transaction>2017/10/22 11:42:06.895.pas,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit1.pas=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\ApplicationDelegate_U.pas</Transaction>
+    <Transaction>2017/10/22 11:42:06.895.dfm,C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\Unit1.dfm=C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\ApplicationDelegate_U.dfm</Transaction>
   </Transactions>
 </BorlandProject>

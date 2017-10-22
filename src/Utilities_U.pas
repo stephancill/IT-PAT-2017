@@ -14,10 +14,15 @@ type
     class function modifyDatabase(sql: string; var qry: TADOQuery): boolean;
     class function getEntityByID(table, id: string; var qry: TADOQuery): boolean;
   public
+    const
+      persistentLoginDestination: string = 'PERSISTED_LOGIN.txt';
     // Authentication
     class function registerUser(email, password, firstname, lastname: string;
       userType: Integer; var user: TUser): boolean;
-    class function loginUser(email, password: string; var user: TUser): boolean;
+    class function loginUser(email, password: string; var user: TUser; hashed: boolean = false): boolean;
+    class procedure persistLogin(email, password: string);
+    class procedure depersistLogin;
+    class function getPersistedLogin(var email, password: string): boolean;
 
     // Classroom - Teacher
     class function getTeachingClassrooms(user: TUser): TClassroomArray;
@@ -34,12 +39,13 @@ type
     class function userExists(email, password: string): boolean;
     class function getMD5Hash(s: string): string;
     class function getLastID(var query: TADOQuery { or TQuery } ): Integer;
+    class procedure kill;
 
   end;
 
 implementation
 
-uses Data_Module_U, Logger_U;
+uses Data_Module_U, Logger_U, Forms;
 
 { Utilities }
 
@@ -95,7 +101,7 @@ begin
 end;
 
 class function Utilities.loginUser(email, password: string;
-  var user: TUser): boolean;
+  var user: TUser; hashed: boolean = false): boolean;
 var
   qry: TADOQuery;
   id, firstname, lastname: string;
@@ -107,9 +113,11 @@ begin
     3. Retrieve user from Teacher/Student table with ID
     4. Create and return TUser object
     }
+  if not hashed then
+    password := getMD5Hash(password);
 
   qry := queryDatabase('SELECT * FROM Users WHERE email = ' + quotedStr(email)
-      + ' AND password = ' + quotedStr(getMD5Hash(password)), data_module.qry);
+      + ' AND password = ' + quotedStr(password), data_module.qry);
 
   // 1. Check if user exists
   if not qry.Eof then
@@ -140,6 +148,57 @@ begin
   TLogger.log(TAG, TLogType.Error, 'Failed login attempt with email: ' + email);
 
 end;
+
+class procedure Utilities.persistLogin(email, password: string);
+var
+  f: TextFile;
+begin
+  TLogger.log(TAG, TLogType.Debug, 'Persisting login for user with email: ' + email);
+
+  AssignFile(f, persistentLoginDestination);
+  try
+    Rewrite(f);
+    writeLn(f, email);
+    writeLn(f, getMD5Hash(password));
+    CloseFile(f);
+  except
+    on E: Exception do
+    begin
+      Showmessage('Something went wrong... Check logs for more information.');
+      TLogger.logException(TAG, 'persistLogin', e);
+      Exit;
+    end;
+  end;
+end;
+
+class procedure Utilities.depersistLogin;
+begin
+  DeleteFile(persistentLoginDestination);
+end;
+
+class function Utilities.getPersistedLogin(var email, password: string): boolean;
+var
+  f: TextFile;
+begin
+  AssignFile(f, persistentLoginDestination);
+  try
+    Reset(f);
+    readln(f, email);
+    readln(f, password);
+    Closefile(f);
+  except
+    on E: Exception do
+    begin
+      Showmessage('Something went wrong... Check logs for more information.');
+      TLogger.logException(TAG, 'getPersistedLogin', e);
+      result := false;
+      Exit;
+    end;
+  end;
+
+  result := true;
+end;
+
 
 { Classroom - Teacher }
 class function Utilities.getTeachingClassrooms(user: TUser): TClassroomArray;
@@ -346,9 +405,7 @@ begin
     on E: Exception do
     begin
       Showmessage('Something went wrong... Check logs for more information.');
-      TLogger.log(TAG, TLogType.Error,
-        'Utilities.modifyDatabase Exception class name = ' + E.ClassName +
-          #13 + 'Exception message = ' + E.Message);
+      TLogger.logException(TAG, 'modifyDatabase', e);
       result := false;
       Exit;
     end;
@@ -370,9 +427,7 @@ begin
     on E: Exception do
     begin
       Showmessage('Something went wrong... Check logs for more information.');
-      TLogger.log(TAG, TLogType.Error,
-        'Utilities.queryDatabase Exception class name = ' + E.ClassName + #13 +
-          'Exception message = ' + E.Message);
+      TLogger.logException(TAG, 'queryDatabase', e);
       Exit;
     end;
   end;
@@ -392,6 +447,11 @@ begin
   end;
 
   result := true;
+end;
+
+class procedure Utilities.kill;
+begin
+  Application.Terminate;
 end;
 
 end.

@@ -61,6 +61,10 @@
 			<DCCReference Include="Create_Assignment_U.pas">
 				<Form>frmCreateAssignment</Form>
 			</DCCReference>
+			<DCCReference Include="Logger_U.pas"/>
+			<DCCReference Include="ApplicationDelegate_U.pas">
+				<Form>frmApplicationDelegate</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

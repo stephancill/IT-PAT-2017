@@ -26,6 +26,7 @@ type
     procedure tbClassroomChange(Sender: TObject);
     procedure btnNewAssignmentClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     const
@@ -49,7 +50,7 @@ var
 
 implementation
 
-uses Utilities_U, Authenticate_U, Create_Assignment_U;
+uses Utilities_U, Authenticate_U, Create_Assignment_U, Logger_U;
 
 {$R *.dfm}
 
@@ -73,6 +74,9 @@ procedure TfrmTeacherHome.btnLogoutClick(Sender: TObject);
 begin
   self.Hide;
   frmAuthenticate.show;
+  self.user.Free;
+  Utilities.depersistLogin;
+  TLogger.log(TAG, TLogType.Debug, 'Logged out user');
 end;
 
 procedure TfrmTeacherHome.btnNewAssignmentClick(Sender: TObject);
@@ -87,6 +91,11 @@ begin
   begin
     setUser( TUser.Create('9971', 'a', 'a', 'a', TUserType.Teacher));
   end;
+end;
+
+procedure TfrmTeacherHome.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Utilities.kill;
 end;
 
 procedure TfrmTeacherHome.FormCreate(Sender: TObject);

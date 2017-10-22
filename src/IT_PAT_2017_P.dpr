@@ -9,16 +9,22 @@ uses
   Teacher_Home_U in 'Teacher_Home_U.pas' {frmTeacherHome},
   Classroom_U in 'Classroom_U.pas',
   Assignment_U in 'Assignment_U.pas',
-  Create_Assignment_U in 'Create_Assignment_U.pas' {frmCreateAssignment};
+  Create_Assignment_U in 'Create_Assignment_U.pas' {frmCreateAssignment},
+  Logger_U in 'Logger_U.pas',
+  ApplicationDelegate_U in 'ApplicationDelegate_U.pas' {frmApplicationDelegate};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmAuthenticate, frmAuthenticate);
+  Application.ShowMainForm := false;
+  Application.CreateForm(TfrmApplicationDelegate, frmApplicationDelegate);
+  Application.CreateForm(Tdata_module, data_module);
   Application.CreateForm(TfrmTeacherHome, frmTeacherHome);
   Application.CreateForm(TfrmCreateAssignment, frmCreateAssignment);
-  Application.CreateForm(Tdata_module, data_module);
+  Application.CreateForm(TfrmAuthenticate, frmAuthenticate);
+
   Application.Run;
+
 end.

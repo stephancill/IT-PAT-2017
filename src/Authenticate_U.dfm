@@ -11,6 +11,7 @@ object frmAuthenticate: TfrmAuthenticate
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -125,7 +126,7 @@ object frmAuthenticate: TfrmAuthenticate
     TabOrder = 0
     object lblRegister: TLabel
       Left = 68
-      Top = 166
+      Top = 197
       Width = 86
       Height = 13
       Cursor = crHandPoint
@@ -173,13 +174,21 @@ object frmAuthenticate: TfrmAuthenticate
     end
     object btnLogin: TButton
       Left = 32
-      Top = 135
+      Top = 158
       Width = 160
       Height = 25
       Caption = 'Login'
       Default = True
       TabOrder = 2
       OnClick = btnLoginClick
+    end
+    object chkRememberMe: TCheckBox
+      Left = 32
+      Top = 135
+      Width = 97
+      Height = 17
+      Caption = 'Remember me'
+      TabOrder = 3
     end
   end
 end

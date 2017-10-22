@@ -1,5 +1,0 @@
-2017/10/21 11:22:53 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
-2017/10/21 11:23:02 PM (UTILITIES) - DEBUG: Created classroom with ID: 15
-2017/10/21 11:24:12 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
-2017/10/21 11:25:01 PM (UTILITIES) - DEBUG: Successfully logged in user with email: b
-2017/10/21 11:48:21 PM (UTILITIES) - ERROR: Failed login attempt with email: test
