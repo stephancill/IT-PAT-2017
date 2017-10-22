@@ -14,10 +14,7 @@ type
     btnDeleteClassroom: TButton;
     btnLogout: TButton;
     lblClassrooms: TLabel;
-    tbClassroom: TTabControl;
-    lstClassroom: TListBox;
-    btnNewAssignment: TButton;
-    lblClassroomCode: TLabel;
+    btnEditProfile: TButton;
     procedure btnCreateClassroomClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnDeleteClassroomClick(Sender: TObject);
@@ -27,16 +24,29 @@ type
     procedure btnNewAssignmentClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure edtFilterChange(sender: TObject);
+    procedure btnEditProfileClick(Sender: TObject);
   private
     { Private declarations }
     const
       TAG: string = 'FORM_TEACHER_HOME';
     var
+      // Dynamic components
+      tbClassroom : TTabControl;
+      lstClassroom: TListBox;
+      edtFilter: TEdit;
+      lblClassroomCode: TLabel;
+      btnNewAssignment: TButton;
+
       user: TUser;
       classrooms: TClassroomArray;
       selectedClassroom: TClassroom;
       assignments: TAssignmentArray;
       selectedAssignment: TAssignment;
+      students: TUserArray;
+      selectedStudent: TUser;
+
+    procedure createDynamicComponents;
   public
     { Public declarations }
     procedure setUser(user: TUser);
@@ -50,7 +60,8 @@ var
 
 implementation
 
-uses Utilities_U, Authenticate_U, Create_Assignment_U, Logger_U;
+uses Utilities_U, Authenticate_U, Create_Assignment_U, Logger_U,
+  Edit_User_Profile_U;
 
 {$R *.dfm}
 
@@ -70,9 +81,16 @@ begin
   refreshClassrooms;
 end;
 
+procedure TfrmTeacherHome.btnEditProfileClick(Sender: TObject);
+begin
+  frmEditUserProfile.setUser(user);
+  frmEditUserProfile.Show;
+end;
+
 procedure TfrmTeacherHome.btnLogoutClick(Sender: TObject);
 begin
   self.Hide;
+  frmAuthenticate.usePersistentLogin(false);
   frmAuthenticate.show;
   self.user.Free;
   Utilities.depersistLogin;
@@ -83,6 +101,107 @@ procedure TfrmTeacherHome.btnNewAssignmentClick(Sender: TObject);
 begin
   frmCreateAssignment.setClassroom(self.selectedClassroom);
   frmCreateAssignment.show;
+end;
+
+procedure TfrmTeacherHome.createDynamicComponents;
+
+begin
+
+  // Tab Controller
+  tbClassroom := TTabControl.Create(self);
+  with tbClassroom do
+  begin
+    Parent := self;
+    Width := lstClassrooms.Width;
+    Height := lstClassrooms.Height;
+    Left := lstClassrooms.Left + lstClassrooms.Width + 50;
+    Top := lstClassrooms.Top;
+    Tabs.Add('Assignments');
+    Tabs.Add('Students');
+    Visible := false;
+    OnChange := tbClassroomChange;
+  end;
+
+  // Classroom code
+  lblClassroomCode := Tlabel.Create(self);
+  with lblClassroomCode do
+  begin
+    Parent := self;
+    Top := tbClassroom.Top - 20;
+    Left := tbClassroom.Left;
+    Width := tbClassroom.Width;
+  end;
+
+  // List inside Tab Controller
+  lstClassroom := TListBox.Create(self);
+  with lstClassroom do
+  begin
+    Parent := tbClassroom;
+    Width := tbClassroom.Width;
+    Height := tbClassroom.Height - 42;
+    Left := 0;
+    Top := 42;
+  end;
+
+  edtFilter := TEdit.Create(self);
+  with edtFilter do
+  begin
+    Parent := tbClassroom;
+    Width := tbClassroom.Width;
+    Height := 21;
+    Left := 0;
+    Top := 20;
+    TextHint := 'Filter';
+    OnChange := edtFilterChange;
+  end;
+
+  // Create assignment button
+  btnNewAssignment := TButton.Create(self);
+  with btnNewAssignment do
+  begin
+    Parent := self;
+    Top := btnCreateClassroom.Top;
+    Left := tbClassroom.Left + tbClassroom.Width - 99;
+    Width := 99;
+    Height := btnCreateClassroom.Height;
+    Caption := 'New Assignment';
+    Visible := false;
+    OnClick := btnNewAssignmentClick;
+  end;
+
+end;
+
+procedure TfrmTeacherHome.edtFilterChange(sender: TObject);
+var
+  query: string;
+  a: TAssignment;
+  s: TUser;
+begin
+  query := (sender as Tedit).Text;
+
+  lstClassroom.Clear;
+  case tbClassroom.TabIndex of
+    0: // Assignments
+    begin
+      for a in assignments do
+      begin
+        if (pos(lowercase(query), lowercase(a.getTitle)) > 0) or (query = '') then
+        begin
+          lstClassroom.Items.Add(a.getTitle);
+        end;
+      end;
+    end;
+    1: // Students
+    begin
+      for s in students do
+      begin
+        if (pos(lowercase(query), lowercase(s.getFirstName + s.getLastName + s.getEmail)) > 0) or (query = '') then
+        begin
+          lstClassroom.Items.Add(s.getLastName + ', ' + s.getFirstName);
+        end;
+      end;
+    end;
+  end;
 end;
 
 procedure TfrmTeacherHome.FormActivate(Sender: TObject);
@@ -100,7 +219,7 @@ end;
 
 procedure TfrmTeacherHome.FormCreate(Sender: TObject);
 begin
-  btnNewAssignment.Enabled := false;
+  createDynamicComponents;
 end;
 
 procedure TfrmTeacherHome.lstClassroomsClick(Sender: TObject);
@@ -109,8 +228,9 @@ begin
   begin
     selectedClassroom := classrooms[lstClassrooms.ItemIndex];
     lblClassroomCode.Caption := 'Classroom Code: ' + selectedClassroom.getID;
-    btnNewAssignment.enabled := true;
-    refreshTabController;
+    btnNewAssignment.Visible := true;
+    tbClassroom.Visible := true;
+    tbClassroomChange(self);
   end;
 end;
 
@@ -143,9 +263,7 @@ end;
 
 procedure TfrmTeacherHome.tbClassroomChange(Sender: TObject);
 var
-  assignments: TAssignmentArray;
   a: TAssignment;
-  students: TUserArray;
   s: TUser;
 begin
   lstClassroom.Clear;

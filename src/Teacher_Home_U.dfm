@@ -24,13 +24,6 @@ object frmTeacherHome: TfrmTeacherHome
     Alignment = taCenter
     Caption = 'Classrooms'
   end
-  object lblClassroomCode: TLabel
-    Left = 287
-    Top = 65
-    Width = 84
-    Height = 13
-    Caption = 'Classroom Code: '
-  end
   object pnlHeader: TPanel
     Left = 8
     Top = 8
@@ -38,23 +31,23 @@ object frmTeacherHome: TfrmTeacherHome
     Height = 41
     Caption = 'Welcome, $TEACHER'
     TabOrder = 0
-    object btnCreateClassroom: TButton
-      Left = 656
-      Top = 9
-      Width = 99
-      Height = 25
-      Caption = 'Create Classroom'
-      TabOrder = 0
-      OnClick = btnCreateClassroomClick
-    end
     object btnLogout: TButton
       Left = 8
       Top = 9
       Width = 75
       Height = 25
       Caption = 'Logout'
-      TabOrder = 1
+      TabOrder = 0
       OnClick = btnLogoutClick
+    end
+    object btnEditProfile: TButton
+      Left = 680
+      Top = 9
+      Width = 75
+      Height = 25
+      Caption = 'Edit Profile'
+      TabOrder = 1
+      OnClick = btnEditProfileClick
     end
   end
   object lstClassrooms: TListBox
@@ -69,39 +62,19 @@ object frmTeacherHome: TfrmTeacherHome
   object btnDeleteClassroom: TButton
     Left = 24
     Top = 424
-    Width = 210
+    Width = 99
     Height = 25
     Caption = 'Delete'
     TabOrder = 2
     OnClick = btnDeleteClassroomClick
   end
-  object tbClassroom: TTabControl
-    Left = 287
-    Top = 84
-    Width = 210
-    Height = 325
-    TabOrder = 3
-    Tabs.Strings = (
-      'Assignments'
-      'Students')
-    TabIndex = 0
-    OnChange = tbClassroomChange
-    object lstClassroom: TListBox
-      Left = 0
-      Top = 19
-      Width = 207
-      Height = 305
-      ItemHeight = 13
-      TabOrder = 0
-    end
-  end
-  object btnNewAssignment: TButton
-    Left = 400
+  object btnCreateClassroom: TButton
+    Left = 135
     Top = 424
-    Width = 94
+    Width = 99
     Height = 25
-    Caption = 'New assignment'
-    TabOrder = 4
-    OnClick = btnNewAssignmentClick
+    Caption = 'New'
+    TabOrder = 3
+    OnClick = btnCreateClassroomClick
   end
 end

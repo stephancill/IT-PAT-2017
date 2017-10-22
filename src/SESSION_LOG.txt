@@ -98,3 +98,335 @@
 2017/10/22 11:58:53 AM (UTILITIES) - DEBUG: Successfully logged in user with email: a
 2017/10/22 11:58:53 AM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
 2017/10/22 11:58:54 AM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/22 12:05:02 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:05:02 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 12:05:02 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:05:05 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:05:05 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:05:11 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:13:16 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:13:16 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 12:13:16 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:22:56 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:22:56 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:26:03 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:26:03 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 12:26:03 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:26:07 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:26:07 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/22 12:26:08 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/22 12:26:28 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:26:28 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:26:53 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:26:53 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 12:26:53 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:26:57 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:26:59 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 13
+2017/10/22 12:27:00 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 15
+2017/10/22 12:27:00 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 12:27:03 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 13
+2017/10/22 12:27:40 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:27:40 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:27:42 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:27:43 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/22 12:27:43 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/22 12:27:43 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/22 12:27:44 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:32:35 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:32:35 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 12:32:35 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:32:37 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:33:09 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:33:09 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:33:10 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:33:22 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/22 12:33:22 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/22 12:33:23 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/22 12:33:23 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:34:10 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 12:34:10 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 12:34:10 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 12:34:12 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:34:12 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 12:34:13 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:34:13 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 12:34:13 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:34:14 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 12:34:14 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 13
+2017/10/22 12:34:15 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 15
+2017/10/22 12:34:15 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 13
+2017/10/22 12:34:15 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 12:34:16 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 12:34:17 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 12:34:26 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 1:16:45 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:16:45 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:16:48 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 1:17:45 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:17:45 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:17:45 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:17:47 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 1:18:07 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:18:07 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:18:08 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 1:18:29 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:18:29 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:18:29 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:18:30 PM (UTILITIES) - DEBUG: Got 4 assignments for classroom with ID: 12
+2017/10/22 1:18:49 PM (UTILITIES) - DEBUG: Created assignment with ID: 5 in classroom with ID: 12
+2017/10/22 1:18:49 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:22:40 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:22:40 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:22:41 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:22:54 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:22:55 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:22:55 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:22:57 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:22:57 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:23:41 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:23:41 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:23:41 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:23:44 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:23:44 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:23:44 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:23:46 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 1:25:11 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 1:26:22 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 1:26:28 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:26:28 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:26:28 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:26:30 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:26:30 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:26:30 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:26:32 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:26:32 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:26:32 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:26:34 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:26:34 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:26:34 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:26:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:26:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:26:37 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:27:01 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:27:01 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:27:01 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:27:04 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:27:04 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:27:04 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:27:06 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/22 1:27:12 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:27:12 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:27:12 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:27:14 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/22 1:27:23 PM (UTILITIES) - DEBUG: Successfully logged in user with email: b
+2017/10/22 1:27:23 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9972
+2017/10/22 1:27:28 PM (UTILITIES) - DEBUG: Successfully logged in user with email: b
+2017/10/22 1:27:28 PM (UTILITIES) - DEBUG: Persisting login for user with email: b
+2017/10/22 1:27:28 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9972
+2017/10/22 1:27:32 PM (UTILITIES) - DEBUG: Successfully logged in user with email: b
+2017/10/22 1:27:32 PM (UTILITIES) - DEBUG: Persisting login for user with email: b
+2017/10/22 1:27:32 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9972
+2017/10/22 1:27:33 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 14
+2017/10/22 1:27:36 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 14
+2017/10/22 1:27:36 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 14
+2017/10/22 1:27:36 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 14
+2017/10/22 1:27:36 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 14
+2017/10/22 1:27:37 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 14
+2017/10/22 1:32:08 PM (UTILITIES) - DEBUG: Successfully logged in user with email: b
+2017/10/22 1:32:08 PM (UTILITIES) - DEBUG: Persisting login for user with email: b
+2017/10/22 1:32:08 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9972
+2017/10/22 1:32:11 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 14
+2017/10/22 1:42:39 PM (UTILITIES) - DEBUG: Successfully logged in user with email: b
+2017/10/22 1:42:39 PM (UTILITIES) - DEBUG: Persisting login for user with email: b
+2017/10/22 1:42:39 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9972
+2017/10/22 1:42:41 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/22 1:42:43 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 1:42:46 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 1:44:33 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:44:33 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:48:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:48:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:48:37 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:48:39 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/22 1:48:45 PM (UTILITIES) - DEBUG: Successfully logged in user with email: b
+2017/10/22 1:48:45 PM (UTILITIES) - DEBUG: Persisting login for user with email: b
+2017/10/22 1:48:45 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9972
+2017/10/22 1:48:46 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/22 1:48:48 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:48:48 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:48:48 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:48:51 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:49:48 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:49:48 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:49:48 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:49:49 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:50:13 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:50:13 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:50:13 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:50:14 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:51:25 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:51:25 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:51:25 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:51:27 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:51:48 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:51:48 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:51:48 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:51:49 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:52:13 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:52:13 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:52:13 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:52:14 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:53:02 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:53:02 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:53:02 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:53:03 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:54:09 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:54:09 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:54:09 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:54:10 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:55:50 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:55:50 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:55:50 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:55:51 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:56:07 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:56:07 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:56:07 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:56:16 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:56:16 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:56:16 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:56:17 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:57:18 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:57:18 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:57:18 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:57:19 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:57:52 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:57:52 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:57:52 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:57:53 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:59:28 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 1:59:28 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 1:59:28 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 1:59:29 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:59:37 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/22 1:59:38 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/22 1:59:39 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/22 1:59:39 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 1:59:48 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 1:59:56 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 15
+2017/10/22 1:59:56 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 13
+2017/10/22 1:59:56 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 1:59:57 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 1:59:57 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 13
+2017/10/22 1:59:57 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 15
+2017/10/22 1:59:58 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 13
+2017/10/22 1:59:58 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 2:00:00 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 15
+2017/10/22 2:00:00 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 13
+2017/10/22 2:00:01 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 2:00:01 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 2:14:22 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:14:22 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:14:22 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:18:18 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:18:18 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:18:19 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:21:39 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:21:39 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:21:39 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:22:05 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:22:05 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:22:05 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:26:07 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:26:07 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:26:07 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:26:08 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 2:27:20 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:27:20 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:27:20 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:30:28 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:30:28 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:30:28 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:30:49 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:30:49 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:30:49 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:31:29 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:31:29 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:31:29 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:32:01 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:32:01 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:32:01 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:53:55 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:53:55 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:53:55 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:56:50 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:56:50 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:56:50 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:57:13 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:57:13 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:57:13 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:59:04 PM (UTILITIES) - ERROR: @modifyDatabase Exception class name = EOleExceptionException message = Syntax error in UPDATE statement
+2017/10/22 2:59:04 PM (UTILITIES) - DEBUG: Failed to change password of user with ID: 9971
+2017/10/22 2:59:36 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 2:59:36 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 2:59:36 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 2:59:41 PM (UTILITIES) - DEBUG: Successfully changed password of user with ID: 9971
+2017/10/22 3:04:22 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 3:04:22 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 3:04:22 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:04:28 PM (UTILITIES) - DEBUG: Failed to change password of user with ID: 9971
+2017/10/22 3:04:33 PM (UTILITIES) - DEBUG: Successfully changed password of user with ID: 9971
+2017/10/22 3:04:39 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:06:48 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:06:51 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 3:06:51 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:07:30 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 3:07:30 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 3:07:31 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:07:38 PM (UTILITIES) - DEBUG: Failed to change password of user with ID: 9971
+2017/10/22 3:07:43 PM (UTILITIES) - DEBUG: Successfully changed password of user with ID: 9971
+2017/10/22 3:07:49 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:54 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:55 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:56 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:56 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:57 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:57 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:57 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:57 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:58 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:58 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:07:58 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:08:35 PM (UTILITIES) - ERROR: Failed login attempt with email: aa
+2017/10/22 3:08:40 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 3:08:40 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 3:08:40 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:08:43 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 3:08:43 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/22 3:08:43 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:08:49 PM (UTILITIES) - DEBUG: Successfully changed password of user with ID: 9971
+2017/10/22 3:08:56 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:19:28 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:19:31 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 3:19:31 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:19:37 PM (UTILITIES) - DEBUG: Successfully changed information of user with ID: 9971
+2017/10/22 3:19:37 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:20:39 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:20:41 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/22 3:20:44 PM (UTILITIES) - DEBUG: Successfully logged in user with email: gay
+2017/10/22 3:20:44 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:21:07 PM (UTILITIES) - DEBUG: Successfully logged in user with email: gay
+2017/10/22 3:21:07 PM (UTILITIES) - DEBUG: Persisting login for user with email: gay
+2017/10/22 3:21:07 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:21:17 PM (UTILITIES) - DEBUG: Successfully changed password of user with ID: 9971
+2017/10/22 3:21:19 PM (UTILITIES) - DEBUG: Successfully changed information of user with ID: 9971
+2017/10/22 3:21:20 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:22:08 PM (UTILITIES) - ERROR: Failed login attempt with email: gay
+2017/10/22 3:22:10 PM (UTILITIES) - ERROR: Failed login attempt with email: gay
+2017/10/22 3:23:02 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/22 3:23:02 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:23:09 PM (UTILITIES) - DEBUG: Successfully changed information of user with ID: 9971
+2017/10/22 3:23:11 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/22 3:23:16 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 3:23:17 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/22 3:23:17 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/22 3:23:18 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12

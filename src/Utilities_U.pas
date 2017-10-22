@@ -20,9 +20,13 @@ type
     class function registerUser(email, password, firstname, lastname: string;
       userType: Integer; var user: TUser): boolean;
     class function loginUser(email, password: string; var user: TUser; hashed: boolean = false): boolean;
-    class procedure persistLogin(email, password: string);
+    class procedure persistLogin(email, password: string; hashed: boolean);
     class procedure depersistLogin;
     class function getPersistedLogin(var email, password: string): boolean;
+
+    // User
+    class function changePassword(user: TUser; oldPassword, newPassword: string): boolean;
+    class function updateUserInformation(user: TUser; var newUser: TUser): boolean;
 
     // Classroom - Teacher
     class function getTeachingClassrooms(user: TUser): TClassroomArray;
@@ -80,7 +84,6 @@ begin
     result := false;
     Exit;
   end;
-
 
   // 3. Get generated ID
   id := inttostr(getLastID(data_module.qry));
@@ -149,17 +152,20 @@ begin
 
 end;
 
-class procedure Utilities.persistLogin(email, password: string);
+class procedure Utilities.persistLogin(email, password: string; hashed: boolean);
 var
   f: TextFile;
 begin
   TLogger.log(TAG, TLogType.Debug, 'Persisting login for user with email: ' + email);
 
+  if not hashed then
+    password := getMD5Hash(password);
+
   AssignFile(f, persistentLoginDestination);
   try
     Rewrite(f);
     writeLn(f, email);
-    writeLn(f, getMD5Hash(password));
+    writeLn(f, password);
     CloseFile(f);
   except
     on E: Exception do
@@ -197,6 +203,66 @@ begin
   end;
 
   result := true;
+end;
+
+{ User }
+class function Utilities.changePassword(user: TUser; oldPassword,
+  newPassword: string): boolean;
+var
+  qry: TADOQuery;
+begin
+  // Check if old password is correct
+  qry := queryDatabase('SELECT * FROM Users WHERE [ID] = ' + user.getID + ' AND [Password] = ' + QuotedStr(getMD5Hash(oldPassword)), data_module.qry);
+
+  if qry.eof then
+  begin
+    TLogger.log(TAG, TLogType.Debug, 'Failed to change password of user with ID: ' + user.getID);
+    result := false;
+    Exit;
+  end;
+
+  // Update password
+  result := Utilities.modifyDatabase('UPDATE Users SET [Password] = ' + QuotedStr(getMD5Hash(newPassword)) +
+  ' WHERE [ID] = ' + user.getID, data_module.qry);
+
+  if result then
+  begin
+    TLogger.log(TAG, TLogType.Debug, 'Successfully changed password of user with ID: ' + user.getID);
+  end else
+  begin
+    TLogger.log(TAG, TLogType.Debug, 'Failed to change password of user with ID: ' + user.getID);
+  end;
+end;
+
+class function Utilities.updateUserInformation(user: TUser; var newUser: TUser): boolean;
+var
+  table: string;
+begin
+  case user.getType of
+    Student: table := 'Student';
+    Teacher: table := 'Teacher';
+  end;
+  // Update password
+  result := Utilities.modifyDatabase('UPDATE ' + table + ' SET ' +
+  'Email = ' + QuotedStr(newUser.getEmail) + ', ' +
+  'FirstName = ' + QuotedStr(newUser.getFirstName) + ', ' +
+  'LastName = ' + QuotedStr(newUser.getLastName) +
+  ' WHERE [ID] = ' + user.getID, data_module.qry);
+
+  if not (user.getEmail = newUser.getEmail) then
+  begin
+    result := result and
+    Utilities.modifyDatabase('UPDATE Users SET Email = ' + QuotedStr(newUser.getEmail) +
+    ' WHERE [ID] = ' + user.getID, data_module.qry);
+  end;
+
+  if result then
+  begin
+    TLogger.log(TAG, TLogType.Debug, 'Successfully changed information of user with ID: ' + user.getID);
+  end else
+  begin
+    TLogger.log(TAG, TLogType.Debug, 'Failed to change information of user with ID: ' + user.getID);
+  end;
 end;
 
 
