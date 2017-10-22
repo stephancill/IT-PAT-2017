@@ -65,6 +65,12 @@
 			<DCCReference Include="ApplicationDelegate_U.pas">
 				<Form>frmApplicationDelegate</Form>
 			</DCCReference>
+			<DCCReference Include="Edit_User_Profile_U.pas">
+				<Form>frmEditUserProfile</Form>
+			</DCCReference>
+			<DCCReference Include="Student_Home_U.pas">
+				<Form>Form1</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

@@ -1,7 +1,7 @@
-object frmTeacherHome: TfrmTeacherHome
+object frmStudentHome: TfrmStudentHome
   Left = 0
   Top = 0
-  Caption = 'Stephan'#39's Classroom - Teacher Home'
+  Caption = 'Stephan'#39's Classroom - Student Home'
   ClientHeight = 469
   ClientWidth = 779
   Color = clBtnFace
@@ -37,7 +37,7 @@ object frmTeacherHome: TfrmTeacherHome
     Top = 8
     Width = 763
     Height = 41
-    Caption = 'Welcome, $TEACHER'
+    Caption = 'Welcome, $STUDENT'
     TabOrder = 0
     object btnLogout: TButton
       Left = 8
@@ -60,29 +60,38 @@ object frmTeacherHome: TfrmTeacherHome
   end
   object lstClassrooms: TListBox
     Left = 24
-    Top = 84
+    Top = 104
     Width = 210
-    Height = 325
+    Height = 305
     ItemHeight = 13
     TabOrder = 1
     OnClick = lstClassroomsClick
   end
-  object btnDeleteClassroom: TButton
+  object btnLeaveClassroom: TButton
     Left = 24
     Top = 424
     Width = 99
     Height = 25
-    Caption = 'Delete'
+    Caption = 'Leave'
     TabOrder = 2
-    OnClick = btnDeleteClassroomClick
+    OnClick = btnLeaveClassroomClick
   end
-  object btnCreateClassroom: TButton
+  object btnJoinClassroom: TButton
     Left = 135
     Top = 424
     Width = 99
     Height = 25
-    Caption = 'New'
+    Caption = 'Join'
     TabOrder = 3
-    OnClick = btnCreateClassroomClick
+    OnClick = btnJoinClassroomClick
+  end
+  object edtFilterClassrooms: TEdit
+    Left = 24
+    Top = 84
+    Width = 210
+    Height = 21
+    TabOrder = 4
+    TextHint = 'Filter'
+    OnChange = edtFilterClassroomsChange
   end
 end

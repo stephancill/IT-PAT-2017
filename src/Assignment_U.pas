@@ -14,6 +14,7 @@ TAssignment = Class(TObject)
     // Getters
     function getID: string;
     function getTitle: string;
+    function getDescription: string;
     function getDateIssued: string;
 
     constructor Create(id, title, dateIssued, description: string; classroom: TClassroom); overload;
@@ -41,6 +42,11 @@ end;
 function TAssignment.getDateIssued: string;
 begin
   result := self.dateIssued;
+end;
+
+function TAssignment.getDescription: string;
+begin
+  result := self.description;
 end;
 
 function TAssignment.getID: string;

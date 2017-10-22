@@ -35,9 +35,10 @@ type
     const
       TAG: string = 'FORM_AUTHENTICATE';
     var
-      hashed: boolean;
+      hashed: boolean;  // Is the password in the edit hashed or not
   public
     { Public declarations }
+    procedure usePersistentLogin(bool: boolean);
   end;
 
 var
@@ -45,7 +46,8 @@ var
 
 implementation
 
-uses Utilities_U, User_U, Teacher_Home_U, Logger_U, ApplicationDelegate_U;
+uses Utilities_U, User_U, Teacher_Home_U, Logger_U, ApplicationDelegate_U,
+  Student_Home_U;
 
 var
    user: TUser;
@@ -57,9 +59,9 @@ begin
   // TODO: Form validation
   if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user, hashed) then
   begin
-    if chkRememberMe.Checked then
+    if chkRememberMe.Checked or hashed then
     begin
-      Utilities.persistLogin(edtLoginEmail.Text, edtLoginPassword.Text);
+      Utilities.persistLogin(edtLoginEmail.Text, edtLoginPassword.Text, hashed);
     end else
     begin
       Utilities.depersistLogin;
@@ -70,18 +72,33 @@ begin
     
     case user.getType of
       teacher :
-        begin
+      begin
         frmTeacherHome.setUser(user);
         frmTeacherHome.Show;
         self.Hide;
-        end;
-      student : showmessage('student') // TODO: Student screen
+      end;
+      student :
+      begin
+        frmStudentHome.setUser(user);
+        frmStudentHome.Show;
+        self.Hide;
+      end;
     end;
   end else
   begin
+    Utilities.depersistLogin;
     // User not logged in
-    showmessage('Could not find matching username/password');
+    if not hashed then
+    begin
+      showmessage('Could not find matching username/password');
+    end else
+    begin
+      edtLoginPassword.text := '';
+    end;
+
+    hashed := false;
   end;
+
 
 end;
 
@@ -135,6 +152,11 @@ procedure TfrmAuthenticate.lblSwitchClick(Sender: TObject);
 begin
   pnlLogin.Visible := not pnlLogin.Visible;
   pnlRegister.Visible := not pnlRegister.Visible;
+end;
+
+procedure TfrmAuthenticate.usePersistentLogin(bool: boolean);
+begin
+  self.hashed := bool;
 end;
 
 end.

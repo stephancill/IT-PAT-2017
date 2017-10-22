@@ -17,8 +17,6 @@ type
   end;
 implementation
 
-
-
 { TLogger }
 
 class procedure TLogger.log(tag: string; logtype: TLogType; msg: string);
@@ -56,8 +54,6 @@ begin
     end;
   end;
 end;
-
-
 
 class procedure TLogger.logException(tag, func: string; ex: Exception);
 begin
