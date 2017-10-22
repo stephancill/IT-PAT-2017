@@ -42,7 +42,7 @@ var
 
 implementation
 
-uses Utilities_U, Teacher_Home_U;
+uses Utilities_U, Teacher_Home_U, Student_Home_U;
 
 {$R *.dfm}
 
@@ -67,8 +67,12 @@ begin
 
   if Utilities.updateUserInformation(userOld, userNew) then
   begin
+    case userOld.getType of
+      Student: frmStudentHome.setUser(userNew);
+      Teacher: frmTeacherHome.setUser(userNew);
+    end;
+
     showmessage('Information changed successfully');
-    frmTeacherHome.setUser(userNew);
   end else
   begin
     Showmessage('Could not change information. Try again.')

@@ -46,7 +46,8 @@ var
 
 implementation
 
-uses Utilities_U, User_U, Teacher_Home_U, Logger_U, ApplicationDelegate_U;
+uses Utilities_U, User_U, Teacher_Home_U, Logger_U, ApplicationDelegate_U,
+  Student_Home_U;
 
 var
    user: TUser;
@@ -71,12 +72,17 @@ begin
     
     case user.getType of
       teacher :
-        begin
+      begin
         frmTeacherHome.setUser(user);
         frmTeacherHome.Show;
         self.Hide;
-        end;
-      student : showmessage('student') // TODO: Student screen
+      end;
+      student :
+      begin
+        frmStudentHome.setUser(user);
+        frmStudentHome.Show;
+        self.Hide;
+      end;
     end;
   end else
   begin
@@ -89,7 +95,6 @@ begin
     begin
       edtLoginPassword.text := '';
     end;
-
 
     hashed := false;
   end;

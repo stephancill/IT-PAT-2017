@@ -15,6 +15,7 @@ type
     btnLogout: TButton;
     lblClassrooms: TLabel;
     btnEditProfile: TButton;
+    lblInstruction: TLabel;
     procedure btnCreateClassroomClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnDeleteClassroomClick(Sender: TObject);
@@ -106,7 +107,6 @@ end;
 procedure TfrmTeacherHome.createDynamicComponents;
 
 begin
-
   // Tab Controller
   tbClassroom := TTabControl.Create(self);
   with tbClassroom do
@@ -143,6 +143,7 @@ begin
     Top := 42;
   end;
 
+  // Filter inside tab controller
   edtFilter := TEdit.Create(self);
   with edtFilter do
   begin
@@ -228,8 +229,13 @@ begin
   begin
     selectedClassroom := classrooms[lstClassrooms.ItemIndex];
     lblClassroomCode.Caption := 'Classroom Code: ' + selectedClassroom.getID;
+
+    // Make other components visible
     btnNewAssignment.Visible := true;
     tbClassroom.Visible := true;
+    lblInstruction.Visible := false;
+
+    // Update the tab bar
     tbClassroomChange(self);
   end;
 end;
