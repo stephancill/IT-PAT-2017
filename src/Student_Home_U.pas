@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U, Project_Dashboard_U;
 
 type
   TfrmStudentHome = class(TForm)
@@ -22,6 +22,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure killProjectForm(project: TFrmProjectDashboard);
 
     // Top panel
     procedure btnLogoutClick(Sender: TObject);
@@ -65,6 +66,8 @@ type
     selectedAssignment: TAssignment;
     students: TUserArray;
     selectedStudent: TUser;
+
+    projectForms: array of TFrmProjectDashboard;
 
     procedure createDynamicComponents;
   public
@@ -156,8 +159,30 @@ begin
 end;
 
 procedure TfrmStudentHome.btnViewProjectClick(Sender: TObject);
+var
+  frmProject: TfrmProjectDashboard;
+  
 begin
-  showmessage('view project');
+  for frmProject in projectForms do
+  begin
+    if Assigned(frmProject) then
+    begin
+      if (frmProject.getAssignment.getID = selectedAssignment.getID) and (frmProject.getUser.getID = user.getID) then
+      begin
+        frmProject.show;
+        Exit;
+      end;
+    end;
+  end;
+
+  SetLength(projectForms, length(projectForms)+1);  
+  frmProject := TfrmProjectDashboard.Create(nil);
+  try
+    projectForms[length(projectForms)-1] := frmProject;
+    frmProject.load(selectedAssignment, user, self);
+    frmProject.Show;
+  except
+  end;
 end;
 
 procedure TfrmStudentHome.createDynamicComponents;
@@ -357,6 +382,27 @@ begin
   createDynamicComponents;
 end;
 
+procedure TfrmStudentHome.killProjectForm(project: TFrmProjectDashboard);
+var
+  f : TFrmProjectDashboard;
+  i : integer;
+begin
+  for I := 0 to length(projectForms) -1 do
+  begin
+    f := projectForms[i];
+    if assigned(projectForms[i]) then
+    begin
+      if (f.getAssignment.getID = project.getAssignment.getID) and (f.getUser.getID = project.getUser.getID) then
+    begin
+      project.Free;
+      projectForms[i] := nil;
+      break;
+    end;
+    end;
+    
+  end;
+end;
+
 procedure TfrmStudentHome.lstClassroomClick(Sender: TObject);
 var
   a: TAssignment;
@@ -417,7 +463,6 @@ begin
     edtInfoTitle.Text := 'Student';
     edtInfoDescription.Text := selectedStudent.getLastName + ', ' + selectedStudent.getFirstName + #13#13 + 'mailto:' + selectedStudent.getEmail;
     btnInfoPanel.visible := false;
-    //    btnInfoPanel.Caption := 'Remove from Classroom';
   end;
 end;
 
