@@ -69,9 +69,9 @@ object frmTeacherHome: TfrmTeacherHome
   end
   object lstClassrooms: TListBox
     Left = 24
-    Top = 84
+    Top = 104
     Width = 210
-    Height = 325
+    Height = 305
     Anchors = [akLeft, akTop, akBottom]
     ItemHeight = 13
     TabOrder = 1
@@ -96,5 +96,14 @@ object frmTeacherHome: TfrmTeacherHome
     Caption = 'New'
     TabOrder = 3
     OnClick = btnCreateClassroomClick
+  end
+  object edtFilterClassrooms: TEdit
+    Left = 24
+    Top = 84
+    Width = 210
+    Height = 21
+    TabOrder = 4
+    TextHint = 'Filter'
+    OnChange = edtFilterClassroomsChange
   end
 end

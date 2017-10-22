@@ -238,12 +238,15 @@ begin
       then
     begin
       lstClassrooms.Items.Add(c.getName);
-      if c.getID = selectedClassroom.getID then
+      if Assigned(selectedClassroom) then
       begin
-        lstClassrooms.ItemIndex := lstClassrooms.Items.IndexOf(c.getName);
-        // Make other components visible
-        tbClassroom.Visible := true;
-        lblInstruction.Visible := false;
+        if c.getID = selectedClassroom.getID then
+        begin
+          lstClassrooms.ItemIndex := lstClassrooms.Items.IndexOf(c.getName);
+          // Make other components visible
+          tbClassroom.Visible := true;
+          lblInstruction.Visible := false;
+        end;
       end;
     end;
   end;

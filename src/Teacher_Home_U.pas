@@ -16,6 +16,7 @@ type
     lblClassrooms: TLabel;
     btnEditProfile: TButton;
     lblInstruction: TLabel;
+    edtFilterClassrooms: TEdit;
     procedure btnCreateClassroomClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnDeleteClassroomClick(Sender: TObject);
@@ -27,6 +28,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure edtFilterChange(sender: TObject);
     procedure btnEditProfileClick(Sender: TObject);
+    procedure edtFilterClassroomsChange(Sender: TObject);
   private
     { Private declarations }
     const
@@ -206,6 +208,41 @@ begin
         end;
       end;
     end;
+  end;
+end;
+
+procedure TfrmTeacherHome.edtFilterClassroomsChange(Sender: TObject);
+var
+  query: string;
+  c: TClassroom;
+begin
+  query := (Sender as TEdit).Text;
+
+  lstClassrooms.Clear;
+  for c in classrooms do
+  begin
+    if (pos(lowercase(query), lowercase(c.getName)) > 0) or (query = '')
+      then
+    begin
+      lstClassrooms.Items.Add(c.getName);
+      if Assigned(selectedClassroom) then
+      begin
+        if c.getID = selectedClassroom.getID then
+        begin
+          lstClassrooms.ItemIndex := lstClassrooms.Items.IndexOf(c.getName);
+          // Make other components visible
+          tbClassroom.Visible := true;
+          lblInstruction.Visible := false;
+        end;
+      end;
+    end;
+  end;
+
+  if lstClassrooms.Items.Count = 0 then
+  begin
+    // Make other components invisible
+    tbClassroom.Visible := false;
+    lblInstruction.Visible := true;
   end;
 end;
 
