@@ -3,7 +3,7 @@ unit Utilities_U;
 interface
 
 uses DB, ADODB, SysUtils, StrUtils, Math, Dialogs, IdGlobal, IdHash,
-  IdHashMessageDigest, User_U, Classroom_U, Assignment_U;
+  IdHashMessageDigest, User_U, Classroom_U, Assignment_U, Project_U;
 
 type
   Utilities = Class
@@ -44,6 +44,9 @@ type
     class function createAssignment(classroom: TClassroom;
       title, date, description: string; var assignment: TAssignment): boolean;
 
+    // Project
+    class function createProject(directory: string; creator: TUser; assignment: TAssignment; var project: TProject): boolean;
+
     // Misc
     class function userExists(email, password: string): boolean;
     class function getMD5Hash(s: string): string;
@@ -58,82 +61,49 @@ uses Data_Module_U, Logger_U, Forms;
 
 { Utilities }
 
-{ Classroom - Students }
-class function Utilities.joinClassroom(user: TUser; id: string; classroom: TClassroom): boolean;
-var
-  qry: TADOQuery;
+class function Utilities.createProject(directory: string; creator: TUser;
+  assignment: TAssignment; var project: TProject): boolean;
 begin
-  // 1. Check if classroom with specified ID exist
-  qry := Utilities.queryDatabase
-    ('SELECT * FROM Classroom WHERE ID = ' + id, data_module.qry);
+  {
+    1. Create project in Project table
+    2. Create record in Student_Project junction-table
+    3. Create record in Assignment_Project junction-table
+    4. Create TProject object
+    }
 
-  if qry.Eof then
-  begin
-    Showmessage('Classroom with that code does not exist.');
-    TLogger.log(TAG, TLogType.Debug, 'Tried to join a classroom that does not exist');
+  // 1. Create project in Project table
+  if not Utilities.modifyDatabase(
+  Format('INSERT INTO Project ([ID], ClassID, AssignmentID, StudentID, Location) VALUES (%s, %s, %s, %s, %s)',
+    [quotedStr(assignment.getID + '$' + creator.getID), assignment.getclassroom.getID, assignment.getID, creator.getID, quotedStr(directory)]), data_module.qry) then
+    begin
     result := false;
     Exit;
   end;
 
-  // 2. Insert into Student_Classroom junction table
-  if not modifyDatabase(Format('INSERT INTO Student_Classroom (StudentID, ClassroomID) VALUES (%s, %s)', [user.getID, id]), data_module.qry) then
-  begin
-    TLogger.log(TAG, TLogType.Error, 'Failed to INSERT into Student_Classroom');
+  // 2. Create record in Student_Project junction-table
+  if not Utilities.modifyDatabase(
+  Format('INSERT INTO Student_Project (ProjectID, StudentID) VALUES (%s, %s)',
+    [quotedStr(assignment.getID + '$' + creator.getID), creator.getID]), data_module.qry) then
+    begin
     result := false;
     Exit;
   end;
 
-
-  TLogger.log(TAG, TLogType.Debug, 'Student with ID: ' + user.getID + ' joined classroom with ID: ' + id);
-  result := true;
-end;
-
-class function Utilities.leaveClassroom(user: TUser;
-  classroom: TClassroom): boolean;
-begin
-  if not modifyDatabase(Format('DELETE FROM Student_Classroom WHERE StudentID = %s AND ClassroomID = %s', [user.getID, classroom.getID]), data_module.qry) then
+  // 3. Create record in Assignment_Project junction-table
+  if not Utilities.modifyDatabase(
+  Format('INSERT INTO Assignment_Project (ProjectID, ClassroomID, AssignmentID) VALUES (%s, %s, %s)',
+    [quotedStr(assignment.getID + '$' + creator.getID), assignment.getclassroom.getID, assignment.getID]), data_module.qry) then
   begin
-    TLogger.log(TAG, TLogType.Error, 'Failed to delete record from Student_Classroom table');
     result := false;
     Exit;
   end;
+
+  project := TProject.create(assignment.getID + '$' + creator.getID, directory, creator, assignment);
 
   TLogger.log(TAG, TLogType.Debug,
-    'Student with ID: ' + user.getID + ' left classroom with ID: ' + classroom.getID);
-  result := true;
-end;
+    'Created project with ID: ' + project.getID);
 
-class function Utilities.getStudentClassrooms(user: TUser): TClassroomArray;
-var
-  qry, qryAlt: TADOQuery;
-begin
-  qry := Utilities.queryDatabase
-    ('SELECT * FROM Student_Classroom WHERE StudentID = ' + user.getID, data_module.qry);
-
-
-  while not qry.Eof do
-  begin
-    qryAlt := Utilities.queryDatabase
-    ('SELECT * FROM Classroom WHERE [ID] = ' + qry.FieldByName('ClassroomID').AsString, data_module.qryAux);
-
-    if not qryAlt.Eof then
-    begin
-      SetLength(result, length(result) + 1);
-      result[length(result) - 1] := TClassroom.Create
-        (qryAlt.FieldByName('ID').AsString, qryAlt.FieldByName('ClassName').AsString,
-        qryAlt.FieldByName('Teacher').AsString);
-
-    end else
-    begin
-      TLogger.log(TAG, TLogType.Debug, 'Could not find classroom with ID: ' + qry.FieldByName('ClassroomID').AsString);
-    end;
-
-    qry.Next;
-  end;
-
-  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
-      ' classrooms for student with ID: ' + user.getID);
-
+  result := true
 end;
 
 { Authentication }
@@ -415,6 +385,8 @@ begin
   result := true;
 end;
 
+
+
 class function Utilities.deleteClassroom(user: TUser;
   classroom: TClassroom): boolean;
 begin
@@ -459,6 +431,84 @@ begin
 
   TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
       ' students for classroom with ID: ' + classroom.getID);
+
+end;
+
+{ Classroom - Students }
+class function Utilities.joinClassroom(user: TUser; id: string; classroom: TClassroom): boolean;
+var
+  qry: TADOQuery;
+begin
+  // 1. Check if classroom with specified ID exist
+  qry := Utilities.queryDatabase
+    ('SELECT * FROM Classroom WHERE ID = ' + id, data_module.qry);
+
+  if qry.Eof then
+  begin
+    Showmessage('Classroom with that code does not exist.');
+    TLogger.log(TAG, TLogType.Debug, 'Tried to join a classroom that does not exist');
+    result := false;
+    Exit;
+  end;
+
+  // 2. Insert into Student_Classroom junction table
+  if not modifyDatabase(Format('INSERT INTO Student_Classroom (StudentID, ClassroomID) VALUES (%s, %s)', [user.getID, id]), data_module.qry) then
+  begin
+    TLogger.log(TAG, TLogType.Error, 'Failed to INSERT into Student_Classroom');
+    result := false;
+    Exit;
+  end;
+
+
+  TLogger.log(TAG, TLogType.Debug, 'Student with ID: ' + user.getID + ' joined classroom with ID: ' + id);
+  result := true;
+end;
+
+class function Utilities.leaveClassroom(user: TUser;
+  classroom: TClassroom): boolean;
+begin
+  if not modifyDatabase(Format('DELETE FROM Student_Classroom WHERE StudentID = %s AND ClassroomID = %s', [user.getID, classroom.getID]), data_module.qry) then
+  begin
+    TLogger.log(TAG, TLogType.Error, 'Failed to delete record from Student_Classroom table');
+    result := false;
+    Exit;
+  end;
+
+  TLogger.log(TAG, TLogType.Debug,
+    'Student with ID: ' + user.getID + ' left classroom with ID: ' + classroom.getID);
+  result := true;
+end;
+
+class function Utilities.getStudentClassrooms(user: TUser): TClassroomArray;
+var
+  qry, qryAlt: TADOQuery;
+begin
+  qry := Utilities.queryDatabase
+    ('SELECT * FROM Student_Classroom WHERE StudentID = ' + user.getID, data_module.qry);
+
+
+  while not qry.Eof do
+  begin
+    qryAlt := Utilities.queryDatabase
+    ('SELECT * FROM Classroom WHERE [ID] = ' + qry.FieldByName('ClassroomID').AsString, data_module.qryAux);
+
+    if not qryAlt.Eof then
+    begin
+      SetLength(result, length(result) + 1);
+      result[length(result) - 1] := TClassroom.Create
+        (qryAlt.FieldByName('ID').AsString, qryAlt.FieldByName('ClassName').AsString,
+        qryAlt.FieldByName('Teacher').AsString);
+
+    end else
+    begin
+      TLogger.log(TAG, TLogType.Debug, 'Could not find classroom with ID: ' + qry.FieldByName('ClassroomID').AsString);
+    end;
+
+    qry.Next;
+  end;
+
+  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
+      ' classrooms for student with ID: ' + user.getID);
 
 end;
 
@@ -563,7 +613,7 @@ begin
     on E: Exception do
     begin
       Showmessage('Something went wrong... Check logs for more information.');
-      TLogger.logException(TAG, 'modifyDatabase', e);
+      TLogger.logException(TAG, 'modifyDatabase ' + sql, e);
       result := false;
       Exit;
     end;
@@ -585,7 +635,7 @@ begin
     on E: Exception do
     begin
       Showmessage('Something went wrong... Check logs for more information.');
-      TLogger.logException(TAG, 'queryDatabase', e);
+      TLogger.logException(TAG, 'queryDatabase ' + query, e);
       Exit;
     end;
   end;

@@ -14,4 +14,13 @@ object frmProjectDashboard: TfrmProjectDashboard
   OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
+  object btnCreateProject: TButton
+    Left = 296
+    Top = 184
+    Width = 115
+    Height = 25
+    Caption = 'Create Project'
+    TabOrder = 0
+    OnClick = btnCreateProjectClick
+  end
 end

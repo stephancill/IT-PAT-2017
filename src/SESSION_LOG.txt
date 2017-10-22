@@ -1070,3 +1070,69 @@
 2017/10/22 11:36:22 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
 2017/10/22 11:36:22 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
 2017/10/22 11:36:23 PM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:36:20 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:36:20 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:36:20 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:36:21 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:36:59 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:36:59 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:36:59 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:37:00 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:39:05 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:39:05 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:39:05 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:39:06 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:40:17 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:40:17 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:40:17 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:40:30 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:40:30 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:40:30 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:40:31 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:40:48 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:40:48 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:40:48 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:40:50 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:41:52 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:41:52 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:41:52 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:41:53 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:42:05 AM (UTILITIES) - ERROR: @modifyDatabase Exception class name = EOleExceptionException message = The changes you requested to the table were not successful because they would create duplicate values in the index, primary key, or relationship.  Change the data in the field or fields that contain duplicate data, remove the index, or redefine the index to permit duplicate entries and try again
+2017/10/23 12:42:54 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:42:54 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:42:54 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:42:55 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:43:39 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:43:39 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:43:39 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:43:40 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:44:16 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:44:16 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:44:16 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:44:19 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:45:16 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:45:16 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:45:16 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:45:17 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:48:24 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:48:24 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:48:24 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:48:25 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:48:35 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:48:35 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:48:35 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:48:36 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:49:16 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:49:16 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:49:16 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:49:18 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:49:23 AM (UTILITIES) - ERROR: @modifyDatabase INSERT INTO Assignment_Project (ProjectID, ClassroomID) VALUES ('1$9976', 12) Exception class name = EOleExceptionException message = You cannot add or change a record because a related record is required in table 'Assignment'
+2017/10/23 12:51:03 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:51:03 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:51:03 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:51:05 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:52:10 AM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@
+2017/10/23 12:52:10 AM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@
+2017/10/23 12:52:10 AM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/23 12:52:11 AM (UTILITIES) - DEBUG: Got 5 assignments for classroom with ID: 12
+2017/10/23 12:52:14 AM (UTILITIES) - DEBUG: Created project with ID: 4$9976
