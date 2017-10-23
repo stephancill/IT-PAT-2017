@@ -2,8 +2,8 @@ object frmStudentHome: TfrmStudentHome
   Left = 0
   Top = 0
   Caption = 'Stephan'#39's Classroom - Student Home'
-  ClientHeight = 469
-  ClientWidth = 779
+  ClientHeight = 462
+  ClientWidth = 777
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,6 +14,9 @@ object frmStudentHome: TfrmStudentHome
   OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
+  DesignSize = (
+    777
+    462)
   PixelsPerInch = 96
   TextHeight = 13
   object lblClassrooms: TLabel
@@ -30,6 +33,7 @@ object frmStudentHome: TfrmStudentHome
     Width = 136
     Height = 13
     Alignment = taCenter
+    Anchors = [akLeft, akTop, akRight, akBottom]
     Caption = 'Select a Classroom to begin.'
   end
   object pnlHeader: TPanel
@@ -37,8 +41,12 @@ object frmStudentHome: TfrmStudentHome
     Top = 8
     Width = 763
     Height = 41
+    Anchors = [akLeft, akTop, akRight]
     Caption = 'Welcome, $STUDENT'
     TabOrder = 0
+    DesignSize = (
+      763
+      41)
     object btnLogout: TButton
       Left = 8
       Top = 9
@@ -53,6 +61,7 @@ object frmStudentHome: TfrmStudentHome
       Top = 9
       Width = 75
       Height = 25
+      Anchors = [akTop, akRight]
       Caption = 'Edit Profile'
       TabOrder = 1
       OnClick = btnEditProfileClick
@@ -63,6 +72,7 @@ object frmStudentHome: TfrmStudentHome
     Top = 104
     Width = 210
     Height = 305
+    Anchors = [akLeft, akTop, akBottom]
     ItemHeight = 13
     TabOrder = 1
     OnClick = lstClassroomsClick
@@ -72,6 +82,7 @@ object frmStudentHome: TfrmStudentHome
     Top = 424
     Width = 99
     Height = 25
+    Anchors = [akLeft, akBottom]
     Caption = 'Leave'
     TabOrder = 2
     OnClick = btnLeaveClassroomClick
@@ -81,6 +92,7 @@ object frmStudentHome: TfrmStudentHome
     Top = 424
     Width = 99
     Height = 25
+    Anchors = [akLeft, akBottom]
     Caption = 'Join'
     TabOrder = 3
     OnClick = btnJoinClassroomClick

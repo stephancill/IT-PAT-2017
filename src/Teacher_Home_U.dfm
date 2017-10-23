@@ -3,7 +3,7 @@ object frmTeacherHome: TfrmTeacherHome
   Top = 0
   Caption = 'Stephan'#39's Classroom - Teacher Home'
   ClientHeight = 469
-  ClientWidth = 779
+  ClientWidth = 1130
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,6 +14,9 @@ object frmTeacherHome: TfrmTeacherHome
   OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
+  DesignSize = (
+    1130
+    469)
   PixelsPerInch = 96
   TextHeight = 13
   object lblClassrooms: TLabel
@@ -30,15 +33,20 @@ object frmTeacherHome: TfrmTeacherHome
     Width = 136
     Height = 13
     Alignment = taCenter
+    Anchors = [akLeft, akTop, akRight, akBottom]
     Caption = 'Select a Classroom to begin.'
   end
   object pnlHeader: TPanel
     Left = 8
     Top = 8
-    Width = 763
+    Width = 1114
     Height = 41
+    Anchors = [akLeft, akTop, akRight]
     Caption = 'Welcome, $TEACHER'
     TabOrder = 0
+    DesignSize = (
+      1114
+      41)
     object btnLogout: TButton
       Left = 8
       Top = 9
@@ -49,20 +57,23 @@ object frmTeacherHome: TfrmTeacherHome
       OnClick = btnLogoutClick
     end
     object btnEditProfile: TButton
-      Left = 680
+      Left = 1031
       Top = 9
       Width = 75
       Height = 25
+      Anchors = [akTop, akRight]
       Caption = 'Edit Profile'
       TabOrder = 1
       OnClick = btnEditProfileClick
+      ExplicitLeft = 680
     end
   end
   object lstClassrooms: TListBox
     Left = 24
-    Top = 84
+    Top = 104
     Width = 210
-    Height = 325
+    Height = 305
+    Anchors = [akLeft, akTop, akBottom]
     ItemHeight = 13
     TabOrder = 1
     OnClick = lstClassroomsClick
@@ -72,6 +83,7 @@ object frmTeacherHome: TfrmTeacherHome
     Top = 424
     Width = 99
     Height = 25
+    Anchors = [akLeft, akBottom]
     Caption = 'Delete'
     TabOrder = 2
     OnClick = btnDeleteClassroomClick
@@ -81,8 +93,18 @@ object frmTeacherHome: TfrmTeacherHome
     Top = 424
     Width = 99
     Height = 25
+    Anchors = [akLeft, akBottom]
     Caption = 'New'
     TabOrder = 3
     OnClick = btnCreateClassroomClick
+  end
+  object edtFilterClassrooms: TEdit
+    Left = 24
+    Top = 84
+    Width = 210
+    Height = 21
+    TabOrder = 4
+    TextHint = 'Filter'
+    OnChange = edtFilterClassroomsChange
   end
 end

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Utilities_U, Classroom_U, ComCtrls, DateUtils, Assignment_U;
+  Dialogs, StdCtrls, Utilities_U, Classroom_U, ComCtrls, DateUtils, Assignment_U, Teacher_Home_U;
 
 type
   TfrmCreateAssignment = class(TForm)
@@ -13,22 +13,20 @@ type
     btnCreate: TButton;
     Label1: TLabel;
     Label2: TLabel;
-    procedure FormActivate(Sender: TObject);
     procedure btnCreateClick(Sender: TObject);
   private
     { Private declarations }
     classroom: TClassroom;
+    sender: TfrmTeacherHome;
   public
     { Public declarations }
-    procedure setClassroom(classroom: TClassroom);
+    procedure load(classroom: TClassroom; sender: TfrmTeacherHome);
   end;
 
 var
   frmCreateAssignment: TfrmCreateAssignment;
 
 implementation
-
-uses Teacher_Home_U;
 
 {$R *.dfm}
 
@@ -39,20 +37,18 @@ var
   assignment: TAssignment;
 begin
   Utilities.createAssignment(self.classroom, edtTitle.Text, datetostr(DateUtils.Today), edtDescription.Text, assignment);
-  frmTeacherHome.setSelectedAssignment(assignment);
-  self.Hide;
-  frmTeacherHome.refreshTabController;
-  frmTeacherHome.Show;
+  self.sender.setSelectedAssignment(assignment);
+  self.sender.refreshTabController;
+  self.CloseModal;
 end;
 
-procedure TfrmCreateAssignment.FormActivate(Sender: TObject);
-begin
-  self.Caption := 'Create Assignment - ' + self.classroom.getName;
-end;
 
-procedure TfrmCreateAssignment.setClassroom(classroom: TClassroom);
+procedure TfrmCreateAssignment.load(classroom: TClassroom;
+  sender: TfrmTeacherHome);
 begin
   self.classroom := classroom;
+  self.sender := sender;
+  self.Caption := 'Create Assignment - ' + self.classroom.getName;
 end;
 
 end.

@@ -31,10 +31,10 @@ type
     { Private declarations }
     userOld: TUser;
     userNew: TUser;
-
+    sender: Tform;
   public
     { Public declarations }
-    procedure setUser(user: TUser);
+    procedure load(user: TUser; sender: Tform);
   end;
 
 var
@@ -68,8 +68,8 @@ begin
   if Utilities.updateUserInformation(userOld, userNew) then
   begin
     case userOld.getType of
-      Student: frmStudentHome.setUser(userNew);
-      Teacher: frmTeacherHome.setUser(userNew);
+      Student: (self.sender as TfrmStudentHome).setUser(userNew);
+      Teacher: (self.sender as TfrmTeacherHome).setUser(userNew);
     end;
 
     showmessage('Information changed successfully');
@@ -111,11 +111,12 @@ begin
   end;
 end;
 
-procedure TfrmEditUserProfile.setUser(user: TUser);
+procedure TfrmEditUserProfile.load(user: TUser; sender: TForm);
 begin
   self.userOld := user;
   edtEmail.Text := user.getEmail;
   edtFirstName.Text := user.getFirstName;
+  self.sender := sender;
   edtLastName.Text := user.getLastName;
 end;
 
