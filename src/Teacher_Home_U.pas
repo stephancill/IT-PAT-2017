@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U, Project_Dashboard_U;
 
 type
   TfrmTeacherHome = class(TForm)
@@ -17,18 +17,33 @@ type
     btnEditProfile: TButton;
     lblInstruction: TLabel;
     edtFilterClassrooms: TEdit;
-    procedure btnCreateClassroomClick(Sender: TObject);
+
+    // Form
     procedure FormActivate(Sender: TObject);
-    procedure btnDeleteClassroomClick(Sender: TObject);
-    procedure btnLogoutClick(Sender: TObject);
-    procedure lstClassroomsClick(Sender: TObject);
-    procedure tbClassroomChange(Sender: TObject);
-    procedure btnNewAssignmentClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure edtFilterChange(sender: TObject);
+    procedure killProjectForm(project: TFrmProjectDashboard);
+
+    // Top panel
+    procedure btnLogoutClick(Sender: TObject);
     procedure btnEditProfileClick(Sender: TObject);
+
+    // Left panel
+    procedure btnCreateClassroomClick(Sender: TObject);
+    procedure btnDeleteClassroomClick(Sender: TObject);
+    procedure lstClassroomsClick(Sender: TObject);
     procedure edtFilterClassroomsChange(Sender: TObject);
+
+    // Middle panel
+    procedure tbClassroomChange(Sender: TObject);
+    procedure edtFilterChange(sender: TObject);
+    procedure lstClassroomClick(Sender: TObject);
+    procedure btnNewAssignmentClick(Sender: TObject);
+
+    // Right Panel
+    procedure btnViewProjectClick(Sender: TObject);
+    procedure btnRemoveFromClassroomClick(Sender: TObject);
+
   private
     { Private declarations }
     const
@@ -40,6 +55,10 @@ type
       edtFilter: TEdit;
       lblClassroomCode: TLabel;
       btnNewAssignment: TButton;
+      pnlInfo: TPanel;
+      edtInfoTitle: TEdit;
+      edtInfoDescription: TRichEdit;
+      btnInfoPanel: TButton;
 
       user: TUser;
       classrooms: TClassroomArray;
@@ -49,6 +68,7 @@ type
       students: TUserArray;
       selectedStudent: TUser;
 
+      projectForms: array of TFrmProjectDashboard;
     procedure createDynamicComponents;
   public
     { Public declarations }
@@ -106,6 +126,39 @@ begin
   frmCreateAssignment.show;
 end;
 
+procedure TfrmTeacherHome.btnRemoveFromClassroomClick(Sender: TObject);
+begin
+  showmessage('remove from classroom');
+end;
+
+procedure TfrmTeacherHome.btnViewProjectClick(Sender: TObject);
+var
+  frmProject: TfrmProjectDashboard;
+
+begin
+  for frmProject in projectForms do
+  begin
+    if Assigned(frmProject) then
+    begin
+      if (frmProject.getAssignment.getID = selectedAssignment.getID) and (frmProject.getUser.getID = user.getID) then
+      begin
+        frmProject.show;
+        Exit;
+      end;
+    end;
+  end;
+
+  SetLength(projectForms, length(projectForms)+1);
+  frmProject := TfrmProjectDashboard.Create(self);
+  try
+    projectForms[length(projectForms)-1] := frmProject;
+    frmProject.load(selectedAssignment, user, self);
+    frmProject.Show;
+  except
+  end;
+
+end;
+
 procedure TfrmTeacherHome.createDynamicComponents;
 
 begin
@@ -145,6 +198,7 @@ begin
     Left := 0;
     Top := 42;
     Anchors := [akLeft,akTop,akBottom];
+    OnClick := lstClassroomClick;
   end;
 
   // Filter inside tab controller
@@ -174,6 +228,55 @@ begin
     Visible := false;
     OnClick := btnNewAssignmentClick;
     Anchors := [akLeft,akBottom];
+  end;
+
+  // Panel
+  pnlInfo := TPanel.Create(self);
+  with pnlInfo do
+  begin
+    Parent := self;
+    Top := tbClassroom.Top;
+    Left := tbClassroom.Left + tbClassroom.Width + 50;
+    Width := self.Width - pnlInfo.Left - 50;
+    Height := tbClassroom.Height;
+    Anchors := [akLeft, akRight, akTop, akBottom];
+    Visible := false
+  end;
+
+  // Panel title
+  edtInfoTitle := TEdit.Create(self);
+  with edtInfoTitle do
+  begin
+    Parent := pnlInfo;
+    Left := 10;
+    Top := 10;
+    Width := pnlInfo.Width - 20;
+    ReadOnly := true;
+    Anchors := [akLeft, akRight, akTop];
+  end;
+
+  // Panel description
+  edtInfoDescription := TRichEdit.Create(self);
+  with edtInfoDescription do
+  begin
+    Parent := pnlInfo;
+    Left := 10;
+    Top := edtInfoTitle.Top + edtInfoTitle.Height + 10;
+    Width := edtInfoTitle.width;
+    Height := 100;
+    ReadOnly := true;
+    Anchors := [akLeft, akRight, akTop];
+  end;
+
+  // Panel button
+  btnInfoPanel := TButton.Create(self);
+  with btnInfoPanel do
+  begin
+    Parent := pnlInfo;
+    Left := 10;
+    Top := edtInfoDescription.Top + edtInfoDescription.Height + 10;
+    Width := edtInfoTitle.width;
+    OnClick := btnViewProjectClick;
   end;
 
 end;
@@ -264,17 +367,108 @@ begin
   createDynamicComponents;
 end;
 
+procedure TfrmTeacherHome.killProjectForm(project: TFrmProjectDashboard);
+var
+  f : TFrmProjectDashboard;
+  i : integer;
+begin
+  for I := 0 to length(projectForms) -1 do
+  begin
+    f := projectForms[i];
+    if assigned(projectForms[i]) then
+    begin
+      if (f.getAssignment.getID = project.getAssignment.getID) and (f.getUser.getID = project.getUser.getID) then
+    begin
+      project.Free;
+      projectForms[i] := nil;
+      break;
+    end;
+    end;
+
+  end;
+end;
+
+procedure TfrmTeacherHome.lstClassroomClick(Sender: TObject);
+var
+  a: TAssignment;
+  s: TUser;
+  query: string;
+begin
+  if lstClassroom.ItemIndex = -1 then
+  begin
+    Exit;
+  end;
+
+  if tbClassroom.TabIndex = 0 then
+  begin
+    // Find the assignment in case filter is applied
+    if edtFilter.Text <> '' then
+    begin
+      for a in assignments do
+      begin
+        if (pos(lowercase(query), lowercase(a.getTitle)) > 0) or (query = '')
+          then
+        begin
+          selectedAssignment := a;
+          Break;
+        end;
+      end;
+    end else
+    begin
+      selectedAssignment := assignments[lstClassroom.itemIndex];
+    end;
+
+    // Prepare panel
+    pnlInfo.Visible := true;
+    edtInfoTitle.Text := selectedAssignment.getTitle;
+    edtInfoDescription.Text := 'Date issued: ' + selectedAssignment.getDateIssued + #13#13 + selectedAssignment.getDescription;
+    btnInfoPanel.visible := true;
+    btnInfoPanel.Caption := 'View Project';
+  end else
+  begin
+  // Find the assignment in case filter is applied
+    if edtFilter.Text <> '' then
+    begin
+      for s in students do
+      begin
+        if (pos(lowercase(query), lowercase(a.getTitle)) > 0) or (query = '')
+          then
+        begin
+          selectedStudent := s;
+          Break;
+        end;
+      end;
+    end else
+    begin
+      selectedStudent := students[lstClassroom.itemIndex];
+    end;
+
+    // Prepare panel
+    pnlInfo.Visible := true;
+    edtInfoTitle.Text := 'Student';
+    edtInfoDescription.Text := selectedStudent.getLastName + ', ' + selectedStudent.getFirstName + #13#13 + 'mailto:' + selectedStudent.getEmail;
+    btnInfoPanel.visible := false;
+  end;
+
+end;
+
 procedure TfrmTeacherHome.lstClassroomsClick(Sender: TObject);
 begin
   if lstClassrooms.ItemIndex > -1 then
   begin
+    // Avoid unnecessarily updating
+    if Assigned(selectedClassroom) then
+    begin
+      if selectedClassroom.getID = classrooms[lstClassrooms.ItemIndex].getID then
+      Exit;
+    end;
+
     selectedClassroom := classrooms[lstClassrooms.ItemIndex];
-    lblClassroomCode.Caption := 'Classroom Code: ' + selectedClassroom.getID;
 
     // Make other components visible
-    btnNewAssignment.Visible := true;
     tbClassroom.Visible := true;
     lblInstruction.Visible := false;
+    pnlInfo.Visible := false;
 
     // Update the tab bar
     tbClassroomChange(self);
@@ -314,25 +508,26 @@ var
   s: TUser;
 begin
   lstClassroom.Clear;
+  pnlInfo.visible := false;
   case tbClassroom.TabIndex of
     0: // Assignments
-    begin
-      if Assigned(selectedClassroom) then
       begin
-        assignments := Utilities.getAssignments(self.selectedClassroom);
-        for a in assignments do
-          lstClassroom.Items.Add(a.getTitle);
+        if Assigned(selectedClassroom) then
+        begin
+          assignments := Utilities.getAssignments(self.selectedClassroom);
+          for a in assignments do
+            lstClassroom.Items.Add(a.getTitle);
+        end;
       end;
-    end;
     1: // Students
-    begin
-      if Assigned(selectedClassroom) then
       begin
-        students := Utilities.getStudents(self.selectedClassroom);
-        for s in students do
-          lstClassroom.Items.Add(s.getLastName + ', ' + s.getFirstName);
+        if Assigned(selectedClassroom) then
+        begin
+          students := Utilities.getStudents(self.selectedClassroom);
+          for s in students do
+            lstClassroom.Items.Add(s.getLastName + ', ' + s.getFirstName);
+        end;
       end;
-    end;
   end;
 end;
 

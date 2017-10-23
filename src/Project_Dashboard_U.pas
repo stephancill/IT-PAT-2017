@@ -13,10 +13,13 @@ type
     procedure btnCreateProjectClick(Sender: TObject);
   private
     { Private declarations }
-    assignment: TAssignment;
-    user: TUser;
-    sender: TForm;
-    project: TProject;
+    const
+      TAG: string = 'PROJECT_DASHBOARD';
+    var
+      assignment: TAssignment;
+      user: TUser;
+      sender: TForm;
+      project: TProject;
     function stripText(raw: string): string;
   public
     procedure load(assignment: TAssignment; user: TUser; sender: TForm);
@@ -29,7 +32,7 @@ var
 
 implementation
 
-uses Student_Home_U, Teacher_Home_U, Utilities_U;
+uses Student_Home_U, Teacher_Home_U, Utilities_U, Logger_U;
 
 
 {$R *.dfm}
@@ -55,7 +58,7 @@ begin
   try
     (self.sender as TFrmStudentHome).killProjectForm(self);
   except
-//    (self.sender as TFrmTeacherHome).killProjectForm(self);
+    (self.sender as TFrmTeacherHome).killProjectForm(self);
   end;
 end;
 
@@ -75,6 +78,8 @@ begin
   self.user := user;
   self.sender := sender;
   self.Caption := 'Project Dashboard - ' + assignment.getTitle;
+
+  TLogger.log(TAG, TLogType.Debug, 'Viewed project of student ID ' + user.getID + ' for assignment with ID: ' + assignment.getID);
 end;
 
 function TfrmProjectDashboard.stripText(raw: string): string;

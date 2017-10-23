@@ -14,7 +14,8 @@ uses
   ApplicationDelegate_U in 'ApplicationDelegate_U.pas' {frmApplicationDelegate},
   Edit_User_Profile_U in 'Edit_User_Profile_U.pas' {frmEditUserProfile},
   Student_Home_U in 'Student_Home_U.pas' {Form1},
-  Project_Dashboard_U in 'Project_Dashboard_U.pas' {frmProjectDashboard};
+  Project_Dashboard_U in 'Project_Dashboard_U.pas' {frmProjectDashboard},
+  Project_U in 'Project_U.pas';
 
 {$R *.res}
 

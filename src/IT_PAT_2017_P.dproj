@@ -74,6 +74,7 @@
 			<DCCReference Include="Project_Dashboard_U.pas">
 				<Form>frmProjectDashboard</Form>
 			</DCCReference>
+			<DCCReference Include="Project_U.pas"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>
