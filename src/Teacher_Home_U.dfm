@@ -65,7 +65,6 @@ object frmTeacherHome: TfrmTeacherHome
       Caption = 'Edit Profile'
       TabOrder = 1
       OnClick = btnEditProfileClick
-      ExplicitLeft = 680
     end
   end
   object lstClassrooms: TListBox

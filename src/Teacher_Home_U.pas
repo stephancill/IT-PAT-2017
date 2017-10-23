@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U, Project_Dashboard_U;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U, Project_Dashboard_U, Project_U;
 
 type
   TfrmTeacherHome = class(TForm)
@@ -23,6 +23,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure killProjectForm(project: TFrmProjectDashboard);
+    procedure createDynamicComponents;
 
     // Top panel
     procedure btnLogoutClick(Sender: TObject);
@@ -43,9 +44,6 @@ type
     // Right Panel
     procedure btnViewProjectClick(Sender: TObject);
     procedure btnRemoveFromClassroomClick(Sender: TObject);
-
-    // Project list
-
 
   private
     { Private declarations }
@@ -72,16 +70,20 @@ type
       selectedAssignment: TAssignment;
       students: TUserArray;
       selectedStudent: TUser;
+      projects: TProjectArray;
+      selectedProject: TProject;
 
       projectForms: array of TFrmProjectDashboard;
 
-    procedure createDynamicComponents;
+
   public
     { Public declarations }
     procedure setUser(user: TUser);
     procedure setSelectedAssignment(assignment: TAssignment);
     procedure refreshClassrooms;
     procedure refreshTabController;
+    procedure studentSelected;
+    procedure assignmentSelected;
   end;
 
 var
@@ -95,6 +97,26 @@ uses Utilities_U, Authenticate_U, Create_Assignment_U, Logger_U,
 {$R *.dfm}
 
 { TfrmTeacherHome }
+
+procedure TfrmTeacherHome.assignmentSelected;
+var
+  p: TProject;
+begin
+  // Prepare panel
+  pnlInfo.Visible := true;
+  edtInfoTitle.Text := selectedAssignment.getTitle;
+  edtInfoDescription.Text := 'Date issued: ' + selectedAssignment.getDateIssued + #13#13 + selectedAssignment.getDescription;
+
+  if not Utilities.getProjects(selectedAssignment, projects) then
+    Exit;
+
+  for p in projects do
+  begin
+    lstProjects.Items.Add(p.getID);
+  end;
+
+
+end;
 
 procedure TfrmTeacherHome.btnCreateClassroomClick(Sender: TObject);
 var
@@ -476,14 +498,8 @@ begin
     begin
       selectedAssignment := assignments[lstClassroom.itemIndex];
     end;
-
-    // Prepare panel
-    pnlInfo.Visible := true;
-    edtInfoTitle.Text := selectedAssignment.getTitle;
-    edtInfoDescription.Text := 'Date issued: ' + selectedAssignment.getDateIssued + #13#13 + selectedAssignment.getDescription;
-//    btnInfoPanel.visible := true;
-//    btnInfoPanel.onClick := btnViewProjectClick;
-//    btnInfoPanel.Caption := 'View Project';
+    // Prompt update
+    assignmentSelected;
   end else
   begin
   // Find the student in case filter is applied
@@ -503,13 +519,7 @@ begin
       selectedStudent := students[lstClassroom.itemIndex];
     end;
 
-    // Prepare panel
-    pnlInfo.Visible := true;
-    edtInfoTitle.Text := 'Student';
-    edtInfoDescription.Text := selectedStudent.getLastName + ', ' + selectedStudent.getFirstName + #13#13 + 'mailto:' + selectedStudent.getEmail;
-    btnInfoPanel.caption := 'Remove Student';
-    btnInfoPanel.onClick :=  btnRemoveFromClassroomClick;
-    btnInfoPanel.visible := true;
+    studentSelected;
   end;
 
 end;
@@ -565,6 +575,17 @@ begin
   // Refresh UI
   pnlHeader.Caption := 'Welcome ' + user.getFirstName;
   refreshClassrooms;
+end;
+
+procedure TfrmTeacherHome.studentSelected;
+begin
+  // Prepare panel
+  pnlInfo.Visible := true;
+  edtInfoTitle.Text := 'Student';
+  edtInfoDescription.Text := selectedStudent.getLastName + ', ' + selectedStudent.getFirstName + #13#13 + 'mailto:' + selectedStudent.getEmail;
+  btnInfoPanel.caption := 'Remove Student';
+  btnInfoPanel.onClick :=  btnRemoveFromClassroomClick;
+  btnInfoPanel.visible := true;
 end;
 
 procedure TfrmTeacherHome.tbClassroomChange(Sender: TObject);

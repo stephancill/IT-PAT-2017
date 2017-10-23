@@ -46,14 +46,23 @@ var
   dir: string;
 begin
   dir := Format('Projects\%s\%s\%s', [assignment.getClassroom.getTeacherID, stripText(assignment.getClassroom.getName), striptext(user.getLastname + user.getFirstName)]);
-
+  showmessage(GetCurrentDir);
   if not DirectoryExists(dir) then
   begin
-    Utilities.createProject(dir, user, assignment, project);
-    if ForceDirectories(dir) then
-    begin
-      showmessage(GetCurrentDir);
+    try
+      if ForceDirectories(dir) then
+      begin
+        Utilities.createProject(dir, user, assignment, project);
+        showmessage(GetCurrentDir);
+      end;
+    except
+      on E: Exception do
+      begin
+        TLogger.logException(TAG, 'btnCreateProjectClick', e);
+      end;
     end;
+
+
 
   end else
   begin

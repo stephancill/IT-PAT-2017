@@ -47,6 +47,7 @@ type
 
     // Project
     class function createProject(directory: string; creator: TUser; assignment: TAssignment; var project: TProject): boolean;
+    class function getProjects(assignment: TAssignment; var projects: TProjectArray): boolean;
 
     // Misc
     class function userExists(email, password: string): boolean;
@@ -122,6 +123,62 @@ begin
     'Created project with ID: ' + project.getID);
 
   result := true
+end;
+
+class function Utilities.getProjects(assignment: TAssignment;
+  var projects: TProjectArray): boolean;
+var
+  qry: TADOQuery;
+  qryAlt: TADOQuery;
+  student: TUser;
+  projectid, studentid, directory: string;
+begin
+
+  qry := Utilities.queryDatabase(
+    Format(
+      'SELECT * FROM Assignment_Project WHERE ClassroomID = %s AND AssignmentID = %s',
+      [assignment.getClassroom.getID, assignment.getID]),
+    data_module.qry);
+
+  while not qry.Eof do
+  begin
+    // Get project record from Project table
+    if not Utilities.getEntityByID('Project', quotedStr(qry.FieldByName('ProjectID').AsString), qryAlt) then
+    begin
+      result := false;
+      TLogger.log(TAG, Error, 'Could not find project with ID: ' + qry.FieldByName('ProjectID').AsString);
+      Exit;
+    end;
+
+    projectid := qry.FieldByName('ProjectID').AsString;
+    directory := qryAlt.FieldByName('Location').AsString;
+
+    // Get student from Student table
+    studentid := qryAlt.FieldByName('StudentID').AsString;
+    if not Utilities.getEntityByID('Student', studentid, qryAlt) then
+    begin
+      result := false;
+      TLogger.log(TAG, Error, 'Could not find student with ID: ' + studentid);
+      Exit;
+    end;
+
+    student := TUser.Create
+      (qryAlt.FieldByName('ID').AsString,
+      qryAlt.FieldByName('Email').AsString,
+      qryAlt.FieldByName('Firstname').AsString,
+      qryAlt.FieldByName('Lastname').AsString, TUserType.Student);
+
+    // Create and return
+    SetLength(projects, length(projects) + 1);
+    projects[length(projects)-1] := TProject.Create(projectid, directory, student, assignment);
+
+    qry.Next;
+  end;
+
+  result := true;
+  TLogger.log(TAG, Debug, 'Got ' + inttostr(length(projects)) +
+      ' students for assignment with ID: ' + assignment.getID);
+
 end;
 
 { Authentication }
@@ -281,6 +338,8 @@ begin
 
   result := true;
 end;
+
+
 
 { User }
 class function Utilities.changePassword(user: TUser; oldPassword,

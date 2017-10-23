@@ -22,6 +22,7 @@ type
     function getFirstName: string;
     function getLastName: string;
     function getType: TUserType;
+    function getFullName: string;
 
     constructor Create(id, email, firstname, lastname: string;
       userType: TUserType); overload;
@@ -51,6 +52,11 @@ end;
 function TUser.getFirstName: string;
 begin
   result := self.firstname;
+end;
+
+function TUser.getFullName: string;
+begin
+  result := self.firstname + ', ' + self.lastname;
 end;
 
 function TUser.getID: string;
