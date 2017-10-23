@@ -3,7 +3,7 @@ object frmTeacherHome: TfrmTeacherHome
   Top = 0
   Caption = 'Stephan'#39's Classroom - Teacher Home'
   ClientHeight = 469
-  ClientWidth = 779
+  ClientWidth = 1130
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,7 +15,7 @@ object frmTeacherHome: TfrmTeacherHome
   OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
-    779
+    1130
     469)
   PixelsPerInch = 96
   TextHeight = 13
@@ -39,13 +39,13 @@ object frmTeacherHome: TfrmTeacherHome
   object pnlHeader: TPanel
     Left = 8
     Top = 8
-    Width = 763
+    Width = 1114
     Height = 41
     Anchors = [akLeft, akTop, akRight]
     Caption = 'Welcome, $TEACHER'
     TabOrder = 0
     DesignSize = (
-      763
+      1114
       41)
     object btnLogout: TButton
       Left = 8
@@ -57,7 +57,7 @@ object frmTeacherHome: TfrmTeacherHome
       OnClick = btnLogoutClick
     end
     object btnEditProfile: TButton
-      Left = 680
+      Left = 1031
       Top = 9
       Width = 75
       Height = 25
@@ -65,6 +65,7 @@ object frmTeacherHome: TfrmTeacherHome
       Caption = 'Edit Profile'
       TabOrder = 1
       OnClick = btnEditProfileClick
+      ExplicitLeft = 680
     end
   end
   object lstClassrooms: TListBox

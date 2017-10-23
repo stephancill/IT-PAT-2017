@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Assignment_U, User_U, Classroom_U, StdCtrls, Project_U;
+  Dialogs, Assignment_U, User_U, Classroom_U, StdCtrls, Project_U, ShellAPI;
 
 type
   TfrmProjectDashboard = class(TForm)
@@ -21,8 +21,10 @@ type
       sender: TForm;
       project: TProject;
     function stripText(raw: string): string;
+    procedure SelectFileInExplorer(const Fn: string);
   public
-    procedure load(assignment: TAssignment; user: TUser; sender: TForm);
+    procedure load(assignment: TAssignment; user: TUser; sender: TForm); overload;
+    procedure load(project: TProject; user: TUser; sender: TForm); overload;
     function getAssignment: TAssignment;
     function getUser: TUser;
   end;
@@ -48,7 +50,16 @@ begin
   if not DirectoryExists(dir) then
   begin
     Utilities.createProject(dir, user, assignment, project);
+    if ForceDirectories(dir) then
+    begin
+      showmessage(GetCurrentDir);
+    end;
+
+  end else
+  begin
+    showmessage('project exists');
   end;
+
 
 end;
 
@@ -70,6 +81,24 @@ end;
 function TfrmProjectDashboard.getUser: TUser;
 begin
   result := self.user;
+end;
+
+procedure TfrmProjectDashboard.load(project: TProject; user: TUser; sender: TForm);
+begin
+  self.assignment := project.getAssignment;
+  self.user := user;
+  self.project := project;
+  self.sender := sender;
+  self.Caption := 'Viewing Project - ' + project.getAssignment.getTitle + ' by ' + project.getCreator.getFirstName + ' ' + project.getCreator.getLastName;
+
+  TLogger.log(TAG, TLogType.Debug, 'Viewed project of student ID ' + user.getID + ' for assignment with ID: ' + assignment.getID);
+end;
+
+// https://stackoverflow.com/a/1261589
+procedure TfrmProjectDashboard.SelectFileInExplorer(const Fn: string);
+begin
+  ShellExecute(Application.Handle, 'open', 'explorer.exe',
+    PChar('/select,"' + Fn+'"'), nil, SW_NORMAL);
 end;
 
 procedure TfrmProjectDashboard.load(assignment: TAssignment; user: TUser; sender: TForm);

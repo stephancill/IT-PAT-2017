@@ -36,7 +36,6 @@ type
 
     // Middle Panel
     procedure tbClassroomChange(Sender: TObject);
-    procedure btnNewAssignmentClick(Sender: TObject);
     procedure edtFilterChange(Sender: TObject);
     procedure lstClassroomClick(Sender: TObject);
 
@@ -132,9 +131,12 @@ begin
 end;
 
 procedure TfrmStudentHome.btnEditProfileClick(Sender: TObject);
+var
+  frm: TfrmEditUserProfile;
 begin
-  frmEditUserProfile.setUser(user);
-  frmEditUserProfile.Show;
+  frm := TfrmEditUserProfile.Create(self);
+  frm.load(user, self);
+  frm.Show;
 end;
 
 procedure TfrmStudentHome.btnLogoutClick(Sender: TObject);
@@ -145,12 +147,6 @@ begin
   self.user.Free;
   Utilities.depersistLogin;
   TLogger.log(TAG, TLogType.Debug, 'Logged out user');
-end;
-
-procedure TfrmStudentHome.btnNewAssignmentClick(Sender: TObject);
-begin
-  frmCreateAssignment.setClassroom(self.selectedClassroom);
-  frmCreateAssignment.Show;
 end;
 
 procedure TfrmStudentHome.btnRemoveFromClassroomClick(Sender: TObject);

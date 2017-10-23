@@ -33,6 +33,7 @@ type
     class function createClassroom(user: TUser; name: string; var classroom: TClassroom): boolean;
     class function deleteClassroom(user: TUser; classroom: TClassroom): boolean;
     class function getStudents(classroom: TClassroom): TUserArray;
+    class function removeStudent(classroom: TClassroom; student: TUser): boolean;
 
     // Classroom - Student
     class function getStudentClassrooms(user: TUser): TClassroomArray;
@@ -60,6 +61,23 @@ implementation
 uses Data_Module_U, Logger_U, Forms;
 
 { Utilities }
+
+class function Utilities.removeStudent(classroom: TClassroom;
+  student: TUser): boolean;
+begin
+  // 2. Insert into Student_Classroom junction table
+  if not modifyDatabase(Format('DELETE FROM Student_Classroom WHERE StudentID = %s AND ClassroomID = %s', [student.getID, classroom.getID]), data_module.qry) then
+  begin
+    TLogger.log(TAG, Error, 'Failed to DELETE from Student_Classroom');
+    result := false;
+    Exit;
+  end;
+
+  TLogger.log(TAG, Debug, 'Removed Student with ID: ' + student.getID + ' from classroom with ID: ' + classroom.getID);
+  result := true;
+end;
+
+{ Project }
 
 class function Utilities.createProject(directory: string; creator: TUser;
   assignment: TAssignment; var project: TProject): boolean;
@@ -100,7 +118,7 @@ begin
 
   project := TProject.create(assignment.getID + '$' + creator.getID, directory, creator, assignment);
 
-  TLogger.log(TAG, TLogType.Debug,
+  TLogger.log(TAG, Debug,
     'Created project with ID: ' + project.getID);
 
   result := true
@@ -134,7 +152,7 @@ begin
       + ',' + quotedStr(getMD5Hash(password)) + ',' + inttostr(userType) + ')',
     data_module.qry) then
   begin
-    TLogger.log(TAG, TLogType.Error, 'Failed to INSERT new user record into Users table');
+    TLogger.log(TAG, Error, 'Failed to INSERT new user record into Users table');
     result := false;
     Exit;
   end;
@@ -148,7 +166,7 @@ begin
       quotedStr(email) + ',' + quotedStr(firstname) + ',' + quotedStr(lastname)
       + ')', data_module.qry) then
     begin
-      TLogger.log(TAG, TLogType.Error, 'Failed to INSERT new user record into ' + IfThen(userType = 1, 'Student',
+      TLogger.log(TAG, Error, 'Failed to INSERT new user record into ' + IfThen(userType = 1, 'Student',
       'Teacher') + ' table');
       result := false;
       Exit;
@@ -157,7 +175,7 @@ begin
   // 5. Create and return TUser object
   user := TUser.Create(id, email, firstname, lastname, TUserType(userType));
 
-  TLogger.log(TAG, TLogType.Debug, 'Registered user with ID ' + user.getID);
+  TLogger.log(TAG, Debug, 'Registered user with ID ' + user.getID);
 
   result := true;
 end;
@@ -198,7 +216,7 @@ begin
     // 4. Create and return TUser object
     user := TUser.Create(id, email, firstname, lastname, TUserType(userType));
 
-    TLogger.log(TAG, TLogType.Debug,
+    TLogger.log(TAG, Debug,
       'Successfully logged in user with email: ' + email);
 
     result := true;
@@ -207,7 +225,7 @@ begin
   else
     result := false;
 
-  TLogger.log(TAG, TLogType.Error, 'Failed login attempt with email: ' + email);
+  TLogger.log(TAG, Error, 'Failed login attempt with email: ' + email);
 
 end;
 
@@ -215,7 +233,7 @@ class procedure Utilities.persistLogin(email, password: string; hashed: boolean)
 var
   f: TextFile;
 begin
-  TLogger.log(TAG, TLogType.Debug, 'Persisting login for user with email: ' + email);
+  TLogger.log(TAG, Debug, 'Persisting login for user with email: ' + email);
 
   if not hashed then
     password := getMD5Hash(password);
@@ -275,7 +293,7 @@ begin
 
   if qry.eof then
   begin
-    TLogger.log(TAG, TLogType.Debug, 'Failed to change password of user with ID: ' + user.getID);
+    TLogger.log(TAG, Debug, 'Failed to change password of user with ID: ' + user.getID);
     result := false;
     Exit;
   end;
@@ -286,10 +304,10 @@ begin
 
   if result then
   begin
-    TLogger.log(TAG, TLogType.Debug, 'Successfully changed password of user with ID: ' + user.getID);
+    TLogger.log(TAG, Debug, 'Successfully changed password of user with ID: ' + user.getID);
   end else
   begin
-    TLogger.log(TAG, TLogType.Debug, 'Failed to change password of user with ID: ' + user.getID);
+    TLogger.log(TAG, Debug, 'Failed to change password of user with ID: ' + user.getID);
   end;
 end;
 
@@ -317,10 +335,10 @@ begin
 
   if result then
   begin
-    TLogger.log(TAG, TLogType.Debug, 'Successfully changed information of user with ID: ' + user.getID);
+    TLogger.log(TAG, Debug, 'Successfully changed information of user with ID: ' + user.getID);
   end else
   begin
-    TLogger.log(TAG, TLogType.Debug, 'Failed to change information of user with ID: ' + user.getID);
+    TLogger.log(TAG, Debug, 'Failed to change information of user with ID: ' + user.getID);
   end;
 end;
 
@@ -342,7 +360,7 @@ begin
     qry.Next;
   end;
 
-  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
+  TLogger.log(TAG, Debug, 'Got ' + inttostr(length(result)) +
       ' classrooms for teacher with ID: ' + user.getID);
 end;
 
@@ -360,7 +378,7 @@ begin
     ('SELECT * FROM Classroom WHERE Teacher = ' + user.getID +
       ' AND ClassName = ' + quotedStr(name), data_module.qry).Eof then
   begin
-    TLogger.log(TAG, TLogType.Debug,
+    TLogger.log(TAG, Debug,
       'Attempted to create classroom that already exists.');
     Showmessage('Classroom name already exists');
     Exit;
@@ -379,7 +397,7 @@ begin
   classroom := TClassroom.Create
     (inttostr(Utilities.getLastID(data_module.qry)), name, user.getID);
 
-  TLogger.log(TAG, TLogType.Debug,
+  TLogger.log(TAG, Debug,
     'Created classroom with ID: ' + classroom.getID);
 
   result := true;
@@ -393,12 +411,13 @@ begin
   if not modifyDatabase('DELETE FROM Classroom WHERE ID = ' + classroom.getID +
       ' AND Teacher = ' + user.getID, data_module.qry) then
   begin
+    TLogger.log(TAG, Error, 'Failed to delete classroom with ID: ' + classroom.getID);
     result := false;
     Exit;
   end;
 
 
-  TLogger.log(TAG, TLogType.Debug,
+  TLogger.log(TAG, Debug,
     'Deleted classroom with ID: ' + classroom.getID);
   result := true;
 end;
@@ -429,7 +448,7 @@ begin
     qry.Next;
   end;
 
-  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
+  TLogger.log(TAG, Debug, 'Got ' + inttostr(length(result)) +
       ' students for classroom with ID: ' + classroom.getID);
 
 end;
@@ -446,7 +465,7 @@ begin
   if qry.Eof then
   begin
     Showmessage('Classroom with that code does not exist.');
-    TLogger.log(TAG, TLogType.Debug, 'Tried to join a classroom that does not exist');
+    TLogger.log(TAG, Debug, 'Tried to join a classroom that does not exist');
     result := false;
     Exit;
   end;
@@ -454,13 +473,13 @@ begin
   // 2. Insert into Student_Classroom junction table
   if not modifyDatabase(Format('INSERT INTO Student_Classroom (StudentID, ClassroomID) VALUES (%s, %s)', [user.getID, id]), data_module.qry) then
   begin
-    TLogger.log(TAG, TLogType.Error, 'Failed to INSERT into Student_Classroom');
+    TLogger.log(TAG, Error, 'Failed to INSERT into Student_Classroom');
     result := false;
     Exit;
   end;
 
 
-  TLogger.log(TAG, TLogType.Debug, 'Student with ID: ' + user.getID + ' joined classroom with ID: ' + id);
+  TLogger.log(TAG, Debug, 'Student with ID: ' + user.getID + ' joined classroom with ID: ' + id);
   result := true;
 end;
 
@@ -469,12 +488,12 @@ class function Utilities.leaveClassroom(user: TUser;
 begin
   if not modifyDatabase(Format('DELETE FROM Student_Classroom WHERE StudentID = %s AND ClassroomID = %s', [user.getID, classroom.getID]), data_module.qry) then
   begin
-    TLogger.log(TAG, TLogType.Error, 'Failed to delete record from Student_Classroom table');
+    TLogger.log(TAG, Error, 'Failed to delete record from Student_Classroom table');
     result := false;
     Exit;
   end;
 
-  TLogger.log(TAG, TLogType.Debug,
+  TLogger.log(TAG, Debug,
     'Student with ID: ' + user.getID + ' left classroom with ID: ' + classroom.getID);
   result := true;
 end;
@@ -501,13 +520,13 @@ begin
 
     end else
     begin
-      TLogger.log(TAG, TLogType.Debug, 'Could not find classroom with ID: ' + qry.FieldByName('ClassroomID').AsString);
+      TLogger.log(TAG, Debug, 'Could not find classroom with ID: ' + qry.FieldByName('ClassroomID').AsString);
     end;
 
     qry.Next;
   end;
 
-  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
+  TLogger.log(TAG, Debug, 'Got ' + inttostr(length(result)) +
       ' classrooms for student with ID: ' + user.getID);
 
 end;
@@ -532,7 +551,7 @@ begin
     qry.Next;
   end;
 
-  TLogger.log(TAG, TLogType.Debug, 'Got ' + inttostr(length(result)) +
+  TLogger.log(TAG, Debug, 'Got ' + inttostr(length(result)) +
       ' assignments for classroom with ID: ' + classroom.getID);
 end;
 
@@ -554,7 +573,7 @@ begin
   // 2. Create TAssignment object
   assignment := TAssignment.Create(inttostr(getLastID(data_module.qry)), title, date, description, classroom);
 
-  TLogger.log(TAG, TLogType.Debug,
+  TLogger.log(TAG, Debug,
     'Created assignment with ID: ' + assignment.getID +
       ' in classroom with ID: ' + classroom.getID);
 

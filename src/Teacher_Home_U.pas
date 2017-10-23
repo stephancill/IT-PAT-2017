@@ -44,6 +44,9 @@ type
     procedure btnViewProjectClick(Sender: TObject);
     procedure btnRemoveFromClassroomClick(Sender: TObject);
 
+    // Project list
+
+
   private
     { Private declarations }
     const
@@ -59,6 +62,8 @@ type
       edtInfoTitle: TEdit;
       edtInfoDescription: TRichEdit;
       btnInfoPanel: TButton;
+      lblProjects: TLabel;
+      lstProjects: TListBox;
 
       user: TUser;
       classrooms: TClassroomArray;
@@ -69,6 +74,7 @@ type
       selectedStudent: TUser;
 
       projectForms: array of TFrmProjectDashboard;
+
     procedure createDynamicComponents;
   public
     { Public declarations }
@@ -105,9 +111,12 @@ begin
 end;
 
 procedure TfrmTeacherHome.btnEditProfileClick(Sender: TObject);
+var
+  frm: TfrmEditUserProfile;
 begin
-  frmEditUserProfile.setUser(user);
-  frmEditUserProfile.Show;
+  frm := TfrmEditUserProfile.Create(self);
+  frm.load(user, self);
+  frm.Show;
 end;
 
 procedure TfrmTeacherHome.btnLogoutClick(Sender: TObject);
@@ -121,14 +130,36 @@ begin
 end;
 
 procedure TfrmTeacherHome.btnNewAssignmentClick(Sender: TObject);
+var
+  frm: TfrmCreateAssignment;
 begin
-  frmCreateAssignment.setClassroom(self.selectedClassroom);
-  frmCreateAssignment.show;
+  frm := TfrmCreateAssignment.Create(nil);
+  try
+    frm.load(self.selectedClassroom, self);
+    frm.ShowModal;
+  finally
+    frm.Free;
+  end;
 end;
 
 procedure TfrmTeacherHome.btnRemoveFromClassroomClick(Sender: TObject);
+var
+  buttonSelected : integer;
+  name: string;
 begin
-  showmessage('remove from classroom');
+  name := selectedStudent.getFirstName + ' ' + selectedStudent.getLastName;
+  buttonSelected := messagedlg('Are you sure you want to remove ' +
+        name + '?', TMsgDlgType.mtConfirmation, mbOKCancel,
+      0);
+
+    if buttonSelected = mrCancel then
+      Exit;
+
+  if Utilities.removeStudent(selectedClassroom, selectedStudent) then
+  begin
+    selectedStudent := nil;
+    tbClassroomChange(self);
+  end;
 end;
 
 procedure TfrmTeacherHome.btnViewProjectClick(Sender: TObject);
@@ -155,6 +186,12 @@ begin
     frmProject.load(selectedAssignment, user, self);
     frmProject.Show;
   except
+    on E: Exception do
+    begin
+      Showmessage('Something went wrong... Check logs for more information.');
+      TLogger.logException(TAG, 'btnViewProjectClick', e);
+      Exit;
+    end;
   end;
 
 end;
@@ -237,9 +274,9 @@ begin
     Parent := self;
     Top := tbClassroom.Top;
     Left := tbClassroom.Left + tbClassroom.Width + 50;
-    Width := self.Width - pnlInfo.Left - 50;
+    Width := tbClassroom.Width;
     Height := tbClassroom.Height;
-    Anchors := [akLeft, akRight, akTop, akBottom];
+    Anchors := [akLeft, akTop, akBottom];
     Visible := false
   end;
 
@@ -252,7 +289,7 @@ begin
     Top := 10;
     Width := pnlInfo.Width - 20;
     ReadOnly := true;
-    Anchors := [akLeft, akRight, akTop];
+    Anchors := [akLeft, akTop];
   end;
 
   // Panel description
@@ -265,7 +302,7 @@ begin
     Width := edtInfoTitle.width;
     Height := 100;
     ReadOnly := true;
-    Anchors := [akLeft, akRight, akTop];
+    Anchors := [akLeft, akTop];
   end;
 
   // Panel button
@@ -276,9 +313,29 @@ begin
     Left := 10;
     Top := edtInfoDescription.Top + edtInfoDescription.Height + 10;
     Width := edtInfoTitle.width;
+    Anchors := [akLeft, akTop];
     OnClick := btnViewProjectClick;
   end;
 
+  // Project list
+  lstProjects := TListBox.Create(self);
+  with lstProjects do
+  begin
+    Parent := self;
+    Left := pnlInfo.Left + pnlInfo.Width + 50;
+    Top := lstClassrooms.Top;
+    Width := lstClassrooms.Width;
+    Height := lstClassrooms.Height;
+  end;
+
+  lblProjects := TLabel.Create(self);
+  with lblProjects do
+  begin
+    Parent := self;
+    Left := lstProjects.Left;
+    Top := lblClassrooms.Top;
+    Caption := 'Projects'
+  end;
 end;
 
 procedure TfrmTeacherHome.edtFilterChange(sender: TObject);
@@ -335,6 +392,8 @@ begin
           lstClassrooms.ItemIndex := lstClassrooms.Items.IndexOf(c.getName);
           // Make other components visible
           tbClassroom.Visible := true;
+          lblClassroomCode.Visible := true;
+          btnNewAssignment.Visible := true;
           lblInstruction.Visible := false;
         end;
       end;
@@ -422,11 +481,12 @@ begin
     pnlInfo.Visible := true;
     edtInfoTitle.Text := selectedAssignment.getTitle;
     edtInfoDescription.Text := 'Date issued: ' + selectedAssignment.getDateIssued + #13#13 + selectedAssignment.getDescription;
-    btnInfoPanel.visible := true;
-    btnInfoPanel.Caption := 'View Project';
+//    btnInfoPanel.visible := true;
+//    btnInfoPanel.onClick := btnViewProjectClick;
+//    btnInfoPanel.Caption := 'View Project';
   end else
   begin
-  // Find the assignment in case filter is applied
+  // Find the student in case filter is applied
     if edtFilter.Text <> '' then
     begin
       for s in students do
@@ -447,7 +507,9 @@ begin
     pnlInfo.Visible := true;
     edtInfoTitle.Text := 'Student';
     edtInfoDescription.Text := selectedStudent.getLastName + ', ' + selectedStudent.getFirstName + #13#13 + 'mailto:' + selectedStudent.getEmail;
-    btnInfoPanel.visible := false;
+    btnInfoPanel.caption := 'Remove Student';
+    btnInfoPanel.onClick :=  btnRemoveFromClassroomClick;
+    btnInfoPanel.visible := true;
   end;
 
 end;
@@ -464,9 +526,12 @@ begin
     end;
 
     selectedClassroom := classrooms[lstClassrooms.ItemIndex];
+    lblClassroomCode.Caption := 'Classroom Code: '  + selectedClassroom.getID;
 
     // Make other components visible
     tbClassroom.Visible := true;
+    lblClassroomCode.Visible := true;
+    btnNewAssignment.Visible := true;
     lblInstruction.Visible := false;
     pnlInfo.Visible := false;
 

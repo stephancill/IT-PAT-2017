@@ -55,6 +55,9 @@ var
 {$R *.dfm}
 
 procedure TfrmAuthenticate.btnLoginClick(Sender: TObject);
+var
+  frmStudent: TfrmStudentHome;
+  frmTeacher: TfrmTeacherHome;
 begin
   // TODO: Form validation
   if Utilities.loginUser(edtLoginEmail.Text, edtLoginPassword.Text, user, hashed) then
@@ -73,14 +76,16 @@ begin
     case user.getType of
       teacher :
       begin
-        frmTeacherHome.setUser(user);
-        frmTeacherHome.Show;
+        frmTeacher := TfrmTeacherHome.Create(nil);
+        frmTeacher.setUser(user);
+        frmTeacher.Show;
         self.Hide;
       end;
       student :
       begin
-        frmStudentHome.setUser(user);
-        frmStudentHome.Show;
+        frmStudent := TfrmStudentHome.Create(nil);
+        frmStudent.setUser(user);
+        frmStudent.Show;
         self.Hide;
       end;
     end;
