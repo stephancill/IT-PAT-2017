@@ -21,7 +21,6 @@ type
     // Form
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure killProjectForm(project: TFrmProjectDashboard);
     procedure createDynamicComponents;
 
@@ -436,11 +435,6 @@ begin
   begin
     setUser( TUser.Create('9971', 'a', 'a', 'a', TUserType.Teacher));
   end;
-end;
-
-procedure TfrmTeacherHome.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Utilities.kill;
 end;
 
 procedure TfrmTeacherHome.FormCreate(Sender: TObject);

@@ -82,6 +82,8 @@ end;
 
 class function Utilities.createProject(directory: string; creator: TUser;
   assignment: TAssignment; var project: TProject): boolean;
+var
+  projectID: string;
 begin
   {
     1. Create project in Project table
@@ -89,11 +91,23 @@ begin
     3. Create record in Assignment_Project junction-table
     4. Create TProject object
     }
+  projectID := assignment.getID + '$' + creator.getID;
+
+  // Ensure project does not already exist
+  if Utilities.getEntityByID('Projects', projectID, data_module.qry) then
+  begin
+    if not data_module.qry.Eof then
+    begin
+      TLogger.log(TAG, Debug, 'Attempted to create project that already exists');
+      result := false;
+      Exit;
+    end;
+  end;
 
   // 1. Create project in Project table
   if not Utilities.modifyDatabase(
   Format('INSERT INTO Project ([ID], ClassID, AssignmentID, StudentID, Location) VALUES (%s, %s, %s, %s, %s)',
-    [quotedStr(assignment.getID + '$' + creator.getID), assignment.getclassroom.getID, assignment.getID, creator.getID, quotedStr(directory)]), data_module.qry) then
+    [quotedStr(projectID), assignment.getclassroom.getID, assignment.getID, creator.getID, quotedStr(directory)]), data_module.qry) then
     begin
     result := false;
     Exit;
@@ -102,7 +116,7 @@ begin
   // 2. Create record in Student_Project junction-table
   if not Utilities.modifyDatabase(
   Format('INSERT INTO Student_Project (ProjectID, StudentID) VALUES (%s, %s)',
-    [quotedStr(assignment.getID + '$' + creator.getID), creator.getID]), data_module.qry) then
+    [quotedStr(projectID), creator.getID]), data_module.qry) then
     begin
     result := false;
     Exit;
@@ -111,13 +125,13 @@ begin
   // 3. Create record in Assignment_Project junction-table
   if not Utilities.modifyDatabase(
   Format('INSERT INTO Assignment_Project (ProjectID, ClassroomID, AssignmentID) VALUES (%s, %s, %s)',
-    [quotedStr(assignment.getID + '$' + creator.getID), assignment.getclassroom.getID, assignment.getID]), data_module.qry) then
+    [quotedStr(projectID), assignment.getclassroom.getID, assignment.getID]), data_module.qry) then
   begin
     result := false;
     Exit;
   end;
 
-  project := TProject.create(assignment.getID + '$' + creator.getID, directory, creator, assignment);
+  project := TProject.create(projectID, directory, creator, assignment);
 
   TLogger.log(TAG, Debug,
     'Created project with ID: ' + project.getID);
