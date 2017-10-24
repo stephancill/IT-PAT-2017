@@ -11,6 +11,7 @@ type
     btnCreateProject: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnCreateProjectClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     const
@@ -20,6 +21,7 @@ type
       user: TUser;
       sender: TForm;
       project: TProject;
+      projectsDir: string;
     function stripText(raw: string): string;
     procedure SelectFileInExplorer(const Fn: string);
   public
@@ -43,24 +45,33 @@ uses Student_Home_U, Teacher_Home_U, Utilities_U, Logger_U;
 
 procedure TfrmProjectDashboard.btnCreateProjectClick(Sender: TObject);
 var
-  dir: string;
+  dir, localDir: string;
 begin
+
   dir := Format('Projects\%s\%s\%s', [assignment.getClassroom.getTeacherID, stripText(assignment.getClassroom.getName), striptext(user.getLastname + user.getFirstName)]);
-
-  if not DirectoryExists(dir) then
+  localDIr := projectsDir + dir;
+  showmessage(booltostr(DirectoryExists(localDir)));
+  if not DirectoryExists(localDir) then
   begin
-    Utilities.createProject(dir, user, assignment, project);
-    if ForceDirectories(dir) then
-    begin
-      showmessage(GetCurrentDir);
+    try
+      if ForceDirectories(localDir) then
+      begin
+        Utilities.createProject(dir, user, assignment, project);
+        TLogger.log(TAG, Debug, 'Created project directory ' + dir);
+      end else
+      begin
+        TLogger.log(TAG, Error, 'Could not create directory ' + localDir);
+      end;
+    except
+      on E: Exception do
+      begin
+        TLogger.logException(TAG, 'btnCreateProjectClick', e);
+      end;
     end;
-
   end else
   begin
     showmessage('project exists');
   end;
-
-
 end;
 
 procedure TfrmProjectDashboard.FormClose(Sender: TObject;
@@ -71,6 +82,11 @@ begin
   except
     (self.sender as TFrmTeacherHome).killProjectForm(self);
   end;
+end;
+
+procedure TfrmProjectDashboard.FormCreate(Sender: TObject);
+begin
+  self.projectsDir := Format('%s\..\', [GetCurrentDir]);
 end;
 
 function TfrmProjectDashboard.getAssignment: TAssignment;

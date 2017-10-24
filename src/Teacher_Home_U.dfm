@@ -12,7 +12,6 @@ object frmTeacherHome: TfrmTeacherHome
   Font.Style = []
   OldCreateOrder = False
   OnActivate = FormActivate
-  OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
     1130
@@ -65,7 +64,6 @@ object frmTeacherHome: TfrmTeacherHome
       Caption = 'Edit Profile'
       TabOrder = 1
       OnClick = btnEditProfileClick
-      ExplicitLeft = 680
     end
   end
   object lstClassrooms: TListBox

@@ -21,7 +21,6 @@ type
     // Form
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure killProjectForm(project: TFrmProjectDashboard);
 
     // Top panel
@@ -42,6 +41,7 @@ type
     // Right Panel
     procedure btnViewProjectClick(Sender: TObject);
     procedure btnRemoveFromClassroomClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
   { Private declarations }
