@@ -23,6 +23,8 @@ type
       user: TUser;
       sender: TForm;
       project: TProject;
+
+    procedure DeleteDirectory(const Name: string);
   public
     procedure load(assignment: TAssignment; user: TUser; sender: TForm); overload;
     procedure load(project: TProject; user: TUser; sender: TForm); overload;
@@ -135,11 +137,32 @@ begin
     end else
     begin
       // Project loading failed
+
     end;
   end;
 
   TLogger.log(TAG, TLogType.Debug, 'Viewed project of student ID ' + user.getID + ' for assignment with ID: ' + assignment.getID);
 end;
 
-
+procedure TfrmProjectDashboard.DeleteDirectory(const Name: string);
+var
+  F: TSearchRec;
+begin
+  if FindFirst(Name + '\*', faAnyFile, F) = 0 then begin
+    try
+      repeat
+        if (F.Attr and faDirectory <> 0) then begin
+          if (F.Name <> '.') and (F.Name <> '..') then begin
+            DeleteDirectory(Name + '\' + F.Name);
+          end;
+        end else begin
+          DeleteFile(Name + '\' + F.Name);
+        end;
+      until FindNext(F) <> 0;
+    finally
+      FindClose(F);
+    end;
+    RemoveDir(Name);
+  end;
+end;
 end.
