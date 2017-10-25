@@ -43,6 +43,7 @@ type
     // Right Panel
     procedure btnViewProjectClick(Sender: TObject);
     procedure btnRemoveFromClassroomClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     { Private declarations }
@@ -83,6 +84,7 @@ type
     procedure refreshTabController;
     procedure studentSelected;
     procedure assignmentSelected;
+    procedure projectSelected(Sender: TObject);
   end;
 
 var
@@ -105,9 +107,14 @@ begin
   pnlInfo.Visible := true;
   edtInfoTitle.Text := selectedAssignment.getTitle;
   edtInfoDescription.Text := 'Date issued: ' + selectedAssignment.getDateIssued + #13#13 + selectedAssignment.getDescription;
+  btnInfoPanel.Visible := false;
+
+  projects := nil;
 
   if not Utilities.getProjects(selectedAssignment, projects) then
     Exit;
+
+  lstProjects.Clear;
 
   for p in projects do
   begin
@@ -344,11 +351,13 @@ begin
   begin
     Parent := self;
     Left := pnlInfo.Left + pnlInfo.Width + 50;
-    Top := lstClassrooms.Top;
+    Top := lstClassrooms.Top - 20;
     Width := lstClassrooms.Width;
-    Height := lstClassrooms.Height;
+    Height := lstClassrooms.Height + 20;
+    OnDblClick := projectSelected;
   end;
 
+  // Panel heading
   lblProjects := TLabel.Create(self);
   with lblProjects do
   begin
@@ -435,6 +444,11 @@ begin
   begin
     setUser( TUser.Create('9971', 'a', 'a', 'a', TUserType.Teacher));
   end;
+end;
+
+procedure TfrmTeacherHome.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Utilities.kill;
 end;
 
 procedure TfrmTeacherHome.FormCreate(Sender: TObject);
@@ -541,6 +555,21 @@ begin
 
     // Update the tab bar
     tbClassroomChange(self);
+  end;
+end;
+
+procedure TfrmTeacherHome.projectSelected(sender: TObject);
+var
+  frm: TfrmProjectDashboard;
+begin
+  selectedProject := projects[(sender as TListBox).ItemIndex];
+
+  try
+    frm := TfrmProjectDashboard.Create(self);
+    frm.load(selectedProject, user, self);
+    frm.showModal;
+  finally
+
   end;
 end;
 

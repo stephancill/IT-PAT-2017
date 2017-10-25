@@ -9,9 +9,11 @@ uses
 type
   TfrmProjectDashboard = class(TForm)
     btnCreateProject: TButton;
+    edtLocation: TEdit;
+    btnOpenProject: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnCreateProjectClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure btnOpenProjectClick(Sender: TObject);
   private
     { Private declarations }
     const
@@ -21,9 +23,6 @@ type
       user: TUser;
       sender: TForm;
       project: TProject;
-      projectsDir: string;
-    function stripText(raw: string): string;
-    procedure SelectFileInExplorer(const Fn: string);
   public
     procedure load(assignment: TAssignment; user: TUser; sender: TForm); overload;
     procedure load(project: TProject; user: TUser; sender: TForm); overload;
@@ -47,17 +46,22 @@ procedure TfrmProjectDashboard.btnCreateProjectClick(Sender: TObject);
 var
   dir, localDir: string;
 begin
+  if user.getType = Teacher then
+  begin
+    Showmessage('Only students can create projects.');
+    Exit;
+  end;
 
-  dir := Format('Projects\%s\%s\%s', [assignment.getClassroom.getTeacherID, stripText(assignment.getClassroom.getName), striptext(user.getLastname + user.getFirstName)]);
-  localDIr := projectsDir + dir;
-  showmessage(booltostr(DirectoryExists(localDir)));
+  localDir := TProject.getLocalDirectory(assignment, user);
+
   if not DirectoryExists(localDir) then
   begin
     try
       if ForceDirectories(localDir) then
       begin
-        Utilities.createProject(dir, user, assignment, project);
-        TLogger.log(TAG, Debug, 'Created project directory ' + dir);
+        // TODO: validation
+        Utilities.createProject(edtLocation.Text, user, assignment, project);
+        TLogger.log(TAG, Debug, 'Created project directory ' + localDir);
       end else
       begin
         TLogger.log(TAG, Error, 'Could not create directory ' + localDir);
@@ -70,8 +74,17 @@ begin
     end;
   end else
   begin
-    showmessage('project exists');
+    showmessage('Project exists');
   end;
+end;
+
+procedure TfrmProjectDashboard.btnOpenProjectClick(Sender: TObject);
+begin
+  if DirectoryExists(project.getLocalDirectory) then
+  begin
+    ShellExecute(Application.Handle,PChar('explore'),PChar(project.getLocalDirectory),nil,nil,SW_SHOWNORMAL);
+  end;
+
 end;
 
 procedure TfrmProjectDashboard.FormClose(Sender: TObject;
@@ -82,11 +95,6 @@ begin
   except
     (self.sender as TFrmTeacherHome).killProjectForm(self);
   end;
-end;
-
-procedure TfrmProjectDashboard.FormCreate(Sender: TObject);
-begin
-  self.projectsDir := Format('%s\..\', [GetCurrentDir]);
 end;
 
 function TfrmProjectDashboard.getAssignment: TAssignment;
@@ -101,6 +109,7 @@ end;
 
 procedure TfrmProjectDashboard.load(project: TProject; user: TUser; sender: TForm);
 begin
+  // Teacher entry
   self.assignment := project.getAssignment;
   self.user := user;
   self.project := project;
@@ -110,32 +119,27 @@ begin
   TLogger.log(TAG, TLogType.Debug, 'Viewed project of student ID ' + user.getID + ' for assignment with ID: ' + assignment.getID);
 end;
 
-// https://stackoverflow.com/a/1261589
-procedure TfrmProjectDashboard.SelectFileInExplorer(const Fn: string);
-begin
-  ShellExecute(Application.Handle, 'open', 'explorer.exe',
-    PChar('/select,"' + Fn+'"'), nil, SW_NORMAL);
-end;
-
 procedure TfrmProjectDashboard.load(assignment: TAssignment; user: TUser; sender: TForm);
 begin
+  // Student entry
   self.assignment := assignment;
   self.user := user;
   self.sender := sender;
   self.Caption := 'Project Dashboard - ' + assignment.getTitle;
 
+  if DirectoryExists(TProject.getLocalDirectory(assignment, user)) then
+  begin
+    if Utilities.getProject(assignment, user, self.project) then
+    begin
+      // Load project
+    end else
+    begin
+      // Project loading failed
+    end;
+  end;
+
   TLogger.log(TAG, TLogType.Debug, 'Viewed project of student ID ' + user.getID + ' for assignment with ID: ' + assignment.getID);
 end;
 
-function TfrmProjectDashboard.stripText(raw: string): string;
-var
-  c: char;
-begin
-  for c in raw do
-  begin
-    if ischaralphanumeric(c) then
-      result := result + c;
-  end;
-end;
 
 end.

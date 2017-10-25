@@ -130,6 +130,8 @@ procedure TfrmAuthenticate.FormCreate(Sender: TObject);
 var
  email, password: string;
 begin
+  Show;
+
   hashed := false;
   
   pnlLogin.Visible := true;

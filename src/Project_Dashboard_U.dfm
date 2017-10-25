@@ -12,16 +12,32 @@ object frmProjectDashboard: TfrmProjectDashboard
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object btnCreateProject: TButton
-    Left = 296
-    Top = 184
-    Width = 115
+    Left = 136
+    Top = 112
+    Width = 121
     Height = 25
     Caption = 'Create Project'
     TabOrder = 0
     OnClick = btnCreateProjectClick
+  end
+  object edtLocation: TEdit
+    Left = 88
+    Top = 72
+    Width = 225
+    Height = 21
+    TabOrder = 1
+    Text = 'edtLocation'
+  end
+  object btnOpenProject: TButton
+    Left = 136
+    Top = 152
+    Width = 121
+    Height = 25
+    Caption = 'Open Project'
+    TabOrder = 2
+    OnClick = btnOpenProjectClick
   end
 end

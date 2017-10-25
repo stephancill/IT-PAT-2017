@@ -21,7 +21,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.MainFormOnTaskbar := True;
+  Application.MainFormOnTaskbar := false;
   Application.ShowMainForm := false;
   Application.CreateForm(Tdata_module, data_module);
   Application.CreateForm(TfrmAuthenticate, frmAuthenticate);

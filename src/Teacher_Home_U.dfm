@@ -12,6 +12,7 @@ object frmTeacherHome: TfrmTeacherHome
   Font.Style = []
   OldCreateOrder = False
   OnActivate = FormActivate
+  OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
     1130

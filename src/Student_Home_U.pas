@@ -93,9 +93,6 @@ var
   success: boolean;
   id: string;
 begin
-
-  while not success do
-
     repeat
       id := inputbox('Join a classroom', 'Classroom code:', '');
       if id = '' then
