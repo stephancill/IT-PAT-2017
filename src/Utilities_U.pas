@@ -98,7 +98,7 @@ begin
   projectID := assignment.getID + '$' + creator.getID;
 
   // Ensure project does not already exist
-  if Utilities.getEntityByID('Projects', quotedStr(projectID), data_module.qry) then
+  if Utilities.getEntityByID('Project', quotedStr(projectID), data_module.qry) then
   begin
     if not data_module.qry.Eof then
     begin
@@ -146,8 +146,7 @@ end;
 class function Utilities.getProject(assignment: TAssignment; student: TUser;
   var project: TProject): boolean;
 var
-  qry: TADOQuery;
-  qryAlt: TADOQuery;
+  qry,qryAlt: TADOQuery;
   projectid, studentid, location: string;
 begin
 

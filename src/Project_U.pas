@@ -62,10 +62,7 @@ function TProject.getLocalDirectory: string;
 var
   projectsDir, tmp: string;
 begin
-  projectsDir := GetCurrentDir + '\..\Projects';
-  tmp := projectsDir + Format('\%s\%s\%s', [assignment.getClassroom.getTeacherID, assignment.getClassroom.getName, creator.getLastname + creator.getFirstName]);
-
-  result :=  projectsDir + Format('\%s\%s\%s', [assignment.getClassroom.getTeacherID, assignment.getClassroom.getName, creator.getLastname + creator.getFirstName]);
+  result := getLocalDirectory(assignment, creator);
 end;
 
 class function TProject.getLocalDirectory(assignment: TAssignment;
@@ -74,7 +71,7 @@ var
   projectsDir: string;
 begin
   projectsDir := GetCurrentDir + '\..\Projects';
-  result :=  projectsDir + Format('\%s\%s\%s', [assignment.getClassroom.getTeacherID, assignment.getClassroom.getName, student.getFullName]);
+  result :=  projectsDir + Format('\%s\%s\%s\%s', [assignment.getClassroom.getTeacherID, assignment.getClassroom.getName, assignment.getTitle, student.getFullName]);
 end;
 
 function TProject.getLocation: string;

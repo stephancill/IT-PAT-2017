@@ -11,9 +11,11 @@ type
     btnCreateProject: TButton;
     edtLocation: TEdit;
     btnOpenProject: TButton;
+    btnCloneRepo: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnCreateProjectClick(Sender: TObject);
     procedure btnOpenProjectClick(Sender: TObject);
+    procedure btnCloneRepoClick(Sender: TObject);
   private
     { Private declarations }
     const
@@ -37,12 +39,21 @@ var
 
 implementation
 
-uses Student_Home_U, Teacher_Home_U, Utilities_U, Logger_U;
+uses Student_Home_U, Teacher_Home_U, Utilities_U, Logger_U, idURI;
 
 
 {$R *.dfm}
 
 { TfrmProjectDashboard }
+
+procedure TfrmProjectDashboard.btnCloneRepoClick(Sender: TObject);
+var
+  scmd: string;
+begin
+  
+  scmd := '/c git.bat "' + project.getLocalDirectory + '" ' + edtLocation.text + ' > git.out';
+  ShellExecute(0, nil, 'cmd.exe', PChar(scmd), nil, SW_SHOW);
+end;
 
 procedure TfrmProjectDashboard.btnCreateProjectClick(Sender: TObject);
 var
@@ -67,17 +78,30 @@ begin
       end else
       begin
         TLogger.log(TAG, Error, 'Could not create directory ' + localDir);
+        Exit;
       end;
     except
       on E: Exception do
       begin
         TLogger.logException(TAG, 'btnCreateProjectClick', e);
+        Exit;
       end;
+    end;
+  end;
+
+  if not Utilities.getProject(assignment, self.user, self.project) then
+  begin
+    if Utilities.createProject(edtLocation.Text, user, assignment, project) then
+    begin
+      showmessage('Created project');
     end;
   end else
   begin
-    showmessage('Project exists');
+    Showmessage('Project exists');
   end;
+
+  btnCreateProject.enabled := false;
+  edtLocation.enabled := true;
 end;
 
 procedure TfrmProjectDashboard.btnOpenProjectClick(Sender: TObject);
@@ -122,6 +146,8 @@ begin
 end;
 
 procedure TfrmProjectDashboard.load(assignment: TAssignment; user: TUser; sender: TForm);
+var
+  localDir: string;
 begin
   // Student entry
   self.assignment := assignment;
@@ -129,17 +155,37 @@ begin
   self.sender := sender;
   self.Caption := 'Project Dashboard - ' + assignment.getTitle;
 
-  if DirectoryExists(TProject.getLocalDirectory(assignment, user)) then
+  localDir := TProject.getLocalDirectory(assignment, user);
+
+  if Utilities.getProject(assignment, user, self.project) then
   begin
-    if Utilities.getProject(assignment, user, self.project) then
+    // Load project
+    if DirectoryExists(TProject.getLocalDirectory(assignment, user)) then
     begin
-      // Load project
+      btnCreateProject.enabled := false;
     end else
     begin
-      // Project loading failed
-
+      // Create project directory
+      try
+        if ForceDirectories(localDir) then
+        begin
+          TLogger.log(TAG, Debug, 'Created project directory ' + localDir);
+        end else
+        begin
+          TLogger.log(TAG, Error, 'Could not create directory ' + localDir);
+        end;
+      except
+        on E: Exception do
+          TLogger.logException(TAG, 'btnCreateProjectClick', e);
+      end;
     end;
+  end else
+  begin
+    // Project loading failed
+    // TODO: delete directory
+    edtLocation.enabled := false;
   end;
+
 
   TLogger.log(TAG, TLogType.Debug, 'Viewed project of student ID ' + user.getID + ' for assignment with ID: ' + assignment.getID);
 end;

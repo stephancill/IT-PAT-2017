@@ -16,7 +16,7 @@ object frmProjectDashboard: TfrmProjectDashboard
   TextHeight = 13
   object btnCreateProject: TButton
     Left = 136
-    Top = 112
+    Top = 115
     Width = 121
     Height = 25
     Caption = 'Create Project'
@@ -24,20 +24,29 @@ object frmProjectDashboard: TfrmProjectDashboard
     OnClick = btnCreateProjectClick
   end
   object edtLocation: TEdit
-    Left = 88
-    Top = 72
+    Left = 96
+    Top = 216
     Width = 225
     Height = 21
     TabOrder = 1
-    Text = 'edtLocation'
+    Text = 'https://github.com/stephancill/spotify-analyzer.git'
   end
   object btnOpenProject: TButton
     Left = 136
-    Top = 152
+    Top = 155
     Width = 121
     Height = 25
     Caption = 'Open Project'
     TabOrder = 2
     OnClick = btnOpenProjectClick
+  end
+  object btnCloneRepo: TButton
+    Left = 136
+    Top = 256
+    Width = 121
+    Height = 25
+    Caption = 'Clone'
+    TabOrder = 3
+    OnClick = btnCloneRepoClick
   end
 end
