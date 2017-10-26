@@ -39,7 +39,7 @@ var
 
 implementation
 
-uses Student_Home_U, Teacher_Home_U, Utilities_U, Logger_U, idURI;
+uses Student_Home_U, Teacher_Home_U, Utilities_U, Logger_U;
 
 
 {$R *.dfm}
@@ -50,9 +50,9 @@ procedure TfrmProjectDashboard.btnCloneRepoClick(Sender: TObject);
 var
   scmd: string;
 begin
-  
-  scmd := '/c git.bat "' + project.getLocalDirectory + '" ' + edtLocation.text + ' > git.out';
+  scmd := '/c git clone ' + edtLocation.text +' "' + project.getLocalDirectory + '"';
   ShellExecute(0, nil, 'cmd.exe', PChar(scmd), nil, SW_SHOW);
+  showmessage('hi');
 end;
 
 procedure TfrmProjectDashboard.btnCreateProjectClick(Sender: TObject);
@@ -182,6 +182,7 @@ begin
   end else
   begin
     // Project loading failed
+    btnOpenProject.Enabled := false;
     // TODO: delete directory
     edtLocation.enabled := false;
   end;

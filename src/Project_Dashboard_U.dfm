@@ -24,7 +24,7 @@ object frmProjectDashboard: TfrmProjectDashboard
     OnClick = btnCreateProjectClick
   end
   object edtLocation: TEdit
-    Left = 96
+    Left = 88
     Top = 216
     Width = 225
     Height = 21
