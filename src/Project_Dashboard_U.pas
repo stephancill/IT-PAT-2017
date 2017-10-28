@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Assignment_U, User_U, Classroom_U, StdCtrls, Project_U, ShellAPI;
+  Dialogs, Assignment_U, User_U, Classroom_U, StdCtrls, Project_U, ShellAPI,
+  TeEngine, TeeProcs, Chart, Series, ExtCtrls;
 
 type
   TfrmProjectDashboard = class(TForm)
@@ -12,10 +13,17 @@ type
     edtLocation: TEdit;
     btnOpenProject: TButton;
     btnCloneRepo: TButton;
+    btnAnalyzeCommits: TButton;
+    chart: TChart;
+    Button1: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnCreateProjectClick(Sender: TObject);
     procedure btnOpenProjectClick(Sender: TObject);
     procedure btnCloneRepoClick(Sender: TObject);
+    procedure btnAnalyzeCommitsClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     const
@@ -26,7 +34,11 @@ type
       sender: TForm;
       project: TProject;
 
-    procedure DeleteDirectory(const Name: string);
+      series: TBarSeries;
+
+    function ShellExecute_AndWait(FileName: string; Params: string): bool;
+    procedure createGraph(inputFileDir: string);
+    procedure projectSet(project: TProject);
   public
     procedure load(assignment: TAssignment; user: TUser; sender: TForm); overload;
     procedure load(project: TProject; user: TUser; sender: TForm); overload;
@@ -46,13 +58,43 @@ uses Student_Home_U, Teacher_Home_U, Utilities_U, Logger_U;
 
 { TfrmProjectDashboard }
 
+procedure TfrmProjectDashboard.btnAnalyzeCommitsClick(Sender: TObject);
+var
+  scmd, srcDirectory: string;
+begin
+  srcDirectory := GetCurrentDir;
+  // Check if git repo exists
+  if DirectoryExists(project.getLocalDirectory + '\.git') then
+  begin
+    // Change into project directory, run script and produce output
+    scmd := Format('/c cd "%s" && git --no-pager log | python "%s\extract_dates.py"', [project.getLocalDirectory, srcDirectory]);
+    if ShellExecute_AndWait('cmd.exe', scmd) then
+    begin
+      CreateGraph(project.getLocalDirectory + '\.LAST_COMMIT_HISTORY.txt');
+//      DeleteFile(project.getLocalDirectory + '\.LAST_COMMIT_HISTORY.txt');
+    end;
+  end else
+  begin
+    Showmessage('Directory does not contain git repo');
+  end;
+
+end;
+
 procedure TfrmProjectDashboard.btnCloneRepoClick(Sender: TObject);
 var
   scmd: string;
 begin
+  // Clone git repo
   scmd := '/c git clone ' + edtLocation.text +' "' + project.getLocalDirectory + '"';
-  ShellExecute(0, nil, 'cmd.exe', PChar(scmd), nil, SW_SHOW);
-  showmessage('hi');
+  if ShellExecute_AndWait('cmd.exe', PChar(scmd)) then
+  begin
+    btnAnalyzeCommitsClick(self);
+    TLogger.log(TAG, Debug, 'Successfully cloned ' + edtLocation.text + ' into ' + project.getLocalDirectory);
+    Utilities.updateProjectLocation(project)
+  end else
+  begin
+    TLogger.log(TAG, Error, 'Failed to clone ' + edtLocation.text + ' into ' + project.getLocalDirectory);
+  end;
 end;
 
 procedure TfrmProjectDashboard.btnCreateProjectClick(Sender: TObject);
@@ -113,6 +155,93 @@ begin
 
 end;
 
+procedure TfrmProjectDashboard.Button1Click(Sender: TObject);
+begin
+  ShellExecute(0, 'open', PChar(edtLocation.Text), nil, nil, SW_SHOWNORMAL);
+end;
+
+procedure TfrmProjectDashboard.createGraph(inputFileDir: string);
+var
+  f: TextFile;
+  p, i: integer;
+  points: array of integer;
+  dates: array of string;
+  s: string;
+begin
+  // Chart
+
+  //  Initialise some chart title settings.
+  chart.Title.Font.Name := 'Arial';
+  chart.Title.Font.Size := 20;
+  chart.Title.Font.Style := [fsBold];
+  chart.Title.Font.Color := clBlack;
+  //  Clear any existing title (if any - by default "TChart").
+  chart.Title.Text.Clear();
+  //  Add a new title to the chart.
+  chart.Title.Text.Add('Commit Frequency');
+
+  //  Hide the chart's legend.
+  chart.Legend.Hide;
+
+  chart.View3D := false;
+  chart.LeftWall.Color := clWhite;
+
+  //  Set some left axis settings.
+  chart.LeftAxis.LabelsFont.Size := 11;
+  chart.LeftAxis.Increment := 4;
+
+  //  Set some bottom axis settings;
+  chart.BottomAxis.LabelsFont.Size := 11;
+  chart.BottomAxis.LabelsAngle := 90;
+  chart.LeftAxis.Increment := 5;
+
+  //  Create a new series.
+  series := TBarSeries.Create(self);
+  series.ParentChart := chart;
+
+  // Data
+  AssignFile(f, inputFileDir);
+  try
+    Reset(f);
+  except
+    on E: Exception do
+    begin
+      Showmessage('Something went wrong... Check logs for more information.');
+      TLogger.logException(TAG, 'createGraph', e);
+      Exit;
+    end;
+  end;
+
+  i := 0;
+
+  // Extract data from text file
+  while not eof(f) do
+  begin
+    readln(f, s);
+
+    setLength(points, i+1);
+    setLength(dates, i+1);
+
+    p := strtoint(Copy(s, pos(' ', s)+1, length(s)));
+    points[i] := strtoint(Copy(s, pos(' ', s)+1, length(s)));
+    dates[i] := Copy(s, 1, pos(' ', s)-1);
+    // Populate chart
+    chart.Series[0].Add(p, '', clWhite);
+    chart.Series[0].Marks[i].Visible := false;
+    chart.Series[0].XLabel[i] := '';
+
+    inc(i);
+  end;
+
+  // Add first and last date labels
+  chart.Series[0].XLabel[0] := dates[0];
+  chart.Series[0].XLabel[length(dates)-1] := dates[length(dates)-1];
+
+  CloseFile(f);
+
+  chart.Visible := true;
+end;
+
 procedure TfrmProjectDashboard.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -142,7 +271,43 @@ begin
   self.sender := sender;
   self.Caption := 'Viewing Project - ' + project.getAssignment.getTitle + ' by ' + project.getCreator.getFirstName + ' ' + project.getCreator.getLastName;
 
+  btnCreateProject.Enabled := false;
+  edtLocation.enabled := false;
+
+  projectSet(project);
+
   TLogger.log(TAG, TLogType.Debug, 'Viewed project of student ID ' + user.getID + ' for assignment with ID: ' + assignment.getID);
+end;
+
+procedure TfrmProjectDashboard.projectSet(project: TProject);
+begin
+  // Load project
+  edtLocation.Text := project.getLocation;
+  if DirectoryExists(TProject.getLocalDirectory(assignment, user)) then
+  begin
+    if DirectoryExists(TProject.getLocalDirectory(assignment, user) + '\.git') then
+    begin
+      btnAnalyzeCommitsClick(self);
+      edtLocation.Enabled := false;
+      btnCloneRepo.Enabled := false;
+    end;
+    btnCreateProject.enabled := false;
+  end else
+  begin
+    // Create project directory
+    try
+      if ForceDirectories(project.getLocalDirectory) then
+      begin
+        TLogger.log(TAG, Debug, 'Created project directory ' + project.getLocalDirectory);
+      end else
+      begin
+        TLogger.log(TAG, Error, 'Could not create directory ' + project.getLocalDirectory);
+      end;
+    except
+      on E: Exception do
+        TLogger.logException(TAG, 'btnCreateProjectClick', e);
+    end;
+  end;
 end;
 
 procedure TfrmProjectDashboard.load(assignment: TAssignment; user: TUser; sender: TForm);
@@ -159,26 +324,7 @@ begin
 
   if Utilities.getProject(assignment, user, self.project) then
   begin
-    // Load project
-    if DirectoryExists(TProject.getLocalDirectory(assignment, user)) then
-    begin
-      btnCreateProject.enabled := false;
-    end else
-    begin
-      // Create project directory
-      try
-        if ForceDirectories(localDir) then
-        begin
-          TLogger.log(TAG, Debug, 'Created project directory ' + localDir);
-        end else
-        begin
-          TLogger.log(TAG, Error, 'Could not create directory ' + localDir);
-        end;
-      except
-        on E: Exception do
-          TLogger.logException(TAG, 'btnCreateProjectClick', e);
-      end;
-    end;
+    projectSet(project);
   end else
   begin
     // Project loading failed
@@ -191,25 +337,39 @@ begin
   TLogger.log(TAG, TLogType.Debug, 'Viewed project of student ID ' + user.getID + ' for assignment with ID: ' + assignment.getID);
 end;
 
-procedure TfrmProjectDashboard.DeleteDirectory(const Name: string);
+// https://stackoverflow.com/a/4295788
+function TfrmProjectDashboard.ShellExecute_AndWait(FileName: string; Params: string): bool;
 var
-  F: TSearchRec;
+  exInfo: TShellExecuteInfo;
+  Ph: DWORD;
 begin
-  if FindFirst(Name + '\*', faAnyFile, F) = 0 then begin
-    try
-      repeat
-        if (F.Attr and faDirectory <> 0) then begin
-          if (F.Name <> '.') and (F.Name <> '..') then begin
-            DeleteDirectory(Name + '\' + F.Name);
-          end;
-        end else begin
-          DeleteFile(Name + '\' + F.Name);
-        end;
-      until FindNext(F) <> 0;
-    finally
-      FindClose(F);
-    end;
-    RemoveDir(Name);
+  TLogger.log(TAG, Debug, 'Executing command: ' + params);
+  FillChar(exInfo, SizeOf(exInfo), 0);
+  with exInfo do
+  begin
+    cbSize := SizeOf(exInfo);
+    fMask := SEE_MASK_NOCLOSEPROCESS or SEE_MASK_FLAG_DDEWAIT;
+    Wnd := GetActiveWindow();
+    exInfo.lpVerb := nil;
+    exInfo.lpParameters := PChar(Params);
+    lpFile := PChar(FileName);
+    nShow := SW_SHOWNORMAL;
   end;
+  if ShellExecuteEx(@exInfo) then
+    Ph := exInfo.hProcess
+  else
+  begin
+    ShowMessage(SysErrorMessage(GetLastError));
+    TLogger.log(TAG, Error, SysErrorMessage(GetLastError));
+    Result := true;
+    exit;
+  end;
+  while WaitForSingleObject(exInfo.hProcess, 50) <> WAIT_OBJECT_0 do
+    Application.ProcessMessages;
+  CloseHandle(Ph);
+
+  Result := true;
+
 end;
+
 end.

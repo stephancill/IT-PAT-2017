@@ -21,6 +21,9 @@ TProject = Class(TObject)
     function getLocation: string;
     function getLocalDirectory: string; overload;
 
+    // Setters
+    procedure setLocation(location: string);
+
     class function getLocalDirectory(assignment: TAssignment; student: TUser): string; overload;
 
     constructor Create(id, location: string; creator: TUser; assignment: TAssignment); overload;
@@ -77,6 +80,11 @@ end;
 function TProject.getLocation: string;
 begin
   result := self.location;
+end;
+
+procedure TProject.setLocation(location: string);
+begin
+  self.location := location;
 end;
 
 function TProject.getID: string;

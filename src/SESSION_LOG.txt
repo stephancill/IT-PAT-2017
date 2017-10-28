@@ -2308,3 +2308,918 @@
 2017/10/26 11:13:57 AM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
 2017/10/26 11:14:15 AM (UTILITIES) - DEBUG: Got project with ID: 1$9976 for student student with ID: 9976 for assignment with ID: 1
 2017/10/26 11:14:15 AM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 1
+2017/10/26 4:45:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 4:45:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 4:45:37 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 4:45:38 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 4:46:43 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 4:46:43 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:20:05 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:20:05 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:20:05 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:20:06 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:20:07 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 5:20:07 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:24:52 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:24:52 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:24:52 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:24:54 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:24:56 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 5:24:56 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:25:17 PM (UTILITIES) - DEBUG: Got project with ID: 6$9976 for student student with ID: 9976 for assignment with ID: 6
+2017/10/26 5:25:17 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\Very big project\Cilliers, Cilliers
+2017/10/26 5:25:17 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 6
+2017/10/26 5:25:31 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 5:25:34 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 5:25:34 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 5:25:36 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 5:25:37 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:25:57 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:25:57 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:26:57 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:26:57 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:26:57 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:26:59 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:27:01 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 5:27:01 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:45:12 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:45:12 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:45:13 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:45:14 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:45:22 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 5:45:22 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:46:40 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:46:40 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:46:40 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:46:41 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:46:42 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 5:46:42 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:47:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:47:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:47:37 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:47:38 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:47:39 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 5:47:39 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:57:25 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:57:25 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:57:26 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:57:26 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:57:28 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 5:57:28 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:57:46 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:57:46 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:57:46 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:57:47 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:57:49 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 5:57:49 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 5:59:15 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 5:59:15 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 5:59:15 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 5:59:16 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 5:59:18 PM (UTILITIES) - DEBUG: Got project with ID: 1$9976 for student student with ID: 9976 for assignment with ID: 1
+2017/10/26 5:59:18 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 1
+2017/10/26 6:00:39 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:00:39 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:00:39 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:05:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:05:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:05:37 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:05:38 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:05:40 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:05:40 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:06:06 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:06:06 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:06:06 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:06:07 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:06:09 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:06:09 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:06:54 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:06:54 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:06:54 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:06:55 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:06:56 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:06:56 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:07:25 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:07:25 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:07:25 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:07:47 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:07:47 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:07:47 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:21:16 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:21:16 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:21:16 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:21:17 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:21:18 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:21:18 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:21:20 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:23:51 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:23:51 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:23:51 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:23:52 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:23:53 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:23:53 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:23:55 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:37:54 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:37:54 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:37:54 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:37:55 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:37:56 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:37:56 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:37:57 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:38:45 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:38:45 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:38:45 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:38:46 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:38:47 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:38:47 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:38:49 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:39:10 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:39:10 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:39:11 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:39:12 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:39:13 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:39:13 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:39:14 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:41:27 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:41:27 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:41:27 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:41:28 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:41:29 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:41:29 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:41:30 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:41:50 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:41:50 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:41:50 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:41:51 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:41:53 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:41:53 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:41:54 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:43:31 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:43:31 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:43:31 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:43:31 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:43:33 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:43:33 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:43:33 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:43:53 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:43:53 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:43:53 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:43:53 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:43:54 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:43:54 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:43:56 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:44:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:44:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:44:37 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:44:37 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:44:39 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:44:39 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:44:40 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:45:17 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:45:17 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:45:17 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:45:18 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:45:19 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:45:19 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:45:20 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:45:36 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:45:36 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:45:36 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:45:37 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:45:38 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:45:38 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:45:39 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:45:51 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:45:51 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:45:51 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:48:17 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:48:17 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:48:17 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:48:18 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:48:19 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:48:19 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:48:20 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:49:34 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:49:34 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:49:34 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:49:52 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:49:52 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:49:53 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:49:54 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:49:55 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:49:55 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:49:56 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:50:47 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:50:47 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:50:47 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:50:48 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:50:50 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:50:50 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:50:51 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:52:14 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:52:14 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:52:14 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:52:15 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/26 6:52:16 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:52:17 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:52:17 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:52:18 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:56:45 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:56:45 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:56:45 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:56:46 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:56:47 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:56:47 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:56:48 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:57:31 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:57:31 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:57:31 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:57:32 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:57:33 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:57:33 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:57:34 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:58:35 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:58:35 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:58:35 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:58:36 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:58:37 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:58:37 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:58:38 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 6:58:54 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 6:58:54 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 6:58:54 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 6:58:55 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 6:58:56 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 6:58:56 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 6:58:57 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:00:04 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:00:04 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:00:04 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:00:36 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:00:36 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:00:36 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:00:37 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:00:38 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:00:38 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:00:40 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:01:09 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:01:09 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:01:10 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:01:10 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:01:12 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:01:12 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:01:13 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:01:43 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:01:43 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:01:43 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:01:44 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:01:45 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:01:45 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:01:46 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:03:42 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:03:42 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:03:42 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:03:43 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:03:45 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:03:45 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:03:46 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:05:22 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:05:22 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:05:22 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:05:27 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:05:29 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:05:29 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:05:30 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:06:46 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:06:46 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:06:46 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:06:46 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:06:48 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:06:48 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:06:48 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:07:22 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:07:22 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:07:22 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:07:23 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:07:24 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:07:24 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:07:25 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:08:36 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:08:36 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:08:36 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:08:37 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/26 7:08:38 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:08:40 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:08:40 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:08:41 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:08:55 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:08:55 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:08:55 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:08:57 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:08:58 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:08:58 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:08:59 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:09:14 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:09:14 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:09:14 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:09:15 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:09:16 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:09:16 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:09:17 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:09:38 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:09:38 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:09:38 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:09:44 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:09:45 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:09:45 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:09:49 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:11:32 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:11:32 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:11:32 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:11:33 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:11:35 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:11:35 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:11:36 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:12:06 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:12:06 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:12:06 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:12:07 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:12:08 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:12:08 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:12:09 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:21:01 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:21:01 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:21:01 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:21:02 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:21:04 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:21:04 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:21:09 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:22:23 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 7:22:26 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:22:26 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:22:26 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:22:26 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 7:22:27 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/26 7:22:27 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:22:28 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:22:29 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:22:29 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 7:22:31 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 7:22:37 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:27:14 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:27:14 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:27:14 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:27:16 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 7:27:18 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:27:18 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:27:18 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:27:19 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:27:20 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:27:20 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:28:08 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:28:08 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:28:08 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:28:09 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:28:10 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:28:10 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:28:11 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:28:34 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:28:34 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:28:34 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:28:35 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:28:37 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:28:37 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:28:37 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:28:41 PM (UTILITIES) - DEBUG: Got project with ID: 2$9976 for student student with ID: 9976 for assignment with ID: 2
+2017/10/26 7:28:41 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\test\Cilliers, Cilliers
+2017/10/26 7:28:41 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 2
+2017/10/26 7:29:30 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:29:30 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:29:30 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:29:30 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:29:31 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:29:31 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:29:32 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:30:56 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:30:56 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:30:56 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:30:57 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:31:00 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:31:00 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:31:00 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:32:09 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:32:09 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:32:09 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:32:10 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:32:12 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:32:12 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:32:12 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:32:25 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:32:25 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:32:45 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/IT-PAT-2017.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 7:33:59 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:34:35 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:34:35 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:34:35 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:34:37 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:34:38 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:34:38 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:34:38 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:35:25 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:35:25 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:45:38 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:45:38 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:45:38 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:45:39 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:45:40 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:45:40 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:47:15 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:47:15 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:47:15 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:47:16 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:47:17 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:47:20 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:47:21 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 7:47:21 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 7:47:44 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/IT-PAT-2017.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 7:48:04 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/spotify-analyzer.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 7:48:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 7:48:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 7:48:37 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 7:48:39 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:48:41 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 7:48:43 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:48:43 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:48:43 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:48:44 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 7:48:45 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:48:45 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/26 7:49:41 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:49:41 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:49:41 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:49:42 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:49:43 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:49:43 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:49:43 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:49:44 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:49:44 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:49:44 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:52:03 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:52:03 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:52:03 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:52:05 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 7:52:05 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/26 7:52:24 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:52:24 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:52:24 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:52:25 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 7:52:25 PM (UTILITIES) - DEBUG: Got 0 students for classroom with ID: 15
+2017/10/26 7:52:26 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 7:52:27 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:52:27 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:53:48 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:53:48 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:53:48 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:53:49 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:53:50 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 7:53:51 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 3
+2017/10/26 7:53:52 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 1
+2017/10/26 7:54:56 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:54:56 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:54:56 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:54:57 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:54:58 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 3
+2017/10/26 7:54:59 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 1
+2017/10/26 7:54:59 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 7
+2017/10/26 7:55:00 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 1
+2017/10/26 7:55:00 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 2
+2017/10/26 7:55:01 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 3
+2017/10/26 7:55:01 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 1
+2017/10/26 7:55:02 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\My Assignment\Cilliers, Cilliers
+2017/10/26 7:55:02 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 1
+2017/10/26 7:55:09 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:55:09 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:55:09 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:55:09 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 7:55:10 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:55:10 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:55:12 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:55:13 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 3
+2017/10/26 7:55:13 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:55:47 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:55:47 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:55:47 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:55:48 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 7:55:48 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:55:49 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 7:55:49 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 1
+2017/10/26 7:55:50 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:55:51 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:55:52 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 2
+2017/10/26 7:55:52 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 5
+2017/10/26 7:55:52 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 7
+2017/10/26 7:55:53 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 3
+2017/10/26 7:55:53 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 1
+2017/10/26 7:56:51 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:56:51 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:56:51 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:56:52 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:56:53 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 7:56:55 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 7:56:55 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 7:57:05 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:57:05 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:57:05 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:57:06 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:57:09 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 7:57:10 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 7:57:10 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 7:58:14 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:58:14 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:58:14 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:58:16 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:58:16 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 7:58:17 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 7:58:17 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 7:59:25 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:59:25 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:59:25 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:59:27 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 7:59:29 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:59:29 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 7:59:30 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 7:59:30 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 7:59:35 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 7:59:44 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 7:59:44 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 7:59:44 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 7:59:45 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:59:46 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 7:59:49 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 7:59:50 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 7:59:52 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 7:59:52 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 8:00:20 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:00:20 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:00:20 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:00:22 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:00:23 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 8:00:25 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:00:25 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 8:01:26 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:01:26 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:01:26 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:01:27 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 8:01:29 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 8:01:29 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 8:01:30 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:01:31 PM (UTILITIES) - ERROR: Could not find project with ID: 
+2017/10/26 8:01:31 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 8:01:34 PM (UTILITIES) - ERROR: Could not find project with ID: 
+2017/10/26 8:01:34 PM (UTILITIES) - DEBUG: Created project with ID: 4$9976
+2017/10/26 8:01:46 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/spotify-analyzer.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 8:02:08 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 8:02:08 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 8:02:08 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 8:02:08 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:02:10 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 8:02:10 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 8:03:34 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 8:03:34 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 8:03:34 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 8:03:35 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:03:37 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 8:03:37 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 8:03:51 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 8:03:51 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 8:03:51 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 8:03:52 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:03:53 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 8:03:53 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 8:04:15 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/Parklands-Web.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 8:06:56 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 8:06:56 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 8:06:57 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 8:06:57 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:06:59 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 8:06:59 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 8:06:59 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 8:07:26 PM (UTILITIES) - DEBUG: Got project with ID: 4$9976 for student student with ID: 9976 for assignment with ID: 4
+2017/10/26 8:07:26 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9976 for assignment with ID: 4
+2017/10/26 8:07:35 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/Parklands-Web.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 8:08:18 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/Parklands-Web.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 8:15:15 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 8:15:15 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 8:15:15 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 8:15:22 PM (UTILITIES) - DEBUG: Successfully logged in user with email: s
+2017/10/26 8:15:22 PM (UTILITIES) - DEBUG: Persisting login for user with email: s
+2017/10/26 8:15:23 PM (UTILITIES) - DEBUG: Got 2 classrooms for student with ID: 9976
+2017/10/26 8:15:32 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 8:16:07 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:16:07 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:16:07 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:16:08 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:16:09 PM (UTILITIES) - DEBUG: Got 2 students for classroom with ID: 12
+2017/10/26 8:16:09 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:16:11 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 8:16:12 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:16:12 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 8:16:45 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/spotify-analyzer.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 8:16:45 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 8:16:45 PM (PROJECT_DASHBOARD) - DEBUG: Successfully cloned https://github.com/stephancill/spotify-analyzer.git into C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:16:45 PM (UTILITIES) - DEBUG: Successfully updated project with ID: 4$9976
+2017/10/26 8:16:54 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:16:54 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 8:16:57 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:16:57 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 8:18:20 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:18:20 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:18:20 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:18:21 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 8:18:21 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:18:22 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 8:18:23 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:18:23 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 8:18:25 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/spotify-analyzer.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers"
+2017/10/26 8:18:25 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 8:18:25 PM (PROJECT_DASHBOARD) - DEBUG: Successfully cloned https://github.com/stephancill/spotify-analyzer.git into C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:18:27 PM (UTILITIES) - DEBUG: Successfully updated project with ID: 4$9976
+2017/10/26 8:19:12 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 3
+2017/10/26 8:19:28 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:19:29 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:19:29 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:19:29 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 8:19:30 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:19:30 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 3
+2017/10/26 8:19:31 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 1
+2017/10/26 8:19:31 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 7
+2017/10/26 8:19:32 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 1
+2017/10/26 8:19:32 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 3
+2017/10/26 8:19:32 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 3
+2017/10/26 8:19:33 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 8:19:33 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 3
+2017/10/26 8:19:34 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 2
+2017/10/26 8:19:34 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 8:22:04 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:22:04 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:22:04 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:22:05 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 8:22:06 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/26 8:22:06 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:22:08 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 3
+2017/10/26 8:22:15 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 8:22:16 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:22:16 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 8:22:49 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:22:49 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:22:49 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:22:50 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:22:51 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 4
+2017/10/26 8:22:52 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9971\Grade 11 IT\IT PAT 2017\Cilliers, Cilliers
+2017/10/26 8:22:52 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9971 for assignment with ID: 4
+2017/10/26 8:24:06 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:24:06 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:24:06 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:24:17 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a
+2017/10/26 8:24:17 PM (UTILITIES) - DEBUG: Persisting login for user with email: a
+2017/10/26 8:24:17 PM (UTILITIES) - DEBUG: Got 3 classrooms for teacher with ID: 9971
+2017/10/26 8:24:18 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 15
+2017/10/26 8:24:19 PM (UTILITIES) - DEBUG: Got 7 assignments for classroom with ID: 12
+2017/10/26 8:24:19 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 13
+2017/10/26 8:24:19 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 8:41:51 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/26 8:41:56 PM (UTILITIES) - ERROR: Failed login attempt with email: a
+2017/10/26 8:42:00 PM (UTILITIES) - ERROR: Failed login attempt with email: b
+2017/10/26 8:42:13 PM (UTILITIES) - ERROR: Failed login attempt with email: s
+2017/10/26 9:00:07 PM (UTILITIES) - DEBUG: Registered user with ID 9977
+2017/10/26 9:05:18 PM (UTILITIES) - DEBUG: Registered user with ID 9978
+2017/10/26 9:06:02 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a.a@a
+2017/10/26 9:06:02 PM (UTILITIES) - DEBUG: Persisting login for user with email: a.a@a
+2017/10/26 9:06:02 PM (UTILITIES) - DEBUG: Got 0 classrooms for student with ID: 9978
+2017/10/26 9:06:14 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:06:19 PM (UTILITIES) - DEBUG: Successfully logged in user with email: a.a@a
+2017/10/26 9:06:19 PM (UTILITIES) - DEBUG: Persisting login for user with email: a.a@a
+2017/10/26 9:06:19 PM (UTILITIES) - DEBUG: Got 0 classrooms for student with ID: 9978
+2017/10/26 9:06:28 PM (UTILITIES) - DEBUG: Successfully changed information of user with ID: 9978
+2017/10/26 9:06:28 PM (UTILITIES) - DEBUG: Got 0 classrooms for student with ID: 9978
+2017/10/26 9:06:32 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:11:48 PM (UTILITIES) - DEBUG: Registered user with ID 9979
+2017/10/26 9:11:58 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:11:58 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:11:58 PM (UTILITIES) - DEBUG: Got 0 classrooms for teacher with ID: 9979
+2017/10/26 9:12:01 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:15:07 PM (UTILITIES) - DEBUG: Registered user with ID 9980
+2017/10/26 9:15:20 PM (UTILITIES) - DEBUG: Successfully logged in user with email: teacher@parklands.co.za
+2017/10/26 9:15:20 PM (UTILITIES) - DEBUG: Persisting login for user with email: teacher@parklands.co.za
+2017/10/26 9:15:20 PM (UTILITIES) - DEBUG: Got 0 classrooms for teacher with ID: 9980
+2017/10/26 9:15:28 PM (UTILITIES) - DEBUG: Created classroom with ID: 17
+2017/10/26 9:15:28 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9980
+2017/10/26 9:15:30 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 17
+2017/10/26 9:15:33 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:15:51 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:15:51 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:15:51 PM (UTILITIES) - DEBUG: Got 0 classrooms for teacher with ID: 9979
+2017/10/26 9:16:06 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:18:34 PM (UTILITIES) - DEBUG: Registered user with ID 9981
+2017/10/26 9:18:44 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:18:44 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:18:44 PM (UTILITIES) - DEBUG: Got 0 classrooms for student with ID: 9981
+2017/10/26 9:18:48 PM (UTILITIES) - DEBUG: Student with ID: 9981 joined classroom with ID: 17
+2017/10/26 9:18:48 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:18:49 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 17
+2017/10/26 9:18:51 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:19:08 PM (UTILITIES) - DEBUG: Successfully logged in user with email: teacher@parklands.co.za
+2017/10/26 9:19:08 PM (UTILITIES) - DEBUG: Persisting login for user with email: teacher@parklands.co.za
+2017/10/26 9:19:08 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9980
+2017/10/26 9:19:09 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 17
+2017/10/26 9:19:11 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:19:11 PM (UTILITIES) - DEBUG: Got 0 assignments for classroom with ID: 17
+2017/10/26 9:19:28 PM (UTILITIES) - DEBUG: Created assignment with ID: 10 in classroom with ID: 17
+2017/10/26 9:19:28 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:19:30 PM (UTILITIES) - DEBUG: Got 0 students for assignment with ID: 10
+2017/10/26 9:19:31 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:19:31 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:19:32 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:19:36 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:19:36 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:19:37 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:19:37 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:19:37 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:20:08 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:20:08 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:20:08 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:20:09 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:20:10 PM (UTILITIES) - ERROR: Could not find project with ID: 
+2017/10/26 9:20:10 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:20:13 PM (UTILITIES) - DEBUG: Created project with ID: 10$9981
+2017/10/26 9:20:13 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers
+2017/10/26 9:20:29 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:20:29 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:20:29 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:20:30 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:20:31 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:20:31 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:21:45 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:21:45 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:21:50 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/IT-PAT-2016.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers"
+2017/10/26 9:22:04 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:22:04 PM (PROJECT_DASHBOARD) - DEBUG: Successfully cloned https://github.com/stephancill/IT-PAT-2016.git into C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers
+2017/10/26 9:22:04 PM (UTILITIES) - DEBUG: Successfully updated project with ID: 10$9981
+2017/10/26 9:27:32 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:27:32 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:27:32 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:31:03 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:31:03 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:31:03 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:31:14 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:31:14 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:31:14 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:31:57 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:31:57 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:31:57 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:32:28 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:32:28 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:32:28 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:33:20 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:33:20 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:33:20 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:34:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:34:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:34:37 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:34:45 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:35:03 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:35:03 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:35:04 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:35:05 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:35:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:35:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:35:37 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:38:33 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:38:33 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:38:33 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:38:43 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:38:43 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:38:43 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:38:45 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:39:06 PM (UTILITIES) - DEBUG: Successfully logged in user with email: teacher@parklands.co.za
+2017/10/26 9:39:06 PM (UTILITIES) - DEBUG: Persisting login for user with email: teacher@parklands.co.za
+2017/10/26 9:39:06 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9980
+2017/10/26 9:39:07 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:39:08 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 10
+2017/10/26 9:39:10 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers
+2017/10/26 9:39:10 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9980 for assignment with ID: 10
+2017/10/26 9:39:13 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:40:45 PM (UTILITIES) - DEBUG: Successfully logged in user with email: teacher@parklands.co.za
+2017/10/26 9:40:45 PM (UTILITIES) - DEBUG: Persisting login for user with email: teacher@parklands.co.za
+2017/10/26 9:40:45 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9980
+2017/10/26 9:40:47 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:40:48 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 10
+2017/10/26 9:40:49 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers
+2017/10/26 9:40:49 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9980 for assignment with ID: 10
+2017/10/26 9:42:56 PM (UTILITIES) - DEBUG: Successfully logged in user with email: teacher@parklands.co.za
+2017/10/26 9:42:56 PM (UTILITIES) - DEBUG: Persisting login for user with email: teacher@parklands.co.za
+2017/10/26 9:42:56 PM (UTILITIES) - DEBUG: Got 1 classrooms for teacher with ID: 9980
+2017/10/26 9:42:57 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:42:58 PM (UTILITIES) - DEBUG: Got 1 students for assignment with ID: 10
+2017/10/26 9:42:59 PM (PROJECT_DASHBOARD) - DEBUG: Created project directory C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers
+2017/10/26 9:42:59 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9980 for assignment with ID: 10
+2017/10/26 9:43:01 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:43:28 PM (FORM_TEACHER_HOME) - DEBUG: Logged out user
+2017/10/26 9:43:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:43:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:43:37 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:43:39 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:43:41 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:43:41 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:43:41 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:44:02 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:44:02 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:44:14 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/IT-PAT-2016.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers"
+2017/10/26 9:44:18 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:44:18 PM (PROJECT_DASHBOARD) - DEBUG: Successfully cloned https://github.com/stephancill/IT-PAT-2016.git into C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers
+2017/10/26 9:44:18 PM (UTILITIES) - DEBUG: Successfully updated project with ID: 10$9981
+2017/10/26 9:44:26 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:45:12 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:45:12 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:45:12 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:45:12 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:45:14 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:45:14 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:45:48 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:45:48 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:45:48 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:45:49 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:45:50 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:45:50 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:45:58 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:45:58 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:45:58 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:45:59 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:46:00 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:46:00 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:46:00 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:46:50 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:46:50 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:48:40 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:48:40 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:48:40 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:48:40 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:48:42 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:48:42 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:48:46 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c git clone https://github.com/stephancill/spotify-analyzer.git "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers"
+2017/10/26 9:48:48 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:48:48 PM (PROJECT_DASHBOARD) - DEBUG: Successfully cloned https://github.com/stephancill/spotify-analyzer.git into C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers
+2017/10/26 9:48:48 PM (UTILITIES) - DEBUG: Successfully updated project with ID: 10$9981
+2017/10/26 9:48:53 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:49:29 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:49:29 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:49:29 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:49:32 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:49:33 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:49:33 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:49:34 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:49:40 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:49:40 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:49:40 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:49:41 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:49:42 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:49:43 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:49:43 PM (UTILITIES) - DEBUG: Got 1 students for classroom with ID: 17
+2017/10/26 9:49:44 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:49:47 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:49:47 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:49:48 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:50:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:50:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:50:37 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:50:38 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:50:39 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:50:39 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:51:51 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:51:51 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:51:51 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:51:52 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:51:54 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:51:54 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:52:34 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:52:34 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:52:34 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:52:35 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:52:37 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:52:37 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:52:37 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:52:39 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:53:37 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:53:37 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:53:37 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:53:38 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:53:44 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:53:44 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:53:44 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10
+2017/10/26 9:55:21 PM (UTILITIES) - DEBUG: Successfully logged in user with email: scilliers@parklands.co.za
+2017/10/26 9:55:21 PM (UTILITIES) - DEBUG: Persisting login for user with email: scilliers@parklands.co.za
+2017/10/26 9:55:21 PM (UTILITIES) - DEBUG: Got 1 classrooms for student with ID: 9981
+2017/10/26 9:55:22 PM (UTILITIES) - DEBUG: Got 1 assignments for classroom with ID: 17
+2017/10/26 9:55:24 PM (UTILITIES) - DEBUG: Got project with ID: 10$9981 for student student with ID: 9981 for assignment with ID: 10
+2017/10/26 9:55:24 PM (PROJECT_DASHBOARD) - DEBUG: Executing command: /c cd "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\..\Projects\9980\Grade 10 IT 2016\IT PAT 2016\Stephan, Cilliers" && git --no-pager log | python "C:\Users\stephan\Documents\GitHub\IT-PAT-2017\src\extract_dates.py"
+2017/10/26 9:55:47 PM (PROJECT_DASHBOARD) - DEBUG: Viewed project of student ID 9981 for assignment with ID: 10

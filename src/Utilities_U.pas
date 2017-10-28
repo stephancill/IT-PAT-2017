@@ -52,6 +52,7 @@ type
     class function createProject(directory: string; creator: TUser; assignment: TAssignment; var project: TProject): boolean;
     class function getProjects(assignment: TAssignment; var projects: TProjectArray): boolean;
     class function getProject(assignment: TAssignment; student: TUser; var project: TProject): boolean;
+    class function updateProjectLocation(project: TProject): boolean;
 
     // Misc
     class function userExists(email, password: string): boolean;
@@ -181,7 +182,6 @@ begin
   TLogger.log(TAG, Debug, 'Got project with ID: ' + project.getID +
       ' for student student with ID: ' + student.getID + ' for assignment with ID: ' + assignment.getID);
 
-
 end;
 
 class function Utilities.getProjects(assignment: TAssignment;
@@ -192,7 +192,6 @@ var
   student: TUser;
   projectid, studentid, directory: string;
 begin
-
   qry := Utilities.queryDatabase(
     Format(
       'SELECT * FROM Assignment_Project WHERE ClassroomID = %s AND AssignmentID = %s',
@@ -351,6 +350,7 @@ var
 begin
   TLogger.log(TAG, Debug, 'Persisting login for user with email: ' + email);
 
+  //
   if not hashed then
     password := getMD5Hash(password);
 
@@ -427,6 +427,28 @@ begin
   begin
     TLogger.log(TAG, Debug, 'Failed to change password of user with ID: ' + user.getID);
   end;
+end;
+
+class function Utilities.updateProjectLocation(project: TProject): boolean;
+var
+  qry: TADOQuery;
+begin
+  if not Utilities.getEntityByID('Project', quotedStr(project.getID), data_module.qry) then
+  begin
+    Showmessage('Something went went wrong... Check log for more information');
+    result := false;
+    TLogger.log(TAG, Error, 'Could not find project with ID: ' + qry.FieldByName('ProjectID').AsString);
+    Exit;
+  end;
+
+  if not modifyDatabase('UPDATE Project SET Location = ' + quotedStr(project.getLocation) + ' WHERE ID = ' + quotedStr(project.getID), data_module.qry) then
+  begin
+    TLogger.log(TAG, Error, 'Could not update project with ID: ' + qry.FieldByName('ProjectID').AsString);
+    result := false;
+    Exit;
+  end;
+
+  Tlogger.log(TAG, Debug, 'Successfully updated project with ID: ' + project.getID);
 end;
 
 class function Utilities.updateUserInformation(user: TUser; var newUser: TUser): boolean;
@@ -555,14 +577,16 @@ begin
   begin
     SetLength(result, length(result) + 1);
 
-    Utilities.getEntityByID('Student', qry.FieldByName('StudentID').AsString,
-      qryAlt);
-
-    result[length(result) - 1] := TUser.Create
+    if Utilities.getEntityByID('Student', qry.FieldByName('StudentID').AsString,
+      qryAlt) then
+    begin
+      result[length(result) - 1] := TUser.Create
       (qryAlt.FieldByName('ID').AsString,
       qryAlt.FieldByName('Email').AsString,
       qryAlt.FieldByName('Firstname').AsString,
       qryAlt.FieldByName('Lastname').AsString, TUserType.Student);
+    end;
+
     qry.Next;
   end;
 
