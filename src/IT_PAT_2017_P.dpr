@@ -21,14 +21,9 @@ uses
 
 begin
   Application.Initialize;
-  Application.MainFormOnTaskbar := True;
+  Application.MainFormOnTaskbar := false;
   Application.ShowMainForm := false;
-  Application.CreateForm(TfrmApplicationDelegate, frmApplicationDelegate);
   Application.CreateForm(Tdata_module, data_module);
-  Application.CreateForm(TfrmTeacherHome, frmTeacherHome);
-  Application.CreateForm(TfrmStudentHome, frmStudentHome);
-  Application.CreateForm(TfrmCreateAssignment, frmCreateAssignment);
-  Application.CreateForm(TfrmEditUserProfile, frmEditUserProfile);
   Application.CreateForm(TfrmAuthenticate, frmAuthenticate);
   Application.Run;
 

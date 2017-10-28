@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U, Project_Dashboard_U;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U, Project_Dashboard_U, Project_U,
+  pngimage;
 
 type
   TfrmTeacherHome = class(TForm)
@@ -17,12 +18,15 @@ type
     btnEditProfile: TButton;
     lblInstruction: TLabel;
     edtFilterClassrooms: TEdit;
+    Image1: TImage;
+    btnHelp: TButton;
+    blnHelp: TBalloonHint;
 
     // Form
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure killProjectForm(project: TFrmProjectDashboard);
+    procedure createDynamicComponents;
 
     // Top panel
     procedure btnLogoutClick(Sender: TObject);
@@ -43,9 +47,8 @@ type
     // Right Panel
     procedure btnViewProjectClick(Sender: TObject);
     procedure btnRemoveFromClassroomClick(Sender: TObject);
-
-    // Project list
-
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnHelpClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -72,16 +75,21 @@ type
       selectedAssignment: TAssignment;
       students: TUserArray;
       selectedStudent: TUser;
+      projects: TProjectArray;
+      selectedProject: TProject;
 
       projectForms: array of TFrmProjectDashboard;
 
-    procedure createDynamicComponents;
+
   public
     { Public declarations }
     procedure setUser(user: TUser);
     procedure setSelectedAssignment(assignment: TAssignment);
     procedure refreshClassrooms;
     procedure refreshTabController;
+    procedure studentSelected;
+    procedure assignmentSelected;
+    procedure projectSelected(Sender: TObject);
   end;
 
 var
@@ -95,6 +103,33 @@ uses Utilities_U, Authenticate_U, Create_Assignment_U, Logger_U,
 {$R *.dfm}
 
 { TfrmTeacherHome }
+
+procedure TfrmTeacherHome.assignmentSelected;
+var
+  p: TProject;
+begin
+  // Prepare panel
+  pnlInfo.Visible := true;
+  edtInfoTitle.Text := selectedAssignment.getTitle;
+  edtInfoDescription.Text := 'Date issued: ' + selectedAssignment.getDateIssued + #13#13 + selectedAssignment.getDescription;
+  btnInfoPanel.Visible := false;
+  lblProjects.Visible := true;
+  lstProjects.Visible := true;
+
+  projects := nil;
+
+  if not Utilities.getProjects(selectedAssignment, projects) then
+    Exit;
+
+  lstProjects.Clear;
+
+  for p in projects do
+  begin
+    lstProjects.Items.Add(p.getCreator.getFullName);
+  end;
+
+
+end;
 
 procedure TfrmTeacherHome.btnCreateClassroomClick(Sender: TObject);
 var
@@ -117,6 +152,18 @@ begin
   frm := TfrmEditUserProfile.Create(self);
   frm.load(user, self);
   frm.Show;
+end;
+
+procedure TfrmTeacherHome.btnHelpClick(Sender: TObject);
+var
+  Pt: TPoint;
+begin
+  blnHelp.Title := 'Student Home Help';
+  blnHelp.Description := 'Select/Create a Classroom to view assignments/students. Share you classroom code with students.' + #13 + 'Select and assignment to create/view information and projects';
+  Pt.X := btnHelp.Width Div 2;
+  Pt.Y := 0;
+  blnHelp.HideAfter := 4000;
+  blnHelp.ShowHint(btnHelp.ClientToScreen(Pt));
 end;
 
 procedure TfrmTeacherHome.btnLogoutClick(Sender: TObject);
@@ -323,11 +370,14 @@ begin
   begin
     Parent := self;
     Left := pnlInfo.Left + pnlInfo.Width + 50;
-    Top := lstClassrooms.Top;
+    Top := lstClassrooms.Top - 20;
     Width := lstClassrooms.Width;
-    Height := lstClassrooms.Height;
+    Height := lstClassrooms.Height + 20;
+    OnDblClick := projectSelected;
+    Visible := false;
   end;
 
+  // Project list heading
   lblProjects := TLabel.Create(self);
   with lblProjects do
   begin
@@ -476,14 +526,8 @@ begin
     begin
       selectedAssignment := assignments[lstClassroom.itemIndex];
     end;
-
-    // Prepare panel
-    pnlInfo.Visible := true;
-    edtInfoTitle.Text := selectedAssignment.getTitle;
-    edtInfoDescription.Text := 'Date issued: ' + selectedAssignment.getDateIssued + #13#13 + selectedAssignment.getDescription;
-//    btnInfoPanel.visible := true;
-//    btnInfoPanel.onClick := btnViewProjectClick;
-//    btnInfoPanel.Caption := 'View Project';
+    // Prompt update
+    assignmentSelected;
   end else
   begin
   // Find the student in case filter is applied
@@ -503,13 +547,7 @@ begin
       selectedStudent := students[lstClassroom.itemIndex];
     end;
 
-    // Prepare panel
-    pnlInfo.Visible := true;
-    edtInfoTitle.Text := 'Student';
-    edtInfoDescription.Text := selectedStudent.getLastName + ', ' + selectedStudent.getFirstName + #13#13 + 'mailto:' + selectedStudent.getEmail;
-    btnInfoPanel.caption := 'Remove Student';
-    btnInfoPanel.onClick :=  btnRemoveFromClassroomClick;
-    btnInfoPanel.visible := true;
+    studentSelected;
   end;
 
 end;
@@ -528,15 +566,37 @@ begin
     selectedClassroom := classrooms[lstClassrooms.ItemIndex];
     lblClassroomCode.Caption := 'Classroom Code: '  + selectedClassroom.getID;
 
-    // Make other components visible
+    // Make other components (in)visible
     tbClassroom.Visible := true;
     lblClassroomCode.Visible := true;
     btnNewAssignment.Visible := true;
     lblInstruction.Visible := false;
     pnlInfo.Visible := false;
+    lblProjects.Visible := false;
+    lstProjects.Visible := false;
 
     // Update the tab bar
     tbClassroomChange(self);
+  end;
+end;
+
+procedure TfrmTeacherHome.projectSelected(sender: TObject);
+var
+  frm: TfrmProjectDashboard;
+begin
+  if not (sender as TListBox).ItemIndex >= 0 then
+  begin
+    Exit;
+  end;
+
+  selectedProject := projects[(sender as TListBox).ItemIndex];
+
+  try
+    frm := TfrmProjectDashboard.Create(nil);
+    frm.load(selectedProject, user, self);
+    frm.Show;
+  finally
+
   end;
 end;
 
@@ -567,11 +627,25 @@ begin
   refreshClassrooms;
 end;
 
+procedure TfrmTeacherHome.studentSelected;
+begin
+  // Prepare panel
+  pnlInfo.Visible := true;
+  edtInfoTitle.Text := 'Student';
+  edtInfoDescription.Text := selectedStudent.getLastName + ', ' + selectedStudent.getFirstName + #13#13 + 'mailto:' + selectedStudent.getEmail;
+  btnInfoPanel.caption := 'Remove Student';
+  btnInfoPanel.onClick :=  btnRemoveFromClassroomClick;
+  btnInfoPanel.visible := true;
+  lstProjects.Visible := false;
+  lblProjects.Visible := false;
+end;
+
 procedure TfrmTeacherHome.tbClassroomChange(Sender: TObject);
 var
   a: TAssignment;
   s: TUser;
 begin
+
   lstClassroom.Clear;
   pnlInfo.visible := false;
   case tbClassroom.TabIndex of

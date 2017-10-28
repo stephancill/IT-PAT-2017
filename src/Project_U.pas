@@ -2,7 +2,7 @@ unit Project_U;
 
 interface
 
-uses Assignment_U, User_U, Classroom_U;
+uses Assignment_U, User_U, Classroom_U, SysUtils;
 
 type
 TProject = Class(TObject)
@@ -10,7 +10,7 @@ TProject = Class(TObject)
     classroom: TClassroom;
     assignment: TAssignment;
     creator: TUser;
-    id, directory: string;
+    id, location: string;
 
   public
     // Getters
@@ -18,9 +18,15 @@ TProject = Class(TObject)
     function getAssignment: TAssignment;
     function getCreator: TUser;
     function getID: string;
-    function getDirectory: string;
+    function getLocation: string;
+    function getLocalDirectory: string; overload;
 
-    constructor Create(id, directory: string; user: TUser; assignment: TAssignment); overload;
+    // Setters
+    procedure setLocation(location: string);
+
+    class function getLocalDirectory(assignment: TAssignment; student: TUser): string; overload;
+
+    constructor Create(id, location: string; creator: TUser; assignment: TAssignment); overload;
   End;
 
   TProjectArray = array of TProject;
@@ -31,10 +37,10 @@ implementation
 { TProject }
 
 
-constructor TProject.Create(id, directory: string; user: TUser; assignment: TAssignment);
+constructor TProject.Create(id, location: string; creator: TUser; assignment: TAssignment);
 begin
   self.id := id;
-  self.directory := directory;
+  self.location := location;
   self.creator := creator;
   self.assignment := assignment;
   self.classroom := assignment.getClassroom;
@@ -55,9 +61,30 @@ begin
   result := self.creator;
 end;
 
-function TProject.getDirectory: string;
+function TProject.getLocalDirectory: string;
+var
+  projectsDir, tmp: string;
 begin
-  result := self.directory;
+  result := getLocalDirectory(assignment, creator);
+end;
+
+class function TProject.getLocalDirectory(assignment: TAssignment;
+  student: TUser): string;
+var
+  projectsDir: string;
+begin
+  projectsDir := GetCurrentDir + '\..\Projects';
+  result :=  projectsDir + Format('\%s\%s\%s\%s', [assignment.getClassroom.getTeacherID, assignment.getClassroom.getName, assignment.getTitle, student.getFullName]);
+end;
+
+function TProject.getLocation: string;
+begin
+  result := self.location;
+end;
+
+procedure TProject.setLocation(location: string);
+begin
+  self.location := location;
 end;
 
 function TProject.getID: string;

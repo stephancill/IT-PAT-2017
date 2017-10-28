@@ -36,10 +36,16 @@ procedure TfrmCreateAssignment.btnCreateClick(Sender: TObject);
 var
   assignment: TAssignment;
 begin
-  Utilities.createAssignment(self.classroom, edtTitle.Text, datetostr(DateUtils.Today), edtDescription.Text, assignment);
-  self.sender.setSelectedAssignment(assignment);
-  self.sender.refreshTabController;
-  self.CloseModal;
+  if Utilities.createAssignment(self.classroom, edtTitle.Text, datetostr(DateUtils.Today), edtDescription.Text, assignment) then
+  begin
+    self.sender.setSelectedAssignment(assignment);
+    self.sender.refreshTabController;
+    self.Close;
+  end else
+  begin
+    Showmessage('Could not create assignment');
+  end;
+
 end;
 
 

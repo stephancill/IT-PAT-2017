@@ -28,6 +28,9 @@ type
     class function changePassword(user: TUser; oldPassword, newPassword: string): boolean;
     class function updateUserInformation(user: TUser; var newUser: TUser): boolean;
 
+    // Classroom - Generic
+    class function getClassrooms(user: TUser): TClassroomArray;
+
     // Classroom - Teacher
     class function getTeachingClassrooms(user: TUser): TClassroomArray;
     class function createClassroom(user: TUser; name: string; var classroom: TClassroom): boolean;
@@ -47,6 +50,9 @@ type
 
     // Project
     class function createProject(directory: string; creator: TUser; assignment: TAssignment; var project: TProject): boolean;
+    class function getProjects(assignment: TAssignment; var projects: TProjectArray): boolean;
+    class function getProject(assignment: TAssignment; student: TUser; var project: TProject): boolean;
+    class function updateProjectLocation(project: TProject): boolean;
 
     // Misc
     class function userExists(email, password: string): boolean;
@@ -81,6 +87,8 @@ end;
 
 class function Utilities.createProject(directory: string; creator: TUser;
   assignment: TAssignment; var project: TProject): boolean;
+var
+  projectID: string;
 begin
   {
     1. Create project in Project table
@@ -88,11 +96,23 @@ begin
     3. Create record in Assignment_Project junction-table
     4. Create TProject object
     }
+  projectID := assignment.getID + '$' + creator.getID;
+
+  // Ensure project does not already exist
+  if Utilities.getEntityByID('Project', quotedStr(projectID), data_module.qry) then
+  begin
+    if not data_module.qry.Eof then
+    begin
+      TLogger.log(TAG, Debug, 'Attempted to create project that already exists');
+      result := false;
+      Exit;
+    end;
+  end;
 
   // 1. Create project in Project table
   if not Utilities.modifyDatabase(
   Format('INSERT INTO Project ([ID], ClassID, AssignmentID, StudentID, Location) VALUES (%s, %s, %s, %s, %s)',
-    [quotedStr(assignment.getID + '$' + creator.getID), assignment.getclassroom.getID, assignment.getID, creator.getID, quotedStr(directory)]), data_module.qry) then
+    [quotedStr(projectID), assignment.getclassroom.getID, assignment.getID, creator.getID, quotedStr(directory)]), data_module.qry) then
     begin
     result := false;
     Exit;
@@ -101,7 +121,7 @@ begin
   // 2. Create record in Student_Project junction-table
   if not Utilities.modifyDatabase(
   Format('INSERT INTO Student_Project (ProjectID, StudentID) VALUES (%s, %s)',
-    [quotedStr(assignment.getID + '$' + creator.getID), creator.getID]), data_module.qry) then
+    [quotedStr(projectID), creator.getID]), data_module.qry) then
     begin
     result := false;
     Exit;
@@ -110,18 +130,113 @@ begin
   // 3. Create record in Assignment_Project junction-table
   if not Utilities.modifyDatabase(
   Format('INSERT INTO Assignment_Project (ProjectID, ClassroomID, AssignmentID) VALUES (%s, %s, %s)',
-    [quotedStr(assignment.getID + '$' + creator.getID), assignment.getclassroom.getID, assignment.getID]), data_module.qry) then
+    [quotedStr(projectID), assignment.getclassroom.getID, assignment.getID]), data_module.qry) then
   begin
     result := false;
     Exit;
   end;
 
-  project := TProject.create(assignment.getID + '$' + creator.getID, directory, creator, assignment);
+  project := TProject.create(projectID, directory, creator, assignment);
 
   TLogger.log(TAG, Debug,
     'Created project with ID: ' + project.getID);
 
   result := true
+end;
+
+class function Utilities.getProject(assignment: TAssignment; student: TUser;
+  var project: TProject): boolean;
+var
+  qry,qryAlt: TADOQuery;
+  projectid, studentid, location: string;
+begin
+
+  qry := Utilities.queryDatabase(
+    Format(
+      'SELECT * FROM Assignment_Project WHERE ClassroomID = %s AND AssignmentID = %s',
+      [assignment.getClassroom.getID, assignment.getID]),
+    data_module.qry);
+
+  if qry.Eof then
+  begin
+    result := false;
+    TLogger.log(TAG, Error, 'Could not find project with ID: ' + qry.FieldByName('ProjectID').AsString);
+    Exit;
+  end;
+
+  // Get project record from Project table
+  if not Utilities.getEntityByID('Project', quotedStr(qry.FieldByName('ProjectID').AsString), qryAlt) then
+  begin
+    result := false;
+    TLogger.log(TAG, Error, 'Could not find project with ID: ' + qry.FieldByName('ProjectID').AsString);
+    Exit;
+  end;
+
+  projectid := qry.FieldByName('ProjectID').AsString;
+  location := qryAlt.FieldByName('Location').AsString;
+
+  // Create and return
+  project := TProject.Create(projectid, location, student, assignment);
+
+  result := true;
+  TLogger.log(TAG, Debug, 'Got project with ID: ' + project.getID +
+      ' for student student with ID: ' + student.getID + ' for assignment with ID: ' + assignment.getID);
+
+end;
+
+class function Utilities.getProjects(assignment: TAssignment;
+  var projects: TProjectArray): boolean;
+var
+  qry: TADOQuery;
+  qryAlt: TADOQuery;
+  student: TUser;
+  projectid, studentid, directory: string;
+begin
+  qry := Utilities.queryDatabase(
+    Format(
+      'SELECT * FROM Assignment_Project WHERE ClassroomID = %s AND AssignmentID = %s',
+      [assignment.getClassroom.getID, assignment.getID]),
+    data_module.qry);
+
+  while not qry.Eof do
+  begin
+    // Get project record from Project table
+    if not Utilities.getEntityByID('Project', quotedStr(qry.FieldByName('ProjectID').AsString), qryAlt) then
+    begin
+      result := false;
+      TLogger.log(TAG, Error, 'Could not find project with ID: ' + qry.FieldByName('ProjectID').AsString);
+      Exit;
+    end;
+
+    projectid := qry.FieldByName('ProjectID').AsString;
+    directory := qryAlt.FieldByName('Location').AsString;
+
+    // Get student from Student table
+    studentid := qryAlt.FieldByName('StudentID').AsString;
+    if not Utilities.getEntityByID('Student', studentid, qryAlt) then
+    begin
+      result := false;
+      TLogger.log(TAG, Error, 'Could not find student with ID: ' + studentid);
+      Exit;
+    end;
+
+    student := TUser.Create
+      (qryAlt.FieldByName('ID').AsString,
+      qryAlt.FieldByName('Email').AsString,
+      qryAlt.FieldByName('Firstname').AsString,
+      qryAlt.FieldByName('Lastname').AsString, TUserType.Student);
+
+    // Create and return
+    SetLength(projects, length(projects) + 1);
+    projects[length(projects)-1] := TProject.Create(projectid, directory, student, assignment);
+
+    qry.Next;
+  end;
+
+  result := true;
+  TLogger.log(TAG, Debug, 'Got ' + inttostr(length(projects)) +
+      ' students for assignment with ID: ' + assignment.getID);
+
 end;
 
 { Authentication }
@@ -235,6 +350,7 @@ var
 begin
   TLogger.log(TAG, Debug, 'Persisting login for user with email: ' + email);
 
+  //
   if not hashed then
     password := getMD5Hash(password);
 
@@ -282,6 +398,8 @@ begin
   result := true;
 end;
 
+
+
 { User }
 class function Utilities.changePassword(user: TUser; oldPassword,
   newPassword: string): boolean;
@@ -309,6 +427,28 @@ begin
   begin
     TLogger.log(TAG, Debug, 'Failed to change password of user with ID: ' + user.getID);
   end;
+end;
+
+class function Utilities.updateProjectLocation(project: TProject): boolean;
+var
+  qry: TADOQuery;
+begin
+  if not Utilities.getEntityByID('Project', quotedStr(project.getID), data_module.qry) then
+  begin
+    Showmessage('Something went went wrong... Check log for more information');
+    result := false;
+    TLogger.log(TAG, Error, 'Could not find project with ID: ' + qry.FieldByName('ProjectID').AsString);
+    Exit;
+  end;
+
+  if not modifyDatabase('UPDATE Project SET Location = ' + quotedStr(project.getLocation) + ' WHERE ID = ' + quotedStr(project.getID), data_module.qry) then
+  begin
+    TLogger.log(TAG, Error, 'Could not update project with ID: ' + qry.FieldByName('ProjectID').AsString);
+    result := false;
+    Exit;
+  end;
+
+  Tlogger.log(TAG, Debug, 'Successfully updated project with ID: ' + project.getID);
 end;
 
 class function Utilities.updateUserInformation(user: TUser; var newUser: TUser): boolean;
@@ -349,7 +489,7 @@ var
   qry: TADOQuery;
 begin
   qry := Utilities.queryDatabase
-    ('SELECT * FROM Classroom WHERE Teacher = ' + user.getID, data_module.qry);
+    ('SELECT * FROM Classroom WHERE Teacher = ' + user.getID + ' ORDER BY ClassName DESC', data_module.qry);
 
   while not qry.Eof do
   begin
@@ -437,14 +577,16 @@ begin
   begin
     SetLength(result, length(result) + 1);
 
-    Utilities.getEntityByID('Student', qry.FieldByName('StudentID').AsString,
-      qryAlt);
-
-    result[length(result) - 1] := TUser.Create
+    if Utilities.getEntityByID('Student', qry.FieldByName('StudentID').AsString,
+      qryAlt) then
+    begin
+      result[length(result) - 1] := TUser.Create
       (qryAlt.FieldByName('ID').AsString,
       qryAlt.FieldByName('Email').AsString,
       qryAlt.FieldByName('Firstname').AsString,
       qryAlt.FieldByName('Lastname').AsString, TUserType.Student);
+    end;
+
     qry.Next;
   end;
 
@@ -555,6 +697,60 @@ begin
       ' assignments for classroom with ID: ' + classroom.getID);
 end;
 
+class function Utilities.getClassrooms(user: TUser): TClassroomArray;
+var
+  qry, qryAlt: TADOQuery;
+begin
+  if user.getType = Teacher then
+  begin
+    qry := Utilities.queryDatabase
+      ('SELECT * FROM Classroom WHERE Teacher = ' + user.getID + ' ORDER BY ClassName DESC', data_module.qry);
+
+    while not qry.Eof do
+    begin
+      SetLength(result, length(result) + 1);
+      result[length(result) - 1] := TClassroom.Create
+        (qry.FieldByName('ID').AsString, qry.FieldByName('ClassName').AsString,
+        qry.FieldByName('Teacher').AsString);
+      qry.Next;
+    end;
+
+    TLogger.log(TAG, Debug, 'Got ' + inttostr(length(result)) +
+        ' classrooms for teacher with ID: ' + user.getID);
+    Exit;
+  end else
+  begin
+    qry := Utilities.queryDatabase
+      ('SELECT * FROM Student_Classroom WHERE StudentID = ' + user.getID, data_module.qry);
+
+
+    while not qry.Eof do
+    begin
+      qryAlt := Utilities.queryDatabase
+      ('SELECT * FROM Classroom WHERE [ID] = ' + qry.FieldByName('ClassroomID').AsString, data_module.qryAux);
+
+      if not qryAlt.Eof then
+      begin
+        SetLength(result, length(result) + 1);
+        result[length(result) - 1] := TClassroom.Create
+          (qryAlt.FieldByName('ID').AsString, qryAlt.FieldByName('ClassName').AsString,
+          qryAlt.FieldByName('Teacher').AsString);
+
+      end else
+      begin
+        TLogger.log(TAG, Debug, 'Could not find classroom with ID: ' + qry.FieldByName('ClassroomID').AsString);
+      end;
+
+      qry.Next;
+    end;
+
+    TLogger.log(TAG, Debug, 'Got ' + inttostr(length(result)) +
+        ' classrooms for student with ID: ' + user.getID);
+    Exit;
+  end;
+
+end;
+
 class function Utilities.createAssignment(classroom: TClassroom;
   title, date, description: string; var assignment: TAssignment): boolean;
 begin
@@ -568,7 +764,12 @@ begin
     'INSERT INTO Assignment (Class, Title, DateIssued, Description) VALUES (' +
       classroom.getID + ',' + quotedStr(title) + ',' + quotedStr(date)
       + ',' + quotedStr(description) + ')', data_module.qry) then
+  begin
+    result := false;
+    TLogger.log(TAG, Error, 'Could not create record in Assignment table');
     Exit;
+  end;
+
 
   // 2. Create TAssignment object
   assignment := TAssignment.Create(inttostr(getLastID(data_module.qry)), title, date, description, classroom);

@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U, Project_Dashboard_U;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, User_U, Classroom_U, Assignment_U, Project_Dashboard_U,
+  pngimage;
 
 type
   TfrmStudentHome = class(TForm)
@@ -17,11 +18,13 @@ type
     btnEditProfile: TButton;
     lblInstruction: TLabel;
     edtFilterClassrooms: TEdit;
+    Image1: TImage;
+    blnHelp: TBalloonHint;
+    btnHelp: TButton;
 
     // Form
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure killProjectForm(project: TFrmProjectDashboard);
 
     // Top panel
@@ -42,6 +45,8 @@ type
     // Right Panel
     procedure btnViewProjectClick(Sender: TObject);
     procedure btnRemoveFromClassroomClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnHelpClick(Sender: TObject);
 
   private
   { Private declarations }
@@ -93,9 +98,6 @@ var
   success: boolean;
   id: string;
 begin
-
-  while not success do
-
     repeat
       id := inputbox('Join a classroom', 'Classroom code:', '');
       if id = '' then
@@ -179,6 +181,18 @@ begin
     frmProject.Show;
   except
   end;
+end;
+
+procedure TfrmStudentHome.btnHelpClick(Sender: TObject);
+var
+  Pt: TPoint;
+begin
+  blnHelp.Title := 'Student Home Help';
+  blnHelp.Description := 'Select a Classroom to view assignments/students. Click join/leave to remove yourself from Classrooms.' + #13 + 'Select and assignment to create/view your project.';
+  Pt.X := btnHelp.Width Div 2;
+  Pt.Y := 0;
+  blnHelp.HideAfter := 4000;
+  blnHelp.ShowHint(btnHelp.ClientToScreen(Pt));
 end;
 
 procedure TfrmStudentHome.createDynamicComponents;
